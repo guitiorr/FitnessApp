@@ -13,6 +13,7 @@
         <div>
             <asp:Button ID="LoginButton" runat="server" Text="Login" OnClick="LoginButton_Click"/>
             <asp:Button ID="RegisterButton" runat="server" Text="Register" OnClick="RegisterButton_Click"/>
+            <asp:Button ID="LogOutButton" runat="server" Text="Logout" OnClick="LogOutButton_Click"/>
         </div>
         <div>
             <asp:Label ID="LogStatusLbl" runat="server" Text=""></asp:Label>

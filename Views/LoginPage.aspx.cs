@@ -51,7 +51,19 @@ namespace FitnessApp.Views
 
             if(loginPass == 1)
             {
-                Response.Redirect("~/Views/HomePage.aspx");
+                if (userRepo.getIdFromUsername(Username).StartsWith("US"))
+                {
+                    HttpCookie authCookie = new HttpCookie("userCookie");
+                    authCookie.Values["Username"] = Username;
+                    authCookie.Expires = DateTime.Now.AddHours(1);
+
+                    Response.Cookies.Add(authCookie);
+
+                    Response.Redirect("~/Views/HomePage.aspx");
+                }
+
+
+                // Response.Redirect("~/Views/HomePage.aspx");
             }
 
 
