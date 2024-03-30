@@ -27,7 +27,7 @@ namespace FitnessApp.Layouts
                     LoginButton.Visible = true; //Show login button
                     RegisterButton.Visible = true; //Show register button
                     LogOutButton.Visible = false; //Hide logout button
-                    LogStatusLbl.Text = "Not logged in";
+                    LogStatusLbl.Text = "You are not logged in";
                 }
             }
         }
