@@ -1,0 +1,45 @@
+﻿body {
+    margin:0;
+    padding:0;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 60px;
+    background-color: #31087B;
+    z-index: 100;
+    box-shadow: 1px 1px 10px black;
+}
+
+.title {
+    text-align: left;
+    position: absolute;
+    left: 20px;
+    padding: 0;
+    margin: 20px 30px 0px;
+    color: #FFC23C;
+}
+
+.btn {
+    color: #31087B;
+    padding: 6px 20px 6px;
+    background-color: #FFC23C;
+    border: none;
+    border-radius: 20px;
+}
+
+nav {
+    position: absolute;
+    right: 0;
+    margin: 15px 100px 0px;
+}
+
+.img-main{
+    width:100%;
+    margin-top:30px;
+    
+}
+

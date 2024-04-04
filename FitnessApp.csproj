@@ -49,6 +49,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -70,15 +73,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_Data\FitnessAppDatabase.mdf" />
     <Content Include="App_Data\FitnessAppDatabase_log.ldf">
       <DependentUpon>FitnessAppDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Assets\Main.jpg" />
+    <Content Include="Assets\main2.jpg" />
     <Content Include="Models\FitnessAppModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>FitnessAppModel.Context.cs</LastGenOutput>
@@ -89,6 +89,8 @@
       <DependentUpon>FitnessAppModel.edmx</DependentUpon>
       <LastGenOutput>FitnessAppModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Style\Home.css" />
+    <Content Include="Style\Register.css" />
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\LoginPage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
@@ -171,6 +173,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

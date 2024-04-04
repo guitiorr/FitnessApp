@@ -7,14 +7,23 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link href="../Style/Home.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:Button ID="LoginButton" runat="server" Text="Login" OnClick="LoginButton_Click"/>
-            <asp:Button ID="RegisterButton" runat="server" Text="Register" OnClick="RegisterButton_Click"/>
-            <asp:Button ID="LogOutButton" runat="server" Text="Logout" OnClick="LogOutButton_Click"/>
+        <header>
+           <div class="header">
+            <h3 class="title">
+                PERFOFIT
+            </h3>
+            <nav>
+            <asp:Button class="btn" ID="LoginButton" runat="server" Text="Login" OnClick="LoginButton_Click"/>
+            <asp:Button class="btn" ID="RegisterButton" runat="server" Text="Register" OnClick="RegisterButton_Click"/>
+            <asp:Button class="btn" ID="LogOutButton" runat="server" Text="Logout" OnClick="LogOutButton_Click"/>
+            </nav>
         </div>
+        </header>
+        
         <div>
             <asp:Label ID="LogStatusLbl" runat="server" Text=""></asp:Label>
         </div>
