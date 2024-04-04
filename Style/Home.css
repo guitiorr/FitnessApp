@@ -8,6 +8,8 @@
     top: 0;
     right: 0;
     left: 0;
+    padding-top:10px;
+    padding-bottom:10px;
     height: 60px;
     background-color: #31087B;
     z-index: 100;
@@ -19,16 +21,18 @@
     position: absolute;
     left: 20px;
     padding: 0;
-    margin: 20px 30px 0px;
+    margin: 14px 30px 0px;
     color: #FFC23C;
+    font-size:30px;
 }
 
 .btn {
     color: #31087B;
-    padding: 6px 20px 6px;
+    padding: 10px 40px 10px;
     background-color: #FFC23C;
     border: none;
     border-radius: 20px;
+    font-weight:900;
 }
 
 nav {
@@ -86,23 +90,52 @@ nav {
     opacity: 0.5;
 }
 
-.benefit-div{
-    width:500px;
-    border: solid 1px black;
-}
-
 .benefits{
     text-align:center;
+    margin-top: 100px;
+}
+
+.ben-title{
+    font-size:50px;
 }
 
 .in-benefits{
     display: flex;
-    margin-right:0;
-    margin-left:0;
+    justify-content: center;
+
 }
 
 .benefit-div{
     margin:0px 50px;
-
+    display:flex;
 }
 
+.img-benefit{
+    width:200px;
+    border-radius:20px;
+    width:600px;
+    height:400px;
+}
+
+.inside-benefit {
+    width: 600px;
+    height: 400px;
+    background-color: #31087B ;
+    display: inline-block;
+    color: white;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius:20px;
+}
+
+.outside {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.benefit-txt{
+    margin-top:120px;
+    text-align:center;
+
+}

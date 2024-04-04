@@ -79,6 +79,9 @@
     </Content>
     <Content Include="Assets\Main.jpg" />
     <Content Include="Assets\main2.jpg" />
+    <Content Include="Assets\meal.jpeg" />
+    <Content Include="Assets\plan.jpg" />
+    <Content Include="Assets\trainer.jpg" />
     <Content Include="Models\FitnessAppModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>FitnessAppModel.Context.cs</LastGenOutput>

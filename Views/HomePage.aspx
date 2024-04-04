@@ -12,22 +12,34 @@
         </div>
         <div class="blur-div"></div>
     </div>
+
         <div class="benefits">
-            <h2>BENEFITS</h2>
-            <div class="in-benefits">
-             <div class="benefit-div">
-                <h3>Work out plan</h3>
-                <h3>With our innovative Workout Plan feature, you can access workout plans tailored to your fitness goals and needs. With guidance from our expert instructors, you will have the right guidance to achieve the desired results.</h3>
+            <h2 class="ben-title">BENEFITS</h2>
+            
+            <div class="outside">
+                <div class="inside-benefit">
+                    <div class="benefit-txt">
+                        <h1>Meal Planning</h1>
+                        <p>Dengan fitur Meal Plan kami yang disesuaikan, Anda akan mendapatkan panduan makanan yang dirancang khusus untuk mendukung tujuan kebugaran dan kesehatan Anda. Dengan dukungan dari ahli gizi kami, Anda akan menemukan solusi makanan yang sesuai dengan kebutuhan tubuh Anda.</p>
+                    </div>
+                </div>
+                <div class="inside-benefit">
+                    <img class="img-benefit" src="../Assets/meal.jpeg" />
+                </div>
             </div>
-            <div class="benefit-div">
-                <h3>Meal Plan</h3>
-                <h3>Dengan fitur Meal Plan kami yang disesuaikan, Anda akan mendapatkan panduan makanan yang dirancang khusus untuk mendukung tujuan kebugaran dan kesehatan Anda. Dengan dukungan dari ahli gizi kami, Anda akan menemukan solusi makanan yang sesuai dengan kebutuhan tubuh Anda.</h3>
+
+            <div class="outside">
+                <div class="inside-benefit">
+                    <img class="img-benefit" src="../Assets/trainer.jpg" />
+                </div>
+                <div class="inside-benefit">
+                    <div class="benefit-txt">
+                    <h1>Hire Trainer</h1>
+                    <p>Dengan fitur Meal Plan kami yang disesuaikan, Anda akan mendapatkan panduan makanan yang dirancang khusus untuk mendukung tujuan kebugaran dan kesehatan Anda. Dengan dukungan dari ahli gizi kami, Anda akan menemukan solusi makanan yang sesuai dengan kebutuhan tubuh Anda.</p>
+                </div>
+                </div>
             </div>
-            <div class="benefit-div">
-                <h3>Hire Trainer</h3>
-                <h3>Dengan fitur Meal Plan kami yang disesuaikan, Anda akan mendapatkan panduan makanan yang dirancang khusus untuk mendukung tujuan kebugaran dan kesehatan Anda. Dengan dukungan dari ahli gizi kami, Anda akan menemukan solusi makanan yang sesuai dengan kebutuhan tubuh Anda.</h3>
-            </div>
-            </div>
+            
             
     
            
