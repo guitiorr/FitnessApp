@@ -12,6 +12,33 @@
             <h1>Register Page</h1>
         </div>
         <div>
+            <asp:Label ID="RegisterAsLbl" runat="server" Text="Register As"></asp:Label>
+            <br />
+            <asp:DropDownList ID="RegisterAsDropdown" runat="server">
+                <asp:ListItem Text="User" Value="1"></asp:ListItem>
+                <asp:ListItem Text="Trainer" Value="2"></asp:ListItem>
+            </asp:DropDownList>
+        </div>
+        <div>
+            <asp:Label ID="FullNameLbl" runat="server" Text="Full Name"></asp:Label>
+            <asp:TextBox ID="FullNameTB" runat="server"></asp:TextBox>
+            <asp:Label ID="FullNameErrorLbl" runat="server" Text=""></asp:Label>
+        </div>
+        <div>
+            <asp:Label ID="AgeLbl" runat="server" Text="Age"></asp:Label>
+            <br />
+            <asp:TextBox ID="AgeTB" runat="server" TextMode="Number"></asp:TextBox>
+            <asp:Label ID="AgeErrorLbl" runat="server" Text=""></asp:Label>
+        </div>
+        <div>
+            <asp:Label ID="GenderLbl" runat="server" Text="Gender"></asp:Label>
+            <br />
+            <asp:DropDownList ID="GenderDropdown" runat="server">
+                <asp:ListItem Text="Male" Value="1"></asp:ListItem>
+                <asp:ListItem Text="Female" Value="2"></asp:ListItem>
+            </asp:DropDownList>
+        </div>
+        <div>
             <asp:Label ID="EmailLbl" runat="server" Text="Email"></asp:Label>
             <br />
             <asp:TextBox ID="EmailTB" runat="server" TextMode="Email"></asp:TextBox>

@@ -13,11 +13,18 @@ namespace FitnessApp.Layouts
         {
             if (!IsPostBack)
             {
-                if (Request.Cookies["userCookie"] != null) // User authenticated as regular user
+                if (Request.Cookies["userCookie"] != null) //Authenticated as regular user
                 {
-                    // User is authenticated, retrieve their username from the cookie
                     string username = Request.Cookies["userCookie"]["Username"];
-                    LogStatusLbl.Text = "Logged in as " + username;
+                    LogStatusLbl.Text = "Logged into " + username + "as user";
+                    LogOutButton.Visible = true; ///Show logout button
+                    LoginButton.Visible = false; //Hide login button
+                    RegisterButton.Visible = false; //Hide register button
+                }
+                else if (Request.Cookies["trainerCookie"] != null) //Authenticated as trainer
+                {
+                    string username = Request.Cookies["trainerCookie"]["Username"];
+                    LogStatusLbl.Text = "Logged into " + username + " as trainer";
                     LogOutButton.Visible = true; ///Show logout button
                     LoginButton.Visible = false; //Hide login button
                     RegisterButton.Visible = false; //Hide register button

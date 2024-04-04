@@ -14,7 +14,6 @@ namespace FitnessApp.Repositories
         public static List<User> users = null;
         public static FitnessAppDatabaseEntities db = DatabaseSingleton.getInstance();
 
-
         public List<User> getUser()
         {
             return (from x in db.Users select x).ToList();
@@ -42,9 +41,9 @@ namespace FitnessApp.Repositories
         }
 
 
-        public void insertUser(String userId, String Username, String Password, String Email)
+        public void insertUser(String userId, String Username, String Password, String Email, int Age, String Gender, String FullName)
         {
-            User user = userFactory.create(userId, Username, Password, Email);
+            User user = userFactory.create(userId, Username, Password, Email, Age, Gender, FullName);
             db.Users.Add(user);
             db.SaveChanges();
         }

@@ -1,6 +1,7 @@
 ﻿using FitnessApp.Repositories;
 using System;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace FitnessApp.Views
 {
@@ -15,7 +16,7 @@ namespace FitnessApp.Views
             }
         }
 
-        public string GenerateId()
+        public string GenerateIdForUser()
         {
             userRepository userRepo = new userRepository();
             var newId = "";
@@ -33,16 +34,61 @@ namespace FitnessApp.Views
             }
         }
 
+        public string GenerateIdForTrainer()
+        {
+            trainerRepository trainerRepo = new trainerRepository();
+            var newId = "";
+            var lastId = trainerRepo.getLastId();
+
+            if (lastId == null)
+            {
+                return "TR001";
+            }
+            else
+            {
+                var idNumber = Convert.ToInt32(lastId.Substring(2)) + 1;
+                newId = string.Format("TR{0:000}", idNumber);
+                return newId;
+            }
+        }
+
         protected void RegisterBtn_Click(object sender, EventArgs e)
         {
             userRepository userRepo = new userRepository();
+            trainerRepository trainerRepo = new trainerRepository();
             var registerPass = 1;
 
-            var userId = GenerateId();
+            ListItem selectedItem = RegisterAsDropdown.SelectedItem;
+            string registerAs = selectedItem.Text;
+
+            String Id;
             var username = UsernameTB.Text;
-            var checkUsername = userRepo.checkUsername(username);
+            String checkUsername;
+            if (registerAs.Equals("User")) 
+            {
+                checkUsername = userRepo.checkUsername(username);
+            }
+            else
+            {
+                checkUsername = trainerRepo.checkUsername(username);
+            }
+            
+            
             var email = EmailTB.Text;
-            var checkEmail = userRepo.checkEmail(email);
+
+            String checkEmail;
+
+            if (registerAs.Equals("User"))
+            {
+                checkEmail = userRepo.checkEmail(email);
+            }
+            else
+            {
+                checkEmail = trainerRepo.checkEmail(email);
+            }
+
+
+
             var password = PasswordTB.Text;
             var password2 = Password2TB.Text;
 
@@ -101,11 +147,41 @@ namespace FitnessApp.Views
                 Password2ErrorLbl.Text = "";
             }
 
-            if (registerPass == 1)
+            int age = Convert.ToInt32(AgeTB.Text);
+
+            if(age < 18)
             {
-                userRepo.insertUser(userId, username, password, email);
+                AgeErrorLbl.Text = "Age must be above 18!";
+                registerPass = 0;
+            }
+            else
+            {
+                AgeErrorLbl.Text = "";
+                registerPass = 1;
+            }
+
+            
+
+            String gender = GenderDropdown.Text;
+
+            String FullName = FullNameTB.Text;
+            
+
+
+
+            if (registerPass == 1 && registerAs.Equals("User"))
+            {
+                Id = GenerateIdForUser();
+                userRepo.insertUser(Id, username, password, email, age, gender, FullName);
                 Response.Redirect("~/Views/HomePage.aspx");
             }
+            else if(registerPass == 1 && registerAs.Equals("Trainer"))
+            {
+                Id = GenerateIdForTrainer();
+                trainerRepo.insertTrainer(Id, username, password, email, age, gender, FullName);
+                Response.Redirect("~/Views/HomePage.aspx");
+            }
+
         }
     }
 }

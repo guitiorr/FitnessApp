@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="267ad851fa7e46bea368d16d9a3fb18b" Name="Diagram1">
         <EntityTypeShape EntityType="FitnessAppDatabaseModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessAppDatabaseModel.Trainer" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
