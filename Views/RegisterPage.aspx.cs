@@ -147,25 +147,49 @@ namespace FitnessApp.Views
                 Password2ErrorLbl.Text = "";
             }
 
-            int age = Convert.ToInt32(AgeTB.Text);
 
-            if(age < 18)
+
+            int age = 0;
+            if (string.IsNullOrEmpty(AgeTB.Text))
             {
-                AgeErrorLbl.Text = "Age must be above 18!";
+                // Handle case where age input field is empty
+                AgeErrorLbl.Text = "Please enter your age.";
                 registerPass = 0;
             }
             else
             {
-                AgeErrorLbl.Text = "";
-                registerPass = 1;
+                age = Convert.ToInt32(AgeTB.Text);
+                if (age < 18)
+                {
+                    AgeErrorLbl.Text = "Age must be above 18!";
+                    registerPass = 0;
+                }
+                else
+                {
+                    AgeErrorLbl.Text = "";
+                    registerPass = 1;
+                }
             }
 
-            
+
+
 
             String gender = GenderDropdown.Text;
 
-            String FullName = FullNameTB.Text;
-            
+            string FullName = FullNameTB.Text;
+            if (string.IsNullOrEmpty(FullName))
+            {
+                // Handle case where fullName input field is empty
+                FullNameErrorLbl.Text = "Please enter your full name.";
+                registerPass = 0;
+            }
+            else
+            {
+                FullNameErrorLbl.Text = "";
+                registerPass = 1;
+            }
+
+
 
 
 

@@ -15,10 +15,10 @@
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Age" Type="int" Nullable="false" />
           <Property Name="Gender" Type="char" MaxLength="10" Nullable="false" />
-          <Property Name="ProfilePicture" Type="image" />
-          <Property Name="FullName" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Weight" Type="float" />
           <Property Name="Height" Type="float" />
+          <Property Name="ProfilePicture" Type="image" />
+          <Property Name="FullName" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -73,7 +73,7 @@
           <Property Name="Age" Type="Int32" Nullable="false" />
           <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="ProfilePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="FullName" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Weight" Type="Double" />
           <Property Name="Height" Type="Double" />
         </EntityType>

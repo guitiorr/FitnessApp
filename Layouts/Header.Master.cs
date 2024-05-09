@@ -58,6 +58,12 @@ namespace FitnessApp.Layouts
                 authCookie.Expires = DateTime.Now.AddDays(-1);
                 Response.Cookies.Add(authCookie);
             }
+            if (Request.Cookies["trainerCookie"] != null)
+            {
+                HttpCookie authCookie = new HttpCookie("trainerCookie");
+                authCookie.Expires = DateTime.Now.AddDays(-1);
+                Response.Cookies.Add(authCookie);
+            }
 
             Response.Redirect("~/Views/HomePage.aspx");
         }

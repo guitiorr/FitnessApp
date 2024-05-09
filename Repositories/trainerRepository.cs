@@ -39,9 +39,9 @@ namespace FitnessApp.Repositories
         }
 
 
-        public void insertTrainer(String userId, String Username, String Password, String Email, int Age, String Gender, String FullName)
+        public void insertTrainer(String trainerId, String Username, String Password, String Email, int Age, String Gender, String FullName)
         {
-            Trainer trainer = trainerFactory.create(userId, Username, Password, Email, Age, Gender, FullName);
+            Trainer trainer = trainerFactory.create(trainerId, Username, Password, Email, Age, Gender, FullName);
             db.Trainers.Add(trainer);
             db.SaveChanges();
         }
