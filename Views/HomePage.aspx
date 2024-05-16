@@ -3,6 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-        <h1>Home Page lol</h1>
+        <h1>Home Page haha hihi</h1>
     </div>
 </asp:Content>
