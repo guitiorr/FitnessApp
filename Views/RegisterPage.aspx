@@ -12,7 +12,7 @@
             <h1>Register Page</h1>
         </div>
         <div>
-            <asp:Label ID="RegisterAsLbl" runat="server" Text="Register As"></asp:Label>
+            <asp:Label ID="RegisterAsLbl" runat="server" Text="Register As" OnLoad="RegisterAsLbl_Load"></asp:Label>
             <br />
             <asp:DropDownList ID="RegisterAsDropdown" runat="server">
                 <asp:ListItem Text="User" Value="1"></asp:ListItem>

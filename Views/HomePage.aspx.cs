@@ -13,5 +13,16 @@ namespace FitnessApp.Views
         {
 
         }
+
+        protected void becomeMemberButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/RegisterPage.aspx?role=user");
+        }
+
+        protected void becomeTrainerButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/RegisterPage.aspx?role=trainer");
+        }
+
     }
 }

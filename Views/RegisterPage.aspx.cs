@@ -207,5 +207,21 @@ namespace FitnessApp.Views
             }
 
         }
+
+        protected void RegisterAsLbl_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                string role = Request.QueryString["role"];
+                if (role == "user")
+                {
+                    RegisterAsDropdown.SelectedValue = "1";
+                }
+                else if (role == "trainer")
+                {
+                    RegisterAsDropdown.SelectedValue = "2";
+                }
+            }
+        }
     }
 }

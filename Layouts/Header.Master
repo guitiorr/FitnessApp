@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Header.master.cs" Inherits="FitnessApp.Layouts.Header" %>
 
+
 <!DOCTYPE html>
 
 <html>

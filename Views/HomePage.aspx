@@ -5,4 +5,10 @@
     <div>
         <h1>Home Page lol</h1>
     </div>
+    <div>
+        <asp:Button ID="becomeMemberButton" runat="server" Text="Become Member" OnClick="becomeMemberButton_Click" />
+    </div>
+    <div>
+        <asp:Button ID="becomeTrainerButton" runat="server" Text="Become Trainer" OnClick="becomeTrainerButton_Click" />
+    </div>
 </asp:Content>
