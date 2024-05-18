@@ -11,17 +11,49 @@ namespace FitnessApp.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (Request.Cookies["userCookie"] != null) //Authenticated as regular user
+                {
 
+                }
+                else //User not authenticated
+                {
+
+                }
+            }
         }
 
         protected void becomeMemberButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Views/RegisterPage.aspx?role=user");
+            if (Request.Cookies["userCookie"] != null) //Authenticated as regular user
+            {
+                // Response.Redirect("~/Views/RegisterPage.aspx");
+            }
+            else if (Request.Cookies["trainerCookie"] != null) //Authenticated as trainer
+            {
+
+            }
+            else //User not authenticated
+            {
+                Response.Redirect("~/Views/RegisterPage.aspx?role=user");
+            }
         }
 
         protected void becomeTrainerButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Views/RegisterPage.aspx?role=trainer");
+            if (Request.Cookies["userCookie"] != null) //Authenticated as regular user
+            {
+
+            }
+            else if (Request.Cookies["trainerCookie"] != null) //Authenticated as trainer
+            {
+
+            }
+            else //User not authenticated
+            {
+                Response.Redirect("~/Views/RegisterPage.aspx?role=trainer");
+            }
         }
 
     }

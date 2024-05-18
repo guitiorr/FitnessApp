@@ -34,6 +34,7 @@
           <Property Name="Height" Type="float" />
           <Property Name="ProfilePicture" Type="image" />
           <Property Name="FullName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MemberLevel" Type="int" />
         </EntityType>
         <EntityContainer Name="FitnessAppDatabaseModelStoreContainer">
           <EntitySet Name="Trainer" EntityType="Self.Trainer" Schema="dbo" store:Type="Tables" />
@@ -57,6 +58,7 @@
           <Property Name="Height" Type="Double" />
           <Property Name="ProfilePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="FullName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MemberLevel" Type="Int32" />
         </EntityType>
         <EntityContainer Name="FitnessAppDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Users" EntityType="Self.User" />
@@ -86,6 +88,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="FitnessAppDatabaseModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="MemberLevel" ColumnName="MemberLevel" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
                 <ScalarProperty Name="Height" ColumnName="Height" />
