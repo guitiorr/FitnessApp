@@ -58,11 +58,22 @@ namespace FitnessApp.Views
                 {
                     HttpCookie authCookie = new HttpCookie("userCookie");
                     authCookie.Values["Username"] = Username;
+                    authCookie.Values["UserID"] = userId;
                     authCookie.Expires = DateTime.Now.AddHours(1);
 
                     Response.Cookies.Add(authCookie);
 
-                    Response.Redirect("~/Views/HomePage.aspx");
+
+                    String member = userRepo.GetMembershipLevelFromUserId(userId);
+
+                    if(member == null)
+                    {
+                        Response.Redirect("~/Views/MembersPage.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("~/Views/HomePage.aspx");
+                    }
                 }
                 else if(trainerId != null)
                 {
