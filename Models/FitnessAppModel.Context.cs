@@ -25,7 +25,7 @@ namespace FitnessApp.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Trainer> Trainers { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

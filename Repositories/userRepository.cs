@@ -2,6 +2,7 @@
 using FitnessApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 
@@ -40,6 +41,28 @@ namespace FitnessApp.Repositories
             return (from x in db.Users where x.Email.Equals(Email) select x.Email).FirstOrDefault();
         }
 
+        public void addMembership(String userId, String membership)
+        {
+            User user = getUserFromId(userId);
+
+            if (user == null)
+            {
+                throw new Exception("User not found");
+            }
+            user.MemberLevel = membership;
+            db.SaveChanges();
+        }
+
+        public String GetMembershipLevelFromUserId(string userId)
+        {
+            return (from x in db.Users where x.userId.Equals(userId) select x.MemberLevel).FirstOrDefault();
+        }
+
+
+        public User getUserFromId(String Id)
+        {
+            return (from x in db.Users where x.userId.Equals(Id) select x).ToList().FirstOrDefault();
+        }
 
         public void insertUser(String userId, String Username, String Password, String Email, int Age, String Gender, String FullName)
         {

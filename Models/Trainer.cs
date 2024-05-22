@@ -20,9 +20,9 @@ namespace FitnessApp.Models
         public string Email { get; set; }
         public int Age { get; set; }
         public string Gender { get; set; }
-        public byte[] ProfilePicture { get; set; }
-        public string FullName { get; set; }
         public Nullable<double> Weight { get; set; }
         public Nullable<double> Height { get; set; }
+        public byte[] ProfilePicture { get; set; }
+        public string FullName { get; set; }
     }
 }
