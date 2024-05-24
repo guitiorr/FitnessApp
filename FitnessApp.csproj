@@ -78,8 +78,8 @@
     </Content>
     <Content Include="Models\FitnessAppModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>FitnessAppModel.Context.cs</LastGenOutput>
       <DependentUpon>FitnessAppModel.edmx</DependentUpon>
+      <LastGenOutput>FitnessAppModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\FitnessAppModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -88,6 +88,7 @@
     </Content>
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\LoginPage.aspx" />
+    <Content Include="Views\MembersPage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -140,6 +141,13 @@
     <Compile Include="Views\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\MembersPage.aspx.cs">
+      <DependentUpon>MembersPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MembersPage.aspx.designer.cs">
+      <DependentUpon>MembersPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -149,6 +157,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Layouts\Header.Master" />
     <EntityDeploy Include="Models\FitnessAppModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>FitnessAppModel.Designer.cs</LastGenOutput>
@@ -156,7 +165,6 @@
     <Content Include="Models\FitnessAppModel.edmx.diagram">
       <DependentUpon>FitnessAppModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Layouts\Header.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -168,6 +176,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
