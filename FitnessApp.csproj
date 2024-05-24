@@ -86,6 +86,7 @@
       <DependentUpon>FitnessAppModel.edmx</DependentUpon>
       <LastGenOutput>FitnessAppModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\ExerciseVideoPage.aspx" />
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\LoginPage.aspx" />
     <Content Include="Views\MembersPage.aspx" />
@@ -127,6 +128,13 @@
     <Compile Include="Repositories\DatabaseSingleton.cs" />
     <Compile Include="Repositories\trainerRepository.cs" />
     <Compile Include="Repositories\userRepository.cs" />
+    <Compile Include="Views\ExerciseVideoPage.aspx.cs">
+      <DependentUpon>ExerciseVideoPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ExerciseVideoPage.aspx.designer.cs">
+      <DependentUpon>ExerciseVideoPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
