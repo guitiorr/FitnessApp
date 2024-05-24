@@ -17,9 +17,12 @@ namespace FitnessApp.Layouts
                 {
                     string username = Request.Cookies["userCookie"]["Username"];
                     LogStatusLbl.Text = "Logged into " + username + "as user";
-                    LogOutButton.Visible = true; ///Show logout button
+                    LogOutButton.Visible = true; //Show logout button
                     LoginButton.Visible = false; //Hide login button
                     RegisterButton.Visible = false; //Hide register button
+                    MealButton.Visible = true; //Show Meal button
+                    TrainerButton.Visible = true; //Show trainer button
+                    ExerciseButton.Visible = true; //Show exercise button
                 }
                 else if (Request.Cookies["trainerCookie"] != null) //Authenticated as trainer
                 {
@@ -28,12 +31,18 @@ namespace FitnessApp.Layouts
                     LogOutButton.Visible = true; ///Show logout button
                     LoginButton.Visible = false; //Hide login button
                     RegisterButton.Visible = false; //Hide register button
+                    MealButton.Visible = false; //Hide Meal button
+                    TrainerButton.Visible = false ; //Hide trainer button
+                    ExerciseButton.Visible = false; //Hide exercise button
                 }
                 else //User not authenticated
                 {
                     LoginButton.Visible = true; //Show login button
                     RegisterButton.Visible = true; //Show register button
                     LogOutButton.Visible = false; //Hide logout button
+                    MealButton.Visible = false; //Hide Meal button
+                    TrainerButton.Visible = false; //Hide trainer button
+                    ExerciseButton.Visible = false; //Hide exercise button
                     LogStatusLbl.Text = "You are not logged in";
                 }
             }
@@ -66,6 +75,26 @@ namespace FitnessApp.Layouts
             }
 
             Response.Redirect("~/Views/HomePage.aspx");
+        }
+
+        protected void HomeButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/HomePage.aspx");
+        }
+
+        protected void MealButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void TrainerButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ExerciseButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/ExerciseVideoPage.aspx");
         }
     }
 }

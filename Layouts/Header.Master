@@ -15,6 +15,10 @@
             <asp:Button ID="LoginButton" runat="server" Text="Login" OnClick="LoginButton_Click"/>
             <asp:Button ID="RegisterButton" runat="server" Text="Register" OnClick="RegisterButton_Click"/>
             <asp:Button ID="LogOutButton" runat="server" Text="Logout" OnClick="LogOutButton_Click"/>
+            <asp:Button ID="HomeButton" runat="server" Text="Home" OnClick="HomeButton_Click" />
+            <asp:Button ID="MealButton" runat="server" Text="Meal" OnClick="MealButton_Click" />
+            <asp:Button ID="TrainerButton" runat="server" Text="Trainer" OnClick="TrainerButton_Click" />
+            <asp:Button ID="ExerciseButton" runat="server" Text="Exercise" OnClick="ExerciseButton_Click" />
         </div>
         <div>
             <asp:Label ID="LogStatusLbl" runat="server" Text=""></asp:Label>

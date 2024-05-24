@@ -60,6 +60,42 @@ namespace FitnessApp.Layouts
         protected global::System.Web.UI.WebControls.Button LogOutButton;
 
         /// <summary>
+        /// HomeButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button HomeButton;
+
+        /// <summary>
+        /// MealButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button MealButton;
+
+        /// <summary>
+        /// TrainerButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button TrainerButton;
+
+        /// <summary>
+        /// ExerciseButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ExerciseButton;
+
+        /// <summary>
         /// LogStatusLbl control.
         /// </summary>
         /// <remarks>
