@@ -76,5 +76,30 @@ namespace FitnessApp.Repositories
             return(from x in db.Users select x.userId).ToList().LastOrDefault();
         }
 
+        public String getUsernameFromId(String Id)
+        {
+            return(from x in db.Users where x.userId.Equals(Id) select x.Username).FirstOrDefault();
+        }
+
+        public String getEmailFromId(String Id)
+        {
+            return (from x in db.Users where x.userId.Equals(Id) select x.Email).FirstOrDefault();
+        }
+
+        public int getAgeFromId(String Id)
+        {
+            return (from x in db.Users where x.userId.Equals(Id) select x.Age).FirstOrDefault();
+        }
+
+        public double? getHeightFromId(String Id)
+        {
+            return (from x in db.Users where x.userId.Equals(Id) select x.Height).FirstOrDefault();
+        }
+
+        public double? getWeightFromId(String Id)
+        {
+            return (from x in db.Users where x.userId.Equals(Id) select x.Weight).FirstOrDefault();
+        }
+
     }
 }

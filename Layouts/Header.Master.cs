@@ -23,6 +23,7 @@ namespace FitnessApp.Layouts
                     MealButton.Visible = true; //Show Meal button
                     TrainerButton.Visible = true; //Show trainer button
                     ExerciseButton.Visible = true; //Show exercise button
+                    ProfileButton.Visible = true; //Show profile button
                 }
                 else if (Request.Cookies["trainerCookie"] != null) //Authenticated as trainer
                 {
@@ -34,6 +35,7 @@ namespace FitnessApp.Layouts
                     MealButton.Visible = false; //Hide Meal button
                     TrainerButton.Visible = false ; //Hide trainer button
                     ExerciseButton.Visible = false; //Hide exercise button
+                    ProfileButton.Visible = true; //Show profile button
                 }
                 else //User not authenticated
                 {
@@ -43,6 +45,7 @@ namespace FitnessApp.Layouts
                     MealButton.Visible = false; //Hide Meal button
                     TrainerButton.Visible = false; //Hide trainer button
                     ExerciseButton.Visible = false; //Hide exercise button
+                    ProfileButton.Visible = false; //Hide profile button
                     LogStatusLbl.Text = "You are not logged in";
                 }
             }
@@ -95,6 +98,11 @@ namespace FitnessApp.Layouts
         protected void ExerciseButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Views/ExerciseVideoPage.aspx");
+        }
+
+        protected void ProfileButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("~/Views/ProfilePage.aspx");
         }
     }
 }

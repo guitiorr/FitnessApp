@@ -86,10 +86,12 @@
       <DependentUpon>FitnessAppModel.edmx</DependentUpon>
       <LastGenOutput>FitnessAppModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\EditProfilePage.aspx" />
     <Content Include="Views\ExerciseVideoPage.aspx" />
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\LoginPage.aspx" />
     <Content Include="Views\MembersPage.aspx" />
+    <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -128,6 +130,13 @@
     <Compile Include="Repositories\DatabaseSingleton.cs" />
     <Compile Include="Repositories\trainerRepository.cs" />
     <Compile Include="Repositories\userRepository.cs" />
+    <Compile Include="Views\EditProfilePage.aspx.cs">
+      <DependentUpon>EditProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\EditProfilePage.aspx.designer.cs">
+      <DependentUpon>EditProfilePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ExerciseVideoPage.aspx.cs">
       <DependentUpon>ExerciseVideoPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -155,6 +164,13 @@
     </Compile>
     <Compile Include="Views\MembersPage.aspx.designer.cs">
       <DependentUpon>MembersPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfilePage.aspx.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ProfilePage.aspx.designer.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
