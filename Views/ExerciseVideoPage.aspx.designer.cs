@@ -15,6 +15,24 @@ namespace FitnessApp.Views
     {
 
         /// <summary>
+        /// ExerciseLabel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ExerciseLabel1;
+
+        /// <summary>
+        /// MuscleTargetLabel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MuscleTargetLabel1;
+
+        /// <summary>
         /// GIFPlayer1 control.
         /// </summary>
         /// <remarks>
@@ -24,6 +42,24 @@ namespace FitnessApp.Views
         protected global::System.Web.UI.WebControls.Image GIFPlayer1;
 
         /// <summary>
+        /// ExerciseLabel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ExerciseLabel2;
+
+        /// <summary>
+        /// MuscleTargetLabel2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MuscleTargetLabel2;
+
+        /// <summary>
         /// GIFPlayer2 control.
         /// </summary>
         /// <remarks>
@@ -31,6 +67,24 @@ namespace FitnessApp.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image GIFPlayer2;
+
+        /// <summary>
+        /// ExerciseLabel3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ExerciseLabel3;
+
+        /// <summary>
+        /// MuscleTargetLabel3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MuscleTargetLabel3;
 
         /// <summary>
         /// GIFPlayer3 control.
@@ -49,5 +103,50 @@ namespace FitnessApp.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ChestButton;
+
+        /// <summary>
+        /// ShoulderButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ShoulderButton;
+
+        /// <summary>
+        /// BicepButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BicepButton;
+
+        /// <summary>
+        /// AbsButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AbsButton;
+
+        /// <summary>
+        /// QuadsButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button QuadsButton;
+
+        /// <summary>
+        /// ForearmsButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ForearmsButton;
     }
 }
