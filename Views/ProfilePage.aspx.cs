@@ -23,22 +23,22 @@ namespace FitnessApp.Views
                     UsernameLbl.Text = userRepo.getUsernameFromId(userId);
                     EmailLbl.Text = userRepo.getEmailFromId(userId);
 
-                    AgeLbl.Text = userRepo.getAgeFromId(userId).ToString();
-                    HeightLbl.Text = userRepo.getHeightFromId(userId).ToString();
-                    WeightLbl.Text = userRepo.getWeightFromId(userId).ToString();
+                    AgeLbl.Text = "Age: " + userRepo.getAgeFromId(userId).ToString();
+                    HeightLbl.Text = "Height: " + userRepo.getHeightFromId(userId).ToString();
+                    WeightLbl.Text = "Weight: " + userRepo.getWeightFromId(userId).ToString();
 
                     if(HeightLbl.Text == null)
                     {
-                        HeightLbl.Text = "Not set";
+                        HeightLbl.Text = "Height: Not set";
                     }
                     if (WeightLbl.Text == null)
                     {
-                        WeightLbl.Text = "Not set";
+                        WeightLbl.Text = "Weight: Not set";
                     }
 
 
-                    WeightGoalLbl.Text = "Not set";
-                    ActiveLevelLbl.Text = "Not set";
+                    WeightGoalLbl.Text = "Weight goal: Not set";
+                    ActiveLevelLbl.Text = "Active level: Not set";
 
 
                 }
