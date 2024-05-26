@@ -76,6 +76,8 @@
     <Content Include="App_Data\FitnessAppDatabase_log.ldf">
       <DependentUpon>FitnessAppDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Assets\GIF\ExercisePage\Chest\shrekdance.gif" />
+    <Content Include="Assets\Images\User\defaultProfile.png" />
     <Content Include="Models\FitnessAppModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FitnessAppModel.edmx</DependentUpon>

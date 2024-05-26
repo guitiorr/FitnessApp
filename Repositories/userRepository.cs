@@ -3,6 +3,7 @@ using FitnessApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -99,6 +100,33 @@ namespace FitnessApp.Repositories
         public double? getWeightFromId(String Id)
         {
             return (from x in db.Users where x.userId.Equals(Id) select x.Weight).FirstOrDefault();
+        }
+
+        private byte[] ConvertImageToBinary(string imagePath)
+        {
+            return File.ReadAllBytes(imagePath);
+        }
+
+        public void setDefaultImage()
+        {
+            string defaultImagePath = HttpContext.Current.Server.MapPath("~/Assets/Images/User/defaultProfile.png");
+            byte[] defaultImage = ConvertImageToBinary(defaultImagePath);
+
+            var usersWithoutProfilePicture = from user in db.Users
+                                             where user.ProfilePicture == null
+                                             select user;
+
+            foreach (var user in usersWithoutProfilePicture)
+            {
+                user.ProfilePicture = defaultImage;
+            }
+
+            db.SaveChanges();
+        }
+
+        public byte[] GetProfilePictureFromId(string userId)
+        {
+            return (from x in db.Users where x.userId.Equals(userId) select x.ProfilePicture).FirstOrDefault();
         }
 
     }

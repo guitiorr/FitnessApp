@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FitnessApp.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,13 +14,17 @@ namespace FitnessApp.Views
         {
             if (!IsPostBack)
             {
+                userRepository userRepo = new userRepository();
+                trainerRepository trainerRepo = new trainerRepository();
+                userRepo.setDefaultImage();
+                trainerRepo.setDefaultImage();
                 if (Request.Cookies["userCookie"] != null) //Authenticated as regular user
                 {
 
                 }
                 else //User not authenticated
                 {
-
+                    
                 }
             }
         }
