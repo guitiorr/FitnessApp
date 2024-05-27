@@ -5,27 +5,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="../Style/Login.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="outer">
     <form id="form1" runat="server">
-        <div>
-            <h1>Login Page</h1>
+        
+            <div>
+            <h1>Welcome Back</h1>
         </div>
         <div>
-            <asp:Label ID="usernameLbl" runat="server" Text="Username"></asp:Label>
-            <br />
-            <asp:TextBox ID="usernameTB" runat="server"></asp:TextBox>
+            
             <asp:Label ID="usernameErrorLbl" runat="server" Text=""></asp:Label>
-        </div>
-        <div>
-            <asp:Label ID="passwordLbl" runat="server" Text="Password"></asp:Label>
             <br />
-            <asp:TextBox ID="passwordTB" runat="server"></asp:TextBox>
-            <asp:Label ID="passwordErrorLbl" runat="server" Text=""></asp:Label>
+            <asp:TextBox CssClass="input" ID="usernameTB" runat="server" placeholder="Username"></asp:TextBox>
         </div>
         <div>
-            <asp:Button ID="loginBtn" runat="server" Text="Login" OnClick="loginBtn_Click" />
+            
+            <asp:Label ID="passwordErrorLbl" runat="server" Text=""></asp:Label>
+            <br />
+            <asp:TextBox CssClass="input" ID="passwordTB" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
+
+        </div>
+        <div>
+            <asp:Button CssClass="login" ID="loginBtn" runat="server" Text="Login" OnClick="loginBtn_Click" />
         </div>
     </form>
+    </div>
 </body>
 </html>

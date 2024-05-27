@@ -88,7 +88,9 @@
       <DependentUpon>FitnessAppModel.edmx</DependentUpon>
       <LastGenOutput>FitnessAppModel.cs</LastGenOutput>
     </Content>
-    <Content Include="Style\Home.css" />
+    <Content Include="Style\Homee.css" />
+    <Content Include="Style\Login.css" />
+    <Content Include="Style\Master.css" />
     <Content Include="Views\ExerciseVideoPage.aspx" />
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\LoginPage.aspx" />
@@ -187,7 +189,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\IMG\Home\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

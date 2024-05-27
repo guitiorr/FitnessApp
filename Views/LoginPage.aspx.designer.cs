@@ -24,13 +24,13 @@ namespace FitnessApp.Views
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// usernameLbl control.
+        /// usernameErrorLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label usernameLbl;
+        protected global::System.Web.UI.WebControls.Label usernameErrorLbl;
 
         /// <summary>
         /// usernameTB control.
@@ -42,22 +42,13 @@ namespace FitnessApp.Views
         protected global::System.Web.UI.WebControls.TextBox usernameTB;
 
         /// <summary>
-        /// usernameErrorLbl control.
+        /// passwordErrorLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label usernameErrorLbl;
-
-        /// <summary>
-        /// passwordLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label passwordLbl;
+        protected global::System.Web.UI.WebControls.Label passwordErrorLbl;
 
         /// <summary>
         /// passwordTB control.
@@ -67,15 +58,6 @@ namespace FitnessApp.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox passwordTB;
-
-        /// <summary>
-        /// passwordErrorLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label passwordErrorLbl;
 
         /// <summary>
         /// loginBtn control.

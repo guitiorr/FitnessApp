@@ -6,27 +6,37 @@
 <html>
 <head runat="server">
     <title></title>
+    <link href="../Style/Master.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:Button ID="LoginButton" runat="server" Text="Login" OnClick="LoginButton_Click"/>
-            <asp:Button ID="RegisterButton" runat="server" Text="Register" OnClick="RegisterButton_Click"/>
-            <asp:Button ID="LogOutButton" runat="server" Text="Logout" OnClick="LogOutButton_Click"/>
-            <asp:Button ID="HomeButton" runat="server" Text="Home" OnClick="HomeButton_Click" />
-            <asp:Button ID="MealButton" runat="server" Text="Meal" OnClick="MealButton_Click" />
-            <asp:Button ID="TrainerButton" runat="server" Text="Trainer" OnClick="TrainerButton_Click" />
-            <asp:Button ID="ExerciseButton" runat="server" Text="Exercise" OnClick="ExerciseButton_Click" />
+    <header>
+        <div class="header">
+            <h3 class="title">
+                PERFOFIT
+            </h3>
+            <nav>
+                <asp:Button class="btn" ID="LoginButton" runat="server" Text="Login" OnClick="LoginButton_Click"/>
+                <asp:Button class="btn" ID="RegisterButton" runat="server" Text="Register" OnClick="RegisterButton_Click"/>
+                <asp:Button class="btn" ID="LogOutButton" runat="server" Text="Logout" OnClick="LogOutButton_Click"/>
+                <asp:Button class="btn" ID="HomeButton" runat="server" Text="Home" OnClick="HomeButton_Click" />
+                <asp:Button class="btn" ID="MealButton" runat="server" Text="Meal" OnClick="MealButton_Click" />
+                <asp:Button class="btn" ID="TrainerButton" runat="server" Text="Trainer" OnClick="TrainerButton_Click" />
+                <asp:Button class="btn" ID="ExerciseButton" runat="server" Text="Exercise" OnClick="ExerciseButton_Click" />
+            </nav>
+            <div>
+                <asp:Label ID="LogStatusLbl" runat="server" Text=""></asp:Label>
+            </div>
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
         </div>
-        <div>
-            <asp:Label ID="LogStatusLbl" runat="server" Text=""></asp:Label>
-        </div>
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+ </header>
+   
+
     </form>
 </body>
 </html>
