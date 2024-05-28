@@ -38,7 +38,7 @@ namespace FitnessApp.Views
 
 
                     WeightGoalLbl.Text = "Weight goal: Not set";
-                    ActiveLevelLbl.Text = "Active level: Not set";
+                    //ActiveLevelLbl.Text = "Active level: Not set";
 
 
                 }
@@ -69,7 +69,7 @@ namespace FitnessApp.Views
 
 
                     WeightGoalLbl.Visible = false; //hide weight goal
-                    ActiveLevelLbl.Visible = false; //Hide active level
+                    //ActiveLevelLbl.Visible = false; //Hide active level
 
 
                 }

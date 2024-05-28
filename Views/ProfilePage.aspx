@@ -25,7 +25,6 @@
                     <asp:Label ID="HeightLbl" runat="server" Text=""></asp:Label>
                     <asp:Label ID="WeightLbl" runat="server" Text=""></asp:Label>
                     <asp:Label ID="WeightGoalLbl" runat="server" Text=""></asp:Label>
-                    <asp:Label ID="ActiveLevelLbl" runat="server" Text=""></asp:Label>
                     <asp:Label ID="PhoneLbl" runat="server" Text=""></asp:Label>
                 </div>
             </div>

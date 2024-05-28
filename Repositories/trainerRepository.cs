@@ -99,5 +99,44 @@ namespace FitnessApp.Repositories
             return (from x in db.Trainers where x.trainerId.Equals(trainerId) select x.ProfilePicture).FirstOrDefault();
         }
 
+        public Trainer getTrainerFromId(String Id)
+        {
+            return (from x in db.Trainers where x.trainerId.Equals(Id) select x).ToList().FirstOrDefault();
+        }
+
+        public void setAge(int age, String trainerId)
+        {
+            Trainer trainer = getTrainerFromId(trainerId);
+            trainer.Age = age;
+            db.SaveChanges();
+        }
+
+        public void setHeight(double height, String trainerId)
+        {
+            Trainer trainer = getTrainerFromId(trainerId);
+            trainer.Height = height;
+            db.SaveChanges();
+        }
+
+        public void setWeight(double weight, String trainerId)
+        {
+            Trainer trainer = getTrainerFromId(trainerId);
+            trainer.Weight = weight;
+            db.SaveChanges();
+        }
+
+        public void setProfilePicture(string trainerId, string fileName)
+        {
+            Trainer trainer = getTrainerFromId(trainerId);
+            string fileExtension = Path.GetExtension(fileName).ToLower();
+            string imagePath = HttpContext.Current.Server.MapPath("~/Assets/Images/User/Uploaded Profile Pictures" + fileName + fileExtension);
+
+            byte[] imageByte = ConvertImageToBinary(imagePath);
+
+            trainer.ProfilePicture = imageByte;
+
+            db.SaveChanges();
+        }
+
     }
 }

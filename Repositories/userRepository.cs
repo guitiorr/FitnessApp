@@ -124,9 +124,50 @@ namespace FitnessApp.Repositories
             db.SaveChanges();
         }
 
+        public void setAge(int age, String userId)
+        {
+            User user = getUserFromId(userId);
+            user.Age = age;
+            db.SaveChanges();
+        }
+
+        public void setHeight(double height, String userId)
+        {
+            User user = getUserFromId(userId);
+            user.Height = height;
+            db.SaveChanges();
+        }
+
+        public void setWeight(double weight, String userId)
+        {
+            User user = getUserFromId(userId);
+            user.Weight = weight;
+            db.SaveChanges();
+        }
+
+        public void setWeightGoal(double weightGoal, String userId)
+        {
+            User user = getUserFromId(userId);
+            user.WeightGoal = weightGoal;
+            db.SaveChanges();
+        }
+
         public byte[] GetProfilePictureFromId(string userId)
         {
             return (from x in db.Users where x.userId.Equals(userId) select x.ProfilePicture).FirstOrDefault();
+        }
+
+        public void setProfilePicture(string userId, string fileName)
+        {
+            User user = getUserFromId(userId);
+            string fileExtension = Path.GetExtension(fileName).ToLower();
+            string imagePath = HttpContext.Current.Server.MapPath("~/Assets/Images/User/Uploaded Profile Pictures" + fileName + fileExtension);
+
+            byte[] imageByte = ConvertImageToBinary(imagePath);
+
+            user.ProfilePicture = imageByte;
+
+            db.SaveChanges();
         }
 
     }
