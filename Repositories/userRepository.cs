@@ -183,5 +183,10 @@ namespace FitnessApp.Repositories
             db.SaveChanges();
         }
 
+        public double? getWeightGoalFromId(string userId)
+        {
+            return (from x in db.Users where x.userId.Equals(userId) select x.WeightGoal).FirstOrDefault();
+        }
+
     }
 }

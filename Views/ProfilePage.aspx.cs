@@ -37,7 +37,7 @@ namespace FitnessApp.Views
                     }
 
 
-                    WeightGoalLbl.Text = "Weight goal: Not set";
+                    WeightGoalLbl.Text = "Weight goal: " + userRepo.getWeightGoalFromId(userId);
                     //ActiveLevelLbl.Text = "Active level: Not set";
 
 
@@ -48,6 +48,7 @@ namespace FitnessApp.Views
                     String username = Request.Cookies["trainerCookie"]["Username"];
 
                     trainerRepository trainerRepo = new trainerRepository();
+                    string trainerId = trainerRepo.getIdFromUsername(username);
 
                     UsernameLbl.Text = username;
                     EmailLbl.Text = trainerRepo.getEmailFromUsername(username);
@@ -65,7 +66,7 @@ namespace FitnessApp.Views
                         WeightLbl.Text = "Not set";
                     }
 
-                    PhoneLbl.Text = "Not set";
+                    PhoneLbl.Text = trainerRepo.getPhoneFromId(trainerId);
 
 
                     WeightGoalLbl.Visible = false; //hide weight goal

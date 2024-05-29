@@ -35,6 +35,11 @@
              <asp:Label ID="WeightGoalErrorLbl" runat="server" Text=""></asp:Label>
         </div>
         <div>
+            <asp:Label ID="PhoneLbl" runat="server" Text="Phone"></asp:Label>
+            <asp:TextBox ID="PhoneTB" runat="server"></asp:TextBox>
+            <asp:Label ID="PhoneErrorLbl" runat="server" Text=""></asp:Label>
+        </div>
+        <div>
             <asp:Button ID="SubmitBtn" runat="server" Text="Confirm change" OnClick="SubmitBtn_Click"/>
         </div>
     </form>

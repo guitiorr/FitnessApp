@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Caching;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -22,11 +23,14 @@ namespace FitnessApp.Views
                     string username = Request.Cookies["userCookie"]["Username"];
                     string userId = userRepo.getIdFromUsername(username);
 
+                    PhoneLbl.Visible = false; // hide phone
+                    PhoneTB.Visible = false; // hide phone
+
                     ProfilePictureImage.ImageUrl = userRepo.GetProfilePictureUrlFromId(userId);
                     AgeTB.Text = userRepo.getAgeFromId(userId).ToString();
                     HeightTB.Text = userRepo.getHeightFromId(userId).ToString();
                     WeightTB.Text = userRepo.getWeightFromId(userId).ToString();
-
+                    WeightGoalTB.Text = userRepo.getWeightGoalFromId(userId).ToString();
 
 
                 }
@@ -40,7 +44,9 @@ namespace FitnessApp.Views
                     AgeTB.Text = trainerRepo.getAgeFromUsername(username).ToString();
                     HeightTB.Text = trainerRepo.getHeightFromUsername(username).ToString();
                     WeightTB.Text = trainerRepo.getWeightFromUsername(username).ToString();
-
+                    WeightGoalTB.Visible = false; // hide weight goal
+                    WeightGoalLbl.Visible = false; // hide weight goal
+                    PhoneTB.Text = trainerRepo.getPhoneFromId(trainerId);
 
                 }
                 else // Not authenticated
@@ -170,12 +176,35 @@ namespace FitnessApp.Views
 
             else if (Request.Cookies["trainerCookie"] != null) //Trainer
             {
-                if(pass == 1)
+                string trainerId = trainerRepo.getIdFromUsername(Request.Cookies["trainerCookie"]["Username"]);
+
+                string phoneNumber = null;
+                if (string.IsNullOrEmpty(PhoneTB.Text))
                 {
-                    string trainerId = trainerRepo.getIdFromUsername(Request.Cookies["trainerCookie"]["Username"]);
+                    // Handle case where age input field is empty
+                    PhoneErrorLbl.Text = "Field must not be empty";
+                    pass = 0;
+                }
+                else if (PhoneTB.Text.Length != 15)
+                {
+                    PhoneErrorLbl.Text = "Invalid phone number length (15)";
+                    pass = 0;
+                }
+                else
+                {
+                    phoneNumber = PhoneTB.Text;
+                    WeightGoalTB.Text = "";
+                    pass = 1;
+                }
+
+
+                if (pass == 1)
+                {
+                    
                     trainerRepo.setAge(age, trainerId);
                     trainerRepo.setHeight(height, trainerId);
                     trainerRepo.setWeight(weight, trainerId);
+                    trainerRepo.setPhone(phoneNumber, trainerId);
 
                     string FileName = userRepo.getIdFromUsername(Request.Cookies["trainerCookie"]["Username"]).ToString() + "ProfilePicture";
                     trainerRepo.setProfilePicture(trainerId, FileName, fileExtension);
@@ -221,7 +250,7 @@ namespace FitnessApp.Views
                         // Optionally, update the user's profile picture in your database here with the new file name
 
                         ProfilePictureErrorLbl.Text = "Upload status: File uploaded!";
-                        ProfilePictureImage.ImageUrl = HttpContext.Current.Server.MapPath("~/Assets/Images/User/UploadPics/") + newFileName + fileExtension;
+                        ProfilePictureImage.ImageUrl = "~/Assets/Images/User/UploadPics/" + newFileName + fileExtension;
                     }
                     catch (Exception ex)
                     {

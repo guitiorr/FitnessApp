@@ -138,6 +138,18 @@ namespace FitnessApp.Repositories
             db.SaveChanges();
         }
 
+        public void setPhone(string phone, string trainerId)
+        {
+            Trainer trainer = getTrainerFromId(trainerId);
+            trainer.PhoneNumber = phone;
+            db.SaveChanges();
+        }
+
+        public string getPhoneFromId(string trainerId)
+        {
+            return (from x in db.Trainers where x.trainerId.Equals(trainerId) select x.PhoneNumber).FirstOrDefault();
+        }
+
         public void setProfilePicture(string trainerId, string fileName, string extension)
         {
             Trainer trainer = getTrainerFromId(trainerId);
