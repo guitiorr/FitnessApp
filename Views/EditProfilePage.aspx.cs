@@ -171,7 +171,7 @@ namespace FitnessApp.Views
                     trainerRepo.setWeight(weight, trainerId);
 
                     string FileName = userRepo.getIdFromUsername(Request.Cookies["trainerCookie"]["Username"]).ToString() + "ProfilePicture";
-                    userRepo.setProfilePicture(trainerId, FileName);
+                    trainerRepo.setProfilePicture(trainerId, FileName);
                     Response.Redirect("~/Views/ProfilePage.aspx");
                 }
             }
