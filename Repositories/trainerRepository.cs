@@ -94,6 +94,19 @@ namespace FitnessApp.Repositories
             db.SaveChanges();
         }
 
+        public string GetProfilePictureUrlFromId(string trainerId)
+        {
+            byte[] profilePicture = GetProfilePictureFromId(trainerId);
+            if (profilePicture == null || profilePicture.Length == 0)
+            {
+                // Return a default image URL if no picture is found
+                return HttpContext.Current.Server.MapPath("~/Assets/Images/User/defaultProfile.png");
+            }
+
+            string base64String = Convert.ToBase64String(profilePicture);
+            return $"data:image/jpeg;base64,{base64String}";
+        }
+
         public byte[] GetProfilePictureFromId(string trainerId)
         {
             return (from x in db.Trainers where x.trainerId.Equals(trainerId) select x.ProfilePicture).FirstOrDefault();
@@ -125,11 +138,10 @@ namespace FitnessApp.Repositories
             db.SaveChanges();
         }
 
-        public void setProfilePicture(string trainerId, string fileName)
+        public void setProfilePicture(string trainerId, string fileName, string extension)
         {
             Trainer trainer = getTrainerFromId(trainerId);
-            string fileExtension = Path.GetExtension(fileName).ToLower();
-            string imagePath = HttpContext.Current.Server.MapPath("~/Assets/Images/User/Uploaded Profile Pictures" + fileName + fileExtension);
+            string imagePath = HttpContext.Current.Server.MapPath("~/Assets/Images/User/UploadPics/" + fileName + extension);
 
             byte[] imageByte = ConvertImageToBinary(imagePath);
 

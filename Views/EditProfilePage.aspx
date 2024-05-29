@@ -11,7 +11,7 @@
         <div>
             <asp:Image ID="ProfilePictureImage" runat="server"/>
             <asp:FileUpload ID="ProfilePictureUpload" runat="server" />
-            <asp:Button ID="ChangeProfilePictureBtn" runat="server" Text="Change Picture" OnClick="ChangeProfilePictureBtn_Click" />
+            <asp:Button ID="ChangeProfilePictureBtn" runat="server" Text="Upload Picture" OnClick="ChangeProfilePictureBtn_Click" />
             <asp:Label ID="ProfilePictureErrorLbl" runat="server" Text=""></asp:Label>
         </div>
         <div>

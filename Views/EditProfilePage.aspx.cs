@@ -11,6 +11,7 @@ namespace FitnessApp.Views
 {
     public partial class EditProfilePage : System.Web.UI.Page
     {
+        private string fileExtension = ".png";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,6 +22,7 @@ namespace FitnessApp.Views
                     string username = Request.Cookies["userCookie"]["Username"];
                     string userId = userRepo.getIdFromUsername(username);
 
+                    ProfilePictureImage.ImageUrl = userRepo.GetProfilePictureUrlFromId(userId);
                     AgeTB.Text = userRepo.getAgeFromId(userId).ToString();
                     HeightTB.Text = userRepo.getHeightFromId(userId).ToString();
                     WeightTB.Text = userRepo.getWeightFromId(userId).ToString();
@@ -32,8 +34,9 @@ namespace FitnessApp.Views
                 {
                     trainerRepository trainerRepo = new trainerRepository();
                     string username = Request.Cookies["trainerCookie"]["Username"];
-                    //string trainerId = trainerRepo.getIdFromUsername(username);
+                    string trainerId = trainerRepo.getIdFromUsername(username);
 
+                    ProfilePictureImage.ImageUrl = trainerRepo.GetProfilePictureUrlFromId(trainerId);
                     AgeTB.Text = trainerRepo.getAgeFromUsername(username).ToString();
                     HeightTB.Text = trainerRepo.getHeightFromUsername(username).ToString();
                     WeightTB.Text = trainerRepo.getWeightFromUsername(username).ToString();
@@ -116,7 +119,11 @@ namespace FitnessApp.Views
 
             if (ProfilePictureErrorLbl.Text.Equals("Upload status: No file selected.") || ProfilePictureErrorLbl.Text.Equals("Upload status: Only image files (JPG, JPEG, PNG, GIF) are allowed."))
             {
-
+                pass = 0;
+            }
+            else
+            {
+                pass = 1;
             }
 
 
@@ -153,7 +160,7 @@ namespace FitnessApp.Views
                     userRepo.setWeightGoal(weightGoal, userId);
 
                     string FileName = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]).ToString() + "ProfilePicture";
-                    userRepo.setProfilePicture(userId, FileName);
+                    userRepo.setProfilePicture(userId, FileName, fileExtension);
                     Response.Redirect("~/Views/ProfilePage.aspx");
                 }
 
@@ -171,7 +178,7 @@ namespace FitnessApp.Views
                     trainerRepo.setWeight(weight, trainerId);
 
                     string FileName = userRepo.getIdFromUsername(Request.Cookies["trainerCookie"]["Username"]).ToString() + "ProfilePicture";
-                    trainerRepo.setProfilePicture(trainerId, FileName);
+                    trainerRepo.setProfilePicture(trainerId, FileName, fileExtension);
                     Response.Redirect("~/Views/ProfilePage.aspx");
                 }
             }
@@ -189,7 +196,7 @@ namespace FitnessApp.Views
 
             if (ProfilePictureUpload.HasFile)
             {
-                string fileExtension = Path.GetExtension(ProfilePictureUpload.FileName).ToLower();
+                //fileExtension = Path.GetExtension(ProfilePictureUpload.FileName).ToLower();
                 string[] allowedExtensions = { ".jpg", ".jpeg", ".png", ".gif" };
 
                 if (Array.Exists(allowedExtensions, ext => ext == fileExtension))
@@ -208,12 +215,13 @@ namespace FitnessApp.Views
                         }
 
                         // Save the file to the server (for example, in a "uploads" directory)
-                        string savePath = Server.MapPath("~/Assets/Images/User/Uploaded Profile Pictures/") + newFileName;
+                        string savePath = HttpContext.Current.Server.MapPath("~/Assets/Images/User/UploadPics/") + newFileName + fileExtension;
                         ProfilePictureUpload.SaveAs(savePath);
 
                         // Optionally, update the user's profile picture in your database here with the new file name
 
                         ProfilePictureErrorLbl.Text = "Upload status: File uploaded!";
+                        ProfilePictureImage.ImageUrl = HttpContext.Current.Server.MapPath("~/Assets/Images/User/UploadPics/") + newFileName + fileExtension;
                     }
                     catch (Exception ex)
                     {
