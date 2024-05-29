@@ -13,7 +13,7 @@
 
 
 .div-main {
-    margin-top: 20px;
+    margin-top: 50px;
     background-image: url('../assets/img/home/bartek-garbowicz-xjeclqsbuqc-unsplash.jpg');
     height: 100vh;
     background-repeat: no-repeat;
@@ -82,4 +82,70 @@
     background-color: transparent;
     color: white;
     border: 1px solid white;
+}
+
+.join-div {
+    display: flex;
+    height: 50vh;
+}
+
+.left {
+    width: 50%;
+    height: 100%;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-image: url('../assets/img/home/montylov-hybxy5phqr8-unsplash.jpg');
+    background-size: cover;
+    color: white;
+    transition: 0.7s;
+}
+
+.right {
+    width: 50%;
+    background-color: blue;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-image: url('../assets/img/home/pawel-czerwinski-prmn9kinlti-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    transition: 0.7s;
+}
+
+.right:hover {
+        opacity: 0.5;
+}
+
+.left:hover {
+    opacity: 0.5;
+}
+
+.footer {
+    width: 60%;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+    margin-top: 80px;
+    padding-bottom: 70px;
+}
+
+.button-footer {
+    margin-top: 30px;
+}
+
+.fbutton {
+    width: 120px;
+    height: 30px;
+    margin: 20px;
+    border-radius: 30px;
+    font-weight: bolder;
+    border: none;
 }

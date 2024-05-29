@@ -24,15 +24,6 @@ namespace FitnessApp.Views
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// RegisterAsLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label RegisterAsLbl;
-
-        /// <summary>
         /// RegisterAsDropdown control.
         /// </summary>
         /// <remarks>
@@ -42,13 +33,13 @@ namespace FitnessApp.Views
         protected global::System.Web.UI.WebControls.DropDownList RegisterAsDropdown;
 
         /// <summary>
-        /// FullNameLbl control.
+        /// GenderDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FullNameLbl;
+        protected global::System.Web.UI.WebControls.DropDownList GenderDropdown;
 
         /// <summary>
         /// FullNameTB control.
@@ -69,15 +60,6 @@ namespace FitnessApp.Views
         protected global::System.Web.UI.WebControls.Label FullNameErrorLbl;
 
         /// <summary>
-        /// AgeLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AgeLbl;
-
-        /// <summary>
         /// AgeTB control.
         /// </summary>
         /// <remarks>
@@ -94,33 +76,6 @@ namespace FitnessApp.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label AgeErrorLbl;
-
-        /// <summary>
-        /// GenderLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label GenderLbl;
-
-        /// <summary>
-        /// GenderDropdown control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList GenderDropdown;
-
-        /// <summary>
-        /// EmailLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EmailLbl;
 
         /// <summary>
         /// EmailTB control.
@@ -141,15 +96,6 @@ namespace FitnessApp.Views
         protected global::System.Web.UI.WebControls.Label EmailErrorLbl;
 
         /// <summary>
-        /// UsernameLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label UsernameLbl;
-
-        /// <summary>
         /// UsernameTB control.
         /// </summary>
         /// <remarks>
@@ -168,15 +114,6 @@ namespace FitnessApp.Views
         protected global::System.Web.UI.WebControls.Label UsernameErrorLbl;
 
         /// <summary>
-        /// PasswordLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PasswordLbl;
-
-        /// <summary>
         /// PasswordTB control.
         /// </summary>
         /// <remarks>
@@ -193,15 +130,6 @@ namespace FitnessApp.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label PasswordErrorLbl;
-
-        /// <summary>
-        /// Password2Lbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Password2Lbl;
 
         /// <summary>
         /// Password2TB control.

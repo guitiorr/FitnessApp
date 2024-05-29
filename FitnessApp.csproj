@@ -91,6 +91,7 @@
     <Content Include="Style\Homee.css" />
     <Content Include="Style\Login.css" />
     <Content Include="Style\Master.css" />
+    <Content Include="Style\Register.css" />
     <Content Include="Views\ExerciseVideoPage.aspx" />
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\LoginPage.aspx" />
