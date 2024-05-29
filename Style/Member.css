@@ -1,0 +1,87 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: "Bebas Neue", sans-serif;
+    color: white;
+    background-image: url('../assets/img/home/bartek-garbowicz-xjeclqsbuqc-unsplash.jpg');
+}
+
+.bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+h1{
+    font-weight:bolder;
+}
+
+#membershipContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    height:100vh;
+}
+
+#membershipOptions {
+    display: flex;
+    margin-top: 2%;
+}
+
+.container {
+    margin-left: 50px;
+    margin-right: 50px;
+    width: 23vw;
+    height: 500px;
+    border-radius: 20px;
+    position: relative;
+    padding-bottom: 30px;
+    backdrop-filter:blur(2px);
+    background-color: rgba(255, 255, 255, 0.3)
+}
+
+.prcs {
+    color: white;
+    background-color: #01204E;
+    font-weight: bolder;
+    width: 65%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    transition:0.6s;
+}
+
+.prcs:hover{
+    opacity:0.5;
+}
+
+.Purchase {
+    margin-top: 92px;
+}
+
+.Purchase1 {
+    margin-top: 48px;
+}
+
+.Purchase2 {
+    margin-top: 12px;
+}
+
+.span {
+    font-size: 100px;
+}
+
+.member-txt{
+    font-size:60px;
+}
+
+.top {
+    border-radius: 20px 20px 0px 0px;
+    background-color: #01204E;
+    padding-top: 20px;
+    padding-bottom:10px;
+}

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="../Style/Register.css" rel="stylesheet" />
+    <link href="../Style/Register.css?Version=1" rel="stylesheet" />
 </head>
 <body>
     <div class="outer">

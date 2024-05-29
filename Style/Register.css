@@ -85,3 +85,8 @@ form {
     display:flex;
     flex-direction:column;
 }
+
+h1{
+    font-size:75px;
+    font-weight:bolder;
+}
