@@ -88,6 +88,7 @@
       <DependentUpon>FitnessAppModel.edmx</DependentUpon>
       <LastGenOutput>FitnessAppModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Style\ExerciseVideo.css" />
     <Content Include="Style\Homee.css" />
     <Content Include="Style\Login.css" />
     <Content Include="Style\Master.css" />
