@@ -13,11 +13,13 @@
     font-style: normal;
 }
 
-#GIFBox{
+#GIFBox {
     /*background-color:grey;*/
-    margin-top:50px;
-    height:100vh;
-    text-align:center;  
+    margin-top: 50px;
+    height: 100vh;
+    text-align: center;
+    background-color: rgba(33, 24, 29, 0.5);
+    backdrop-filter:blur(1px)
 }
 
 .ButtonBox{
@@ -57,5 +59,6 @@
     text-transform:uppercase;
     font-weight:bolder;
     margin-bottom:3%;
-    font-size:30px;
+    font-size:20px;
 }
+

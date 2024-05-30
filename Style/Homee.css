@@ -149,3 +149,9 @@
     font-weight: bolder;
     border: none;
 }
+
+.LinkBTN{
+    color:white;
+    text-decoration:none;
+    font-size:40px;
+}

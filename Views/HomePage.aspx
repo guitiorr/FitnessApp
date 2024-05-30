@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layouts/Header.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="FitnessApp.Views.HomePage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../Style/Homee.css?Version=2" rel="stylesheet" />
+    <link href="../Style/Homee.css?Version=3" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -40,17 +40,19 @@
 
         <h1 style="color: white;text-align: center;">CHOOSE YOUR PATH</h1>
         <div class="join-div">
-            <div class="left">
-                <h1>Be A Trainer</h1>
+            <div class="left" runat="server">
+                <%--<h1>Be A Trainer</h1>--%>
+                <asp:LinkButton CssClass="LinkBTN" ID="LinkButton1" runat="server" OnClick="becomeTrainerButton_Click">Be A Trainer</asp:LinkButton>
             </div>
             <div class="right">
-                <h1>Be A Member</h1>
+                <%--<h1>Be A Member</h1>--%>
+                <asp:LinkButton CssClass="LinkBTN" ID="LinkButton2" runat="server" OnClick="becomeMemberButton_Click">Be A Member</asp:LinkButton>
             </div>
         </div>
 
         <div class="footer">
             <div>
-                <h1>PerfoFIT</h1>
+                <h1>PerfoFIT</h1>   
                 <p>Lorem, Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto explicabo debitis officiis? Reprehenderit asperiores voluptatum dolorem fugit voluptatem sed, nulla blanditiis quaerat minima officiis vitae vero dicta, aut pariatur doloremque.lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed officia a non aliquam explicabo vel repellat minima, soluta ad nihil tempora consequatur veniam voluptatum. Ea repudiandae ipsa magni voluptates. ipsum dolor sit amet consectetur adipisicing elit. Accusantium repudiandae nemo quibusdam facilis dolor. Ex perferendis, quidem totam nisi vel odio, vitae reiciendis voluptatum magnam neque esse, natus voluptates qui!Lorem</p>
             </div>
             <div class="button-footer">
