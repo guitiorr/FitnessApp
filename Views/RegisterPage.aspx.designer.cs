@@ -33,6 +33,15 @@ namespace FitnessApp.Views
         protected global::System.Web.UI.WebControls.DropDownList RegisterAsDropdown;
 
         /// <summary>
+        /// RegisterAsErrorLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label RegisterAsErrorLbl;
+
+        /// <summary>
         /// GenderDropdown control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace FitnessApp.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList GenderDropdown;
+
+        /// <summary>
+        /// GenderErrorLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label GenderErrorLbl;
 
         /// <summary>
         /// FullNameTB control.

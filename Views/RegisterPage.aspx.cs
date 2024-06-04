@@ -1,5 +1,6 @@
 ﻿using FitnessApp.Repositories;
 using System;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -63,17 +64,46 @@ namespace FitnessApp.Views
 
             String Id;
             var username = UsernameTB.Text;
-            String checkUsername;
-            if (registerAs.Equals("User")) 
+            String checkUsername = null;
+
+            if (registerAs.Equals("User"))
             {
-                checkUsername = userRepo.checkUsername(username);
+                RegisterAsErrorLbl.Text = "";
+                registerPass = 1;
+            }
+            else if (registerAs.Equals("Trainer"))
+            {
+                RegisterAsErrorLbl.Text = "";
+                registerPass = 1;
             }
             else
             {
+                RegisterAsErrorLbl.Text = "Please choose an option";
+                registerPass = 0;
+            }
+
+            if (GenderDropdown.SelectedIndex.Equals("Male") || GenderDropdown.SelectedIndex.Equals("Female"))
+            {
+                GenderErrorLbl.Text = "";
+                registerPass = 1;
+            }
+            else
+            {
+                GenderErrorLbl.Text = "Please choose an option";
+                registerPass = 0;
+            }
+
+
+            if (registerAs.Equals("User"))
+            {
+                checkUsername = userRepo.checkUsername(username);
+            }
+            else if (registerAs.Equals("Trainer"))
+            {
                 checkUsername = trainerRepo.checkUsername(username);
             }
-            
-            
+
+
             var email = EmailTB.Text;
 
             String checkEmail;
@@ -199,7 +229,7 @@ namespace FitnessApp.Views
                 userRepo.insertUser(Id, username, password, email, age, gender, FullName);
                 Response.Redirect("~/Views/HomePage.aspx");
             }
-            else if(registerPass == 1 && registerAs.Equals("Trainer"))
+            else if (registerPass == 1 && registerAs.Equals("Trainer"))
             {
                 Id = GenerateIdForTrainer();
                 trainerRepo.insertTrainer(Id, username, password, email, age, gender, FullName);

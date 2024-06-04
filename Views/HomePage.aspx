@@ -42,11 +42,11 @@
         <div class="join-div">
             <div class="left" runat="server">
                 <%--<h1>Be A Trainer</h1>--%>
-                <asp:LinkButton CssClass="LinkBTN" ID="LinkButton1" runat="server" OnClick="becomeTrainerButton_Click">Be A Trainer</asp:LinkButton>
+                <asp:LinkButton CssClass="LinkBTN" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Be A Trainer</asp:LinkButton>
             </div>
             <div class="right">
                 <%--<h1>Be A Member</h1>--%>
-                <asp:LinkButton CssClass="LinkBTN" ID="LinkButton2" runat="server" OnClick="becomeMemberButton_Click">Be A Member</asp:LinkButton>
+                <asp:LinkButton CssClass="LinkBTN" ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Be A Member</asp:LinkButton>
             </div>
         </div>
 

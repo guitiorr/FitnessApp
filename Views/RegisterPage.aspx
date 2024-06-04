@@ -23,6 +23,8 @@
                 <asp:ListItem Text="User" Value="2"></asp:ListItem>
                 <asp:ListItem Text="Trainer" Value="3"></asp:ListItem>
             </asp:DropDownList>
+            <asp:Label ID="RegisterAsErrorLbl" runat="server" Text=""></asp:Label>
+
 
             <%--<asp:Label CssClass="label" ID="GenderLbl" runat="server" Text="Gender"></asp:Label>--%>
             
@@ -31,6 +33,7 @@
                 <asp:ListItem Text="Male" Value="2"></asp:ListItem>
                 <asp:ListItem Text="Female" Value="3"></asp:ListItem>
             </asp:DropDownList>
+            <asp:Label ID="GenderErrorLbl" runat="server" Text=""></asp:Label>
             <br />
 
         </div>

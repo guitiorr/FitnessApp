@@ -56,5 +56,36 @@ namespace FitnessApp.Views
             }
         }
 
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            if (Request.Cookies["userCookie"] != null) //Authenticated as regular user
+            {
+
+            }
+            else if (Request.Cookies["trainerCookie"] != null) //Authenticated as trainer
+            {
+
+            }
+            else //User not authenticated
+            {
+                Response.Redirect("~/Views/RegisterPage.aspx?role=trainer");
+            }
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            if (Request.Cookies["userCookie"] != null) //Authenticated as regular user
+            {
+                // Response.Redirect("~/Views/RegisterPage.aspx");
+            }
+            else if (Request.Cookies["trainerCookie"] != null) //Authenticated as trainer
+            {
+
+            }
+            else //User not authenticated
+            {
+                Response.Redirect("~/Views/RegisterPage.aspx?role=user");
+            }
+        }
     }
 }
