@@ -24,5 +24,6 @@ namespace FitnessApp.Models
         public Nullable<double> Height { get; set; }
         public byte[] ProfilePicture { get; set; }
         public string FullName { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }

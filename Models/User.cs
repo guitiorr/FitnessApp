@@ -25,5 +25,7 @@ namespace FitnessApp.Models
         public byte[] ProfilePicture { get; set; }
         public string FullName { get; set; }
         public string MemberLevel { get; set; }
+        public Nullable<double> WeightGoal { get; set; }
+        public string ActiveLevel { get; set; }
     }
 }

@@ -25,6 +25,7 @@
                 <asp:Button class="btn" ID="MealButton" runat="server" Text="Meal" OnClick="MealButton_Click" />
                 <asp:Button class="btn" ID="TrainerButton" runat="server" Text="Trainer" OnClick="TrainerButton_Click" />
                 <asp:Button class="btn" ID="ExerciseButton" runat="server" Text="Exercise" OnClick="ExerciseButton_Click" />
+                <asp:ImageButton ID="ImageButton1" runat="server" OnClick="ProfileButton_Click" />
             </nav>
             <div>
                 <asp:Label CssClass="status" ID="LogStatusLbl" runat="server" Text=""></asp:Label>
@@ -33,9 +34,8 @@
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
-        </div>
- </header>
-   
+                   </div>
+</header>
 
     </form>
 </body>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FitnessAppDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FitnessAppDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Trainer">
           <Key>
             <PropertyRef Name="trainerId" />
@@ -17,8 +17,9 @@
           <Property Name="Gender" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="Weight" Type="float" />
           <Property Name="Height" Type="float" />
-          <Property Name="ProfilePicture" Type="image" />
+          <Property Name="ProfilePicture" Type="varbinary(max)" />
           <Property Name="FullName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -32,16 +33,17 @@
           <Property Name="Gender" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="Weight" Type="float" />
           <Property Name="Height" Type="float" />
-          <Property Name="ProfilePicture" Type="image" />
+          <Property Name="ProfilePicture" Type="varbinary(max)" />
           <Property Name="FullName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="MemberLevel" Type="char" MaxLength="10" />
+          <Property Name="WeightGoal" Type="float" />
+          <Property Name="ActiveLevel" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="FitnessAppDatabaseModelStoreContainer">
           <EntitySet Name="Trainer" EntityType="Self.Trainer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FitnessAppDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -59,6 +61,7 @@
           <Property Name="Height" Type="Double" />
           <Property Name="ProfilePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -75,6 +78,8 @@
           <Property Name="ProfilePicture" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="MemberLevel" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="WeightGoal" Type="Double" />
+          <Property Name="ActiveLevel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="FitnessAppDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Trainers" EntityType="Self.Trainer" />
@@ -89,6 +94,7 @@
           <EntitySetMapping Name="Trainers">
             <EntityTypeMapping TypeName="FitnessAppDatabaseModel.Trainer">
               <MappingFragment StoreEntitySet="Trainer">
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
                 <ScalarProperty Name="trainerId" ColumnName="trainerId" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
@@ -105,6 +111,8 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="FitnessAppDatabaseModel.User">
               <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ActiveLevel" ColumnName="ActiveLevel" />
+                <ScalarProperty Name="WeightGoal" ColumnName="WeightGoal" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
