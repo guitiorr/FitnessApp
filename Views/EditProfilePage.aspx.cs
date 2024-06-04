@@ -206,7 +206,7 @@ namespace FitnessApp.Views
                     trainerRepo.setWeight(weight, trainerId);
                     trainerRepo.setPhone(phoneNumber, trainerId);
 
-                    string FileName = userRepo.getIdFromUsername(Request.Cookies["trainerCookie"]["Username"]).ToString() + "ProfilePicture";
+                    string FileName = trainerRepo.getIdFromUsername(Request.Cookies["trainerCookie"]["Username"]).ToString() + "ProfilePicture";
                     trainerRepo.setProfilePicture(trainerId, FileName, fileExtension);
                     Response.Redirect("~/Views/ProfilePage.aspx");
                 }
@@ -240,7 +240,7 @@ namespace FitnessApp.Views
                         }
                         else if (Request.Cookies["trainerCookie"] != null)
                         {
-                            newFileName = userRepo.getIdFromUsername(Request.Cookies["trainerCookie"]["Username"]).ToString() + "ProfilePicture";
+                            newFileName = trainerRepo.getIdFromUsername(Request.Cookies["trainerCookie"]["Username"]).ToString() + "ProfilePicture";
                         }
 
                         // Save the file to the server (for example, in a "uploads" directory)

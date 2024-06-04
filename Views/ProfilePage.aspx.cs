@@ -24,16 +24,24 @@ namespace FitnessApp.Views
                     EmailLbl.Text = userRepo.getEmailFromId(userId);
 
                     AgeLbl.Text = "Age: " + userRepo.getAgeFromId(userId).ToString();
-                    HeightLbl.Text = "Height: " + userRepo.getHeightFromId(userId).ToString();
-                    WeightLbl.Text = "Weight: " + userRepo.getWeightFromId(userId).ToString();
+                    //HeightLbl.Text = "Height: " + userRepo.getHeightFromId(userId).ToString();
+                    //WeightLbl.Text = "Weight: " + userRepo.getWeightFromId(userId).ToString();
 
-                    if(HeightLbl.Text == null)
+                    if(userRepo.getHeightFromId(userId).ToString() == "")
                     {
                         HeightLbl.Text = "Height: Not set";
                     }
-                    if (WeightLbl.Text == null)
+                    else
+                    {
+                        HeightLbl.Text = "Height: " + userRepo.getHeightFromId(userId).ToString();
+                    }
+                    if (userRepo.getWeightFromId(userId).ToString() == "")
                     {
                         WeightLbl.Text = "Weight: Not set";
+                    }
+                    else
+                    {
+                        WeightLbl.Text = "Weight: " + userRepo.getWeightFromId(userId).ToString();
                     }
 
 
@@ -53,20 +61,37 @@ namespace FitnessApp.Views
                     UsernameLbl.Text = username;
                     EmailLbl.Text = trainerRepo.getEmailFromUsername(username);
 
-                    AgeLbl.Text = trainerRepo.getAgeFromUsername(username).ToString();
-                    HeightLbl.Text = trainerRepo.getHeightFromUsername(username).ToString();
-                    WeightLbl.Text = trainerRepo.getWeightFromUsername(username).ToString();
+                    AgeLbl.Text = "Age: " + trainerRepo.getAgeFromUsername(username).ToString();
+                    //HeightLbl.Text = "Height: " + trainerRepo.getHeightFromUsername(username).ToString();
+                    //WeightLbl.Text = "Weight: " + trainerRepo.getWeightFromUsername(username).ToString();
 
-                    if (HeightLbl.Text == null)
+                    if (trainerRepo.getHeightFromUsername(username).ToString() == "")
                     {
-                        HeightLbl.Text = "Not set";
+                        HeightLbl.Text = "Height: Not set";
                     }
-                    if (WeightLbl.Text == null)
+                    else
                     {
-                        WeightLbl.Text = "Not set";
+                        HeightLbl.Text = "Height: " + trainerRepo.getHeightFromUsername(username).ToString();
+                    }
+                    if (trainerRepo.getWeightFromUsername(username).ToString() == "")
+                    {
+                        WeightLbl.Text = "Height: Not set";
+                    }
+                    else
+                    {
+                        WeightLbl.Text = "Weight: " + trainerRepo.getWeightFromUsername(username).ToString();
                     }
 
-                    PhoneLbl.Text = trainerRepo.getPhoneFromId(trainerId);
+                    if(trainerRepo.getPhoneFromId(trainerId) == null)
+                    {
+                        PhoneLbl.Text = "Phone: Not set";
+                    }
+                    else
+                    {
+                        PhoneLbl.Text = "Phone: " + trainerRepo.getPhoneFromId(trainerId).ToString();
+                    }
+
+                    
 
 
                     WeightGoalLbl.Visible = false; //hide weight goal
