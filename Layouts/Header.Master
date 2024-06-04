@@ -19,6 +19,7 @@
             <asp:Button ID="MealButton" runat="server" Text="Meal" OnClick="MealButton_Click" />
             <asp:Button ID="TrainerButton" runat="server" Text="Trainer" OnClick="TrainerButton_Click" />
             <asp:Button ID="ExerciseButton" runat="server" Text="Exercise" OnClick="ExerciseButton_Click" />
+            <asp:ImageButton ID="ProfileButton" runat="server" OnClick="ProfileButton_Click" />
         </div>
         <div>
             <asp:Label ID="LogStatusLbl" runat="server" Text=""></asp:Label>

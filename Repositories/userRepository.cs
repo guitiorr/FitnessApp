@@ -3,6 +3,7 @@ using FitnessApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -74,6 +75,117 @@ namespace FitnessApp.Repositories
         public String getLastId()
         {
             return(from x in db.Users select x.userId).ToList().LastOrDefault();
+        }
+
+        public String getUsernameFromId(String Id)
+        {
+            return(from x in db.Users where x.userId.Equals(Id) select x.Username).FirstOrDefault();
+        }
+
+        public String getEmailFromId(String Id)
+        {
+            return (from x in db.Users where x.userId.Equals(Id) select x.Email).FirstOrDefault();
+        }
+
+        public int getAgeFromId(String Id)
+        {
+            return (from x in db.Users where x.userId.Equals(Id) select x.Age).FirstOrDefault();
+        }
+
+        public double? getHeightFromId(String Id)
+        {
+            return (from x in db.Users where x.userId.Equals(Id) select x.Height).FirstOrDefault();
+        }
+
+        public double? getWeightFromId(String Id)
+        {
+            return (from x in db.Users where x.userId.Equals(Id) select x.Weight).FirstOrDefault();
+        }
+
+        private byte[] ConvertImageToBinary(string imagePath)
+        {
+            return File.ReadAllBytes(imagePath);
+        }
+
+        public void setDefaultImage()
+        {
+            string defaultImagePath = HttpContext.Current.Server.MapPath("~/Assets/Images/User/defaultProfile.png");
+            byte[] defaultImage = ConvertImageToBinary(defaultImagePath);
+
+            var usersWithoutProfilePicture = from user in db.Users
+                                             where user.ProfilePicture == null
+                                             select user;
+
+            foreach (var user in usersWithoutProfilePicture)
+            {
+                user.ProfilePicture = defaultImage;
+            }
+
+            db.SaveChanges();
+        }
+
+        public void setAge(int age, String userId)
+        {
+            User user = getUserFromId(userId);
+            user.Age = age;
+            db.SaveChanges();
+        }
+
+        public void setHeight(double height, String userId)
+        {
+            User user = getUserFromId(userId);
+            user.Height = height;
+            db.SaveChanges();
+        }
+
+        public void setWeight(double weight, String userId)
+        {
+            User user = getUserFromId(userId);
+            user.Weight = weight;
+            db.SaveChanges();
+        }
+
+        public void setWeightGoal(double weightGoal, String userId)
+        {
+            User user = getUserFromId(userId);
+            user.WeightGoal = weightGoal;
+            db.SaveChanges();
+        }
+
+        public string GetProfilePictureUrlFromId(string userId)
+        {
+            byte[] profilePicture = GetProfilePictureFromId(userId);
+            if (profilePicture == null || profilePicture.Length == 0)
+            {
+                // Return a default image URL if no picture is found
+                return HttpContext.Current.Server.MapPath("~/Assets/Images/User/defaultProfile.png");
+            }
+
+            string base64String = Convert.ToBase64String(profilePicture);
+            return $"data:image/jpeg;base64,{base64String}";
+        }
+
+        public byte[] GetProfilePictureFromId(string userId)
+        {
+            return (from x in db.Users where x.userId.Equals(userId) select x.ProfilePicture).FirstOrDefault();
+        }
+
+        public void setProfilePicture(string userId, string fileName, string extension)
+        {
+            User user = getUserFromId(userId);
+            string fileExtension = Path.GetExtension(fileName).ToLower();
+            string imagePath = HttpContext.Current.Server.MapPath("~/Assets/Images/User/UploadPics/" + fileName + extension);
+
+            byte[] imageByte = ConvertImageToBinary(imagePath);
+
+            user.ProfilePicture = imageByte;
+
+            db.SaveChanges();
+        }
+
+        public double? getWeightGoalFromId(string userId)
+        {
+            return (from x in db.Users where x.userId.Equals(userId) select x.WeightGoal).FirstOrDefault();
         }
 
     }

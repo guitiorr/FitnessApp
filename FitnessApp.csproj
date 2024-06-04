@@ -76,6 +76,8 @@
     <Content Include="App_Data\FitnessAppDatabase_log.ldf">
       <DependentUpon>FitnessAppDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Assets\GIF\ExercisePage\Chest\shrekdance.gif" />
+    <Content Include="Assets\Images\User\defaultProfile.png" />
     <Content Include="Models\FitnessAppModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FitnessAppModel.edmx</DependentUpon>
@@ -86,10 +88,12 @@
       <DependentUpon>FitnessAppModel.edmx</DependentUpon>
       <LastGenOutput>FitnessAppModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\EditProfilePage.aspx" />
     <Content Include="Views\ExerciseVideoPage.aspx" />
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\LoginPage.aspx" />
     <Content Include="Views\MembersPage.aspx" />
+    <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -128,6 +132,13 @@
     <Compile Include="Repositories\DatabaseSingleton.cs" />
     <Compile Include="Repositories\trainerRepository.cs" />
     <Compile Include="Repositories\userRepository.cs" />
+    <Compile Include="Views\EditProfilePage.aspx.cs">
+      <DependentUpon>EditProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\EditProfilePage.aspx.designer.cs">
+      <DependentUpon>EditProfilePage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\ExerciseVideoPage.aspx.cs">
       <DependentUpon>ExerciseVideoPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -155,6 +166,13 @@
     </Compile>
     <Compile Include="Views\MembersPage.aspx.designer.cs">
       <DependentUpon>MembersPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfilePage.aspx.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ProfilePage.aspx.designer.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
@@ -184,7 +202,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\Images\User\UploadPics\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

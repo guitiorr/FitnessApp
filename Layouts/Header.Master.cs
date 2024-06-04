@@ -1,5 +1,7 @@
-﻿using System;
+﻿using FitnessApp.Repositories;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -23,6 +25,8 @@ namespace FitnessApp.Layouts
                     MealButton.Visible = true; //Show Meal button
                     TrainerButton.Visible = true; //Show trainer button
                     ExerciseButton.Visible = true; //Show exercise button
+                    ProfileButton.Visible = true; //Show profile button
+                    SetUserProfileImage();
                 }
                 else if (Request.Cookies["trainerCookie"] != null) //Authenticated as trainer
                 {
@@ -34,6 +38,8 @@ namespace FitnessApp.Layouts
                     MealButton.Visible = false; //Hide Meal button
                     TrainerButton.Visible = false ; //Hide trainer button
                     ExerciseButton.Visible = false; //Hide exercise button
+                    ProfileButton.Visible = true; //Show profile button
+                    SetTrainerProfileImage();
                 }
                 else //User not authenticated
                 {
@@ -43,8 +49,35 @@ namespace FitnessApp.Layouts
                     MealButton.Visible = false; //Hide Meal button
                     TrainerButton.Visible = false; //Hide trainer button
                     ExerciseButton.Visible = false; //Hide exercise button
+                    ProfileButton.Visible = false; //Hide profile button
                     LogStatusLbl.Text = "You are not logged in";
                 }
+            }
+        }
+
+        private void SetUserProfileImage()
+        {
+            userRepository userRepo = new userRepository();
+            string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
+            byte[] profilePicture = userRepo.GetProfilePictureFromId(userId);
+
+            if (profilePicture != null)
+            {
+                string base64String = Convert.ToBase64String(profilePicture);
+                ProfileButton.ImageUrl = "data:image/png;base64," + base64String;
+            }
+        }
+
+        private void SetTrainerProfileImage()
+        {
+            trainerRepository trainerRepo = new trainerRepository();
+            string trainerId = trainerRepo.getIdFromUsername(Request.Cookies["trainerCookie"]["Username"]);
+            byte[] profilePicture = trainerRepo.GetProfilePictureFromId(trainerId);
+
+            if (profilePicture != null)
+            {
+                string base64String = Convert.ToBase64String(profilePicture);
+                ProfileButton.ImageUrl = "data:image/png;base64," + base64String;
             }
         }
 
@@ -95,6 +128,11 @@ namespace FitnessApp.Layouts
         protected void ExerciseButton_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Views/ExerciseVideoPage.aspx");
+        }
+
+        protected void ProfileButton_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("~/Views/ProfilePage.aspx");
         }
     }
 }
