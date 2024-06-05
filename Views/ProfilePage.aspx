@@ -9,9 +9,8 @@
         <div class="profile">
             <div class="left-profile">
                 <div>
-                    <asp:Image class="img" ID="ProfilePicture" runat="server" ImageUrl="../Assets/IMG/Home/food.png" Width="200" Height="200"/>
+                    <asp:Image class="img" ID="ProfilePicture" runat="server" Width="200" Height="200"/>
                 </div>
-
                 <div style="margin-top:50px;font-weight:bolder">
                     <asp:Label ID="UsernameLbl" runat="server" Text=""></asp:Label>
                 </div>

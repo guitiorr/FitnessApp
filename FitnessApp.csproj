@@ -88,6 +88,7 @@
       <DependentUpon>FitnessAppModel.edmx</DependentUpon>
       <LastGenOutput>FitnessAppModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Style\EditProfile.css" />
     <Content Include="Style\Profile.css" />
     <Content Include="Views\EditProfilePage.aspx" />
     <Content Include="Views\ExerciseVideoPage.aspx" />

@@ -23,7 +23,6 @@ namespace FitnessApp.Views
                     string username = Request.Cookies["userCookie"]["Username"];
                     string userId = userRepo.getIdFromUsername(username);
 
-                    PhoneLbl.Visible = false; // hide phone
                     PhoneTB.Visible = false; // hide phone
 
                     ProfilePictureImage.ImageUrl = userRepo.GetProfilePictureUrlFromId(userId);
@@ -45,7 +44,6 @@ namespace FitnessApp.Views
                     HeightTB.Text = trainerRepo.getHeightFromUsername(username).ToString();
                     WeightTB.Text = trainerRepo.getWeightFromUsername(username).ToString();
                     WeightGoalTB.Visible = false; // hide weight goal
-                    WeightGoalLbl.Visible = false; // hide weight goal
                     PhoneTB.Text = trainerRepo.getPhoneFromId(trainerId);
 
                 }

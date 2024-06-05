@@ -60,15 +60,6 @@ namespace FitnessApp.Views
         protected global::System.Web.UI.WebControls.Label ProfilePictureErrorLbl;
 
         /// <summary>
-        /// AgeLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label AgeLbl;
-
-        /// <summary>
         /// AgeTB control.
         /// </summary>
         /// <remarks>
@@ -85,15 +76,6 @@ namespace FitnessApp.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label AgeErrorLbl;
-
-        /// <summary>
-        /// HeightLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label HeightLbl;
 
         /// <summary>
         /// HeightTB control.
@@ -114,15 +96,6 @@ namespace FitnessApp.Views
         protected global::System.Web.UI.WebControls.Label HeightErrorLbl;
 
         /// <summary>
-        /// WeightLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label WeightLbl;
-
-        /// <summary>
         /// WeightTB control.
         /// </summary>
         /// <remarks>
@@ -141,15 +114,6 @@ namespace FitnessApp.Views
         protected global::System.Web.UI.WebControls.Label WeightErrorLbl;
 
         /// <summary>
-        /// WeightGoalLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label WeightGoalLbl;
-
-        /// <summary>
         /// WeightGoalTB control.
         /// </summary>
         /// <remarks>
@@ -166,15 +130,6 @@ namespace FitnessApp.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label WeightGoalErrorLbl;
-
-        /// <summary>
-        /// PhoneLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PhoneLbl;
 
         /// <summary>
         /// PhoneTB control.
