@@ -188,5 +188,18 @@ namespace FitnessApp.Repositories
             return (from x in db.Users where x.userId.Equals(userId) select x.WeightGoal).FirstOrDefault();
         }
 
+        public string getTrainerIdFromId(string userId)
+        {
+            return (from x in db.Users where x.userId.Equals(userId) select x.trainerId).FirstOrDefault();
+        }
+
+        public void setTrainerId(string userId, string trainerId)
+        {
+            User user = getUserFromId(userId);
+            user.trainerId = trainerId;
+            db.SaveChanges();
+        }
+
+
     }
 }

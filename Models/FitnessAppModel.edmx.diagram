@@ -7,6 +7,8 @@
       <Diagram DiagramId="186ae3d5497a4569adf1654895edbc8d" Name="Diagram1">
         <EntityTypeShape EntityType="FitnessAppDatabaseModel.Trainer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FitnessAppDatabaseModel.User" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="FitnessAppDatabaseModel.FK_Trainer_ToUser" />
+        <AssociationConnector Association="FitnessAppDatabaseModel.FK_User_ToTrainer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

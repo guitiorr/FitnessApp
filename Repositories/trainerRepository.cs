@@ -162,5 +162,17 @@ namespace FitnessApp.Repositories
             db.SaveChanges();
         }
 
+        public void setUserId(String trainerId, String userId)
+        {
+            Trainer trainer = getTrainerFromId(trainerId);
+            trainer.userId = userId;
+            db.SaveChanges();
+        }
+
+        public string getFullNameFromid(String trainerId)
+        {
+            return (from x in db.Trainers where x.trainerId.Equals(trainerId) select x.FullName).FirstOrDefault();
+        }
+
     }
 }
