@@ -1,0 +1,61 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    font-family: "Bebas Neue", sans-serif;
+    color: white;
+    background-image: url('../assets/img/home/bartek-garbowicz-xjeclqsbuqc-unsplash.jpg');
+}
+
+
+.out-profile{
+    margin-top:10%;
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+
+}
+
+.img{
+    border-radius:100%;
+    border: 1px solid white
+}
+
+.profile{
+    display:flex;
+    margin-top:5%;
+    justify-content:space-around
+}
+
+.left-profile{
+    text-align:center
+}
+
+.right-profile{
+    display:flex;
+    background-color:rgb(128,128, 128, 0.4);
+    border-radius:10px;
+    padding: 30px 80px 30px 80px;
+}
+
+.Self-Info{
+    margin-right:100px
+}
+
+
+.edit-btn{
+    margin-top:10%;
+    border:none;
+    border-radius:10px;
+    height: 30px;
+    font-weight:bolder;
+}
+
+.Label-Div {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around
+}
+
+.label{
+    margin-bottom:15px;
+}

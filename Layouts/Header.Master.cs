@@ -26,6 +26,7 @@ namespace FitnessApp.Layouts
                     TrainerButton.Visible = true; //Show trainer button
                     ExerciseButton.Visible = true; //Show exercise button
                     ProfileButton.Visible = true; //Show profile button
+
                     SetUserProfileImage();
                 }
                 else if (Request.Cookies["trainerCookie"] != null) //Authenticated as trainer
