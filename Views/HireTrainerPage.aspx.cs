@@ -1,5 +1,6 @@
 ﻿using FitnessApp.Models;
 using FitnessApp.Repositories;
+using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,23 @@ namespace FitnessApp.Views
 
         protected void HireButton_Click1(object sender, EventArgs e)
         {
+            userRepository userRepo = new userRepository();
+            trainerRepository trainerRepo = new trainerRepository();
+            Button btn = (Button)sender;
+            string trainerId = btn.CommandArgument;
+
+            string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
+
+            if (userRepo.getTrainerIdFromId(userId) == null)
+            {
+                userRepo.setTrainerId(userId, trainerId);
+                trainerRepo.setUserId(trainerId, userId);
+                Response.Write("Trainer hired");
+            }
+            else
+            {
+                Response.Write("You already hired a trainer");
+            }
 
         }
 
