@@ -190,7 +190,7 @@ namespace FitnessApp.Repositories
 
         public string getTrainerIdFromId(string userId)
         {
-            return (from x in db.Users where x.Username.Equals(userId) select x.trainerId).FirstOrDefault();
+            return (from x in db.Users where x.userId.Equals(userId) select x.trainerId).FirstOrDefault();
         }
 
         public void setTrainerId(string userId, string trainerId)

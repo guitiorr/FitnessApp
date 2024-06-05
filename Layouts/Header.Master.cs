@@ -125,12 +125,13 @@ namespace FitnessApp.Layouts
         {
             userRepository userRepo = new userRepository();
             string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
+            string trainerId = userRepo.getTrainerIdFromId(userId);
 
-            if(userRepo.getTrainerIdFromId(userId) == null)
+            if (trainerId == null)
             {
                 Response.Redirect("~/Views/HireTrainerPage.aspx");
             }
-            else
+            else if(trainerId != null)
             {
                 Response.Redirect("~/Views/ViewTrainerPage.aspx");
             }

@@ -50,6 +50,7 @@ namespace FitnessApp.Views
                 userRepo.setTrainerId(userId, trainerId);
                 trainerRepo.setUserId(trainerId, userId);
                 Response.Write("Trainer hired");
+                Response.Redirect("~/Views/ViewTrainerPage.aspx");
             }
             else
             {
