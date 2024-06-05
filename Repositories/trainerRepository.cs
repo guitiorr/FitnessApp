@@ -169,5 +169,10 @@ namespace FitnessApp.Repositories
             db.SaveChanges();
         }
 
+        public string getFullNameFromid(String trainerId)
+        {
+            return (from x in db.Trainers where x.trainerId.Equals(trainerId) select x.FullName).ToString();
+        }
+
     }
 }

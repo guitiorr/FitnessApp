@@ -123,6 +123,17 @@ namespace FitnessApp.Layouts
 
         protected void TrainerButton_Click(object sender, EventArgs e)
         {
+            userRepository userRepo = new userRepository();
+            string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
+
+            if(userRepo.getTrainerIdFromId(userId) == null)
+            {
+                Response.Redirect("~/Views/HireTrainerPage.aspx");
+            }
+            else
+            {
+                Response.Redirect("~/Views/ViewTrainerPage.aspx");
+            }
 
         }
 
