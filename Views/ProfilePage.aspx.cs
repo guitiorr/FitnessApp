@@ -16,6 +16,7 @@ namespace FitnessApp.Views
             {
                 if (Request.Cookies["userCookie"] != null) //Regular user
                 {
+                    
                     String userId = Request.Cookies["userCookie"]["UserID"];
 
                     userRepository userRepo = new userRepository();
@@ -48,11 +49,12 @@ namespace FitnessApp.Views
                     WeightGoalLbl.Text = "Weight goal: " + userRepo.getWeightGoalFromId(userId);
                     //ActiveLevelLbl.Text = "Active level: Not set";
 
+                    ProfilePicture.ImageUrl = userRepo.GetProfilePictureUrlFromId(userId);
+
 
                 }
                 else if (Request.Cookies["trainerCookie"] != null) //Trainer
                 {
-
                     String username = Request.Cookies["trainerCookie"]["Username"];
 
                     trainerRepository trainerRepo = new trainerRepository();
@@ -91,7 +93,8 @@ namespace FitnessApp.Views
                         PhoneLbl.Text = "Phone: " + trainerRepo.getPhoneFromId(trainerId).ToString();
                     }
 
-                    
+
+                    ProfilePicture.ImageUrl = trainerRepo.GetProfilePictureUrlFromId(trainerId);
 
 
                     WeightGoalLbl.Visible = false; //hide weight goal
