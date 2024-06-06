@@ -1,0 +1,36 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: "Bebas Neue", sans-serif;
+    color: white;
+    background-image: url('../assets/img/home/bartek-garbowicz-xjeclqsbuqc-unsplash.jpg');
+}
+
+.Trainer{
+    width:50%;
+    margin-top:10%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+
+.Image{
+    border: 1px solid white;
+    border-radius:100px;
+}
+
+.icon{
+    margin-top:6%;
+    display:flex;
+    justify-content:space-evenly;
+}
+
+.fa-solid{
+    margin-right:10px;
+}
+
+.name{
+    margin-top:2%;
+    font-weight:bolder;
+}
