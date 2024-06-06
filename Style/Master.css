@@ -4,6 +4,16 @@
 h1 {
 }
 
+.profile-img{
+    position:absolute;
+    height:30px;
+    background-color:blue;
+    border-radius:100px;
+    border:1px solid white;
+    margin-left:24px;
+    margin-top:2px;
+}
+
 .header {
 
     top: 0;
@@ -28,12 +38,14 @@ h1 {
 }
 
 .btn {
+    text-align:center;
     color: black;
     padding: 10px 40px 10px;
     background-color: white;
     border: none;
     border-radius: 8px;
     font-weight: 900;
+    margin-right:10px;
 }
 
 nav {

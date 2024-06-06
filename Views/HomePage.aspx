@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layouts/Header.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="FitnessApp.Views.HomePage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../Style/Homee.css?Version=3" rel="stylesheet" />
+    <link href="../Style/Homee.css?Version=4" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
         <div class="div-main">
                 <div class="inside">
                     <div class="main-txt">
-                        <h1 style="margin-top: 0;">YOUR PERSONALIZED JOURNEY TO HEALTH & FITNESS</h1>
+                        <h1 style="margin-top: 0;font-size:5vw">YOUR PERSONALIZED JOURNEY TO HEALTH & FITNESS</h1>
                         <br>
                         <asp:Button class="join" ID="Button1" runat="server" Text="Join" />
                     </div>

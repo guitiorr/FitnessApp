@@ -6,7 +6,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link  rel="stylesheet" href="../Style/Master.css?Version=2" />
+    <link  rel="stylesheet" href="../Style/Master.css?Version=3" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -25,7 +25,7 @@
                 <asp:Button class="btn" ID="MealButton" runat="server" Text="Meal" OnClick="MealButton_Click" />
                 <asp:Button class="btn" ID="TrainerButton" runat="server" Text="Trainer" OnClick="TrainerButton_Click" />
                 <asp:Button class="btn" ID="ExerciseButton" runat="server" Text="Exercise" OnClick="ExerciseButton_Click" />
-                <asp:ImageButton ID="ProfileButton" runat="server" OnClick="ProfileButton_Click" />
+                <asp:ImageButton class="profile-img" ID="ProfileButton" runat="server" OnClick="ProfileButton_Click" />
             </nav>
             <div>
                 <asp:Label CssClass="status" ID="LogStatusLbl" runat="server" Text=""></asp:Label>

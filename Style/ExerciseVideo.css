@@ -34,8 +34,9 @@
 }
 
 .BTN {
-    width: 120px;
-    height: 30px;
+    width: 6vw;
+    font-size:1vw;
+    height: 4vh;
     background-color: black;
     border: none;
     color: white;

@@ -3,6 +3,7 @@
     padding: 0;
     font-family: "Bebas Neue", sans-serif;
     color: white;
+    font-size:1vw;
     background-image: url('../assets/img/home/bartek-garbowicz-xjeclqsbuqc-unsplash.jpg');
 }
 
@@ -11,7 +12,9 @@
     width:80%;
     margin-left:auto;
     margin-right:auto;
-
+    border:1px solid white;
+    padding: 10px 20px 80px 20px;
+    border-radius:10px;
 }
 
 .img{
@@ -22,7 +25,8 @@
 .profile{
     display:flex;
     margin-top:5%;
-    justify-content:space-around
+    justify-content:space-around;
+    flex-wrap:wrap;
 }
 
 .left-profile{
