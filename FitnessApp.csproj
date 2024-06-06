@@ -99,6 +99,7 @@
     <Content Include="Views\HireTrainerPage.aspx" />
     <Content Include="Views\HomePage.aspx" />
     <Content Include="Views\LoginPage.aspx" />
+    <Content Include="Views\MealPage.aspx" />
     <Content Include="Views\MembersPage.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
@@ -107,8 +108,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\classFactory.cs" />
     <Compile Include="Factories\trainerFactory.cs" />
     <Compile Include="Factories\userFactory.cs" />
+    <Compile Include="Factories\userFoodScheduleFactory.cs" />
     <Compile Include="Layouts\Header.Master.cs">
       <DependentUpon>Header.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -145,7 +148,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DatabaseSingleton.cs" />
+    <Compile Include="Repositories\FoodRepository.cs" />
     <Compile Include="Repositories\trainerRepository.cs" />
+    <Compile Include="Repositories\userFoodScheduleRepository.cs" />
     <Compile Include="Repositories\userRepository.cs" />
     <Compile Include="Views\EditProfilePage.aspx.cs">
       <DependentUpon>EditProfilePage.aspx</DependentUpon>
@@ -181,6 +186,13 @@
     </Compile>
     <Compile Include="Views\LoginPage.aspx.designer.cs">
       <DependentUpon>LoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MealPage.aspx.cs">
+      <DependentUpon>MealPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MealPage.aspx.designer.cs">
+      <DependentUpon>MealPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\MembersPage.aspx.cs">
       <DependentUpon>MembersPage.aspx</DependentUpon>

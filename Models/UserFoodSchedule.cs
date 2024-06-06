@@ -17,7 +17,7 @@ namespace FitnessApp.Models
         public string MealPlanId { get; set; }
         public string userId { get; set; }
         public string foodId { get; set; }
-        public System.DateTime mealTime { get; set; }
+        public string mealTime { get; set; }
     
         public virtual Food Food { get; set; }
         public virtual User User { get; set; }
