@@ -46,6 +46,7 @@ h1 {
     border-radius: 8px;
     font-weight: 900;
     margin-right:10px;
+    transition:0.5s;
 }
 
 nav {
@@ -56,4 +57,13 @@ nav {
 
 .status{
     color:black
+}
+
+.logout{
+    background-color:red;
+    color:white;
+}
+
+.btn:hover{
+    opacity:0.5;
 }

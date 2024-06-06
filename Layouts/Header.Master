@@ -6,7 +6,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <link  rel="stylesheet" href="../Style/Master.css?Version=3" />
+    <link  rel="stylesheet" href="../Style/Master.css?Version=4" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -20,12 +20,12 @@
             <nav>
                 <asp:Button class="btn" ID="LoginButton" runat="server" Text="Login" OnClick="LoginButton_Click"/>
                 <asp:Button class="btn" ID="RegisterButton" runat="server" Text="Register" OnClick="RegisterButton_Click"/>
-                <asp:Button class="btn" ID="LogOutButton" runat="server" Text="Logout" OnClick="LogOutButton_Click"/>
                 <asp:Button class="btn" ID="HomeButton" runat="server" Text="Home" OnClick="HomeButton_Click" />
                 <asp:Button class="btn" ID="MealButton" runat="server" Text="Meal" OnClick="MealButton_Click" />
                 <asp:Button class="btn" ID="TrainerButton" runat="server" Text="Trainer" OnClick="TrainerButton_Click" />
                 <asp:Button class="btn" ID="ExerciseButton" runat="server" Text="Exercise" OnClick="ExerciseButton_Click" />
                 <asp:Button class="btn" ID="StudentButton" runat="server" Text="Student" OnClick="StudentButton_Click"/>
+                <asp:Button class="btn logout" ID="LogOutButton" runat="server" Text="Logout" OnClick="LogOutButton_Click"/>
                 <asp:ImageButton class="profile-img" ID="ProfileButton" runat="server" OnClick="ProfileButton_Click" />
 
             </nav>
