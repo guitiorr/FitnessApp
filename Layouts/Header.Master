@@ -25,7 +25,12 @@
                 <asp:Button class="btn" ID="MealButton" runat="server" Text="Meal" OnClick="MealButton_Click" />
                 <asp:Button class="btn" ID="TrainerButton" runat="server" Text="Trainer" OnClick="TrainerButton_Click" />
                 <asp:Button class="btn" ID="ExerciseButton" runat="server" Text="Exercise" OnClick="ExerciseButton_Click" />
+<<<<<<< HEAD
                 <asp:ImageButton class="profile-img" ID="ProfileButton" runat="server" OnClick="ProfileButton_Click" />
+=======
+                <asp:ImageButton ID="ProfileButton" runat="server" OnClick="ProfileButton_Click" />
+                <asp:Button ID="StudentButton" runat="server" Text="Student" OnClick="StudentButton_Click"/>
+>>>>>>> origin/view-student
             </nav>
             <div>
                 <asp:Label CssClass="status" ID="LogStatusLbl" runat="server" Text=""></asp:Label>

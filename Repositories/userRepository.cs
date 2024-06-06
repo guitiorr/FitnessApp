@@ -200,6 +200,11 @@ namespace FitnessApp.Repositories
             db.SaveChanges();
         }
 
+        public List<User> getUserListFromTrainerId(string trainerId)
+        {
+            return (from x in db.Users where x.trainerId.Equals(trainerId) select x).ToList();
+        }
+
 
     }
 }

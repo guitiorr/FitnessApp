@@ -101,6 +101,7 @@
     <Content Include="Views\MembersPage.aspx" />
     <Content Include="Views\ProfilePage.aspx" />
     <Content Include="Views\RegisterPage.aspx" />
+    <Content Include="Views\ViewStudent.aspx" />
     <Content Include="Views\ViewTrainerPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -194,6 +195,13 @@
     </Compile>
     <Compile Include="Views\RegisterPage.aspx.designer.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ViewStudent.aspx.cs">
+      <DependentUpon>ViewStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ViewStudent.aspx.designer.cs">
+      <DependentUpon>ViewStudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\ViewTrainerPage.aspx.cs">
       <DependentUpon>ViewTrainerPage.aspx</DependentUpon>

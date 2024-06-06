@@ -26,6 +26,7 @@ namespace FitnessApp.Layouts
                     TrainerButton.Visible = true; //Show trainer button
                     ExerciseButton.Visible = true; //Show exercise button
                     ProfileButton.Visible = true; //Show profile button
+                    StudentButton.Visible = false; //Hide student button
 
                     SetUserProfileImage();
                 }
@@ -40,6 +41,7 @@ namespace FitnessApp.Layouts
                     TrainerButton.Visible = false ; //Hide trainer button
                     ExerciseButton.Visible = false; //Hide exercise button
                     ProfileButton.Visible = true; //Show profile button
+                    StudentButton.Visible = true; //Show student button 
                     SetTrainerProfileImage();
                 }
                 else //User not authenticated
@@ -51,6 +53,7 @@ namespace FitnessApp.Layouts
                     TrainerButton.Visible = false; //Hide trainer button
                     ExerciseButton.Visible = false; //Hide exercise button
                     ProfileButton.Visible = false; //Hide profile button
+                    StudentButton.Visible = false; //Hide student button;
                     LogStatusLbl.Text = "You are not logged in";
                 }
             }
@@ -146,6 +149,11 @@ namespace FitnessApp.Layouts
         protected void ProfileButton_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("~/Views/ProfilePage.aspx");
+        }
+
+        protected void StudentButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/ViewStudent.aspx");
         }
     }
 }
