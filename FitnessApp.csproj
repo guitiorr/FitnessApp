@@ -131,10 +131,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FitnessAppModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Food.cs">
+      <DependentUpon>FitnessAppModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Trainer.cs">
       <DependentUpon>FitnessAppModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
+      <DependentUpon>FitnessAppModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserFoodSchedule.cs">
       <DependentUpon>FitnessAppModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -18,6 +18,7 @@ namespace FitnessApp.Models
         public User()
         {
             this.Trainers = new HashSet<Trainer>();
+            this.UserFoodSchedules = new HashSet<UserFoodSchedule>();
         }
     
         public string userId { get; set; }
@@ -38,5 +39,7 @@ namespace FitnessApp.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Trainer> Trainers { get; set; }
         public virtual Trainer Trainer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserFoodSchedule> UserFoodSchedules { get; set; }
     }
 }

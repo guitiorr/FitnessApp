@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="FitnessAppDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="FoodId" />
+          </Key>
+          <Property Name="FoodId" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Kcal" Type="int" Nullable="false" />
+          <Property Name="Fat" Type="int" Nullable="false" />
+          <Property Name="Carbs" Type="int" Nullable="false" />
+          <Property Name="Sugar" Type="int" Nullable="false" />
+          <Property Name="FoodPicture" Type="varbinary(max)" Nullable="false" />
+          <Property Name="Protein" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Trainer">
           <Key>
             <PropertyRef Name="trainerId" />
@@ -41,6 +53,15 @@
           <Property Name="ActiveLevel" Type="varchar" MaxLength="50" />
           <Property Name="trainerId" Type="char" MaxLength="10" />
         </EntityType>
+        <EntityType Name="UserFoodSchedule">
+          <Key>
+            <PropertyRef Name="MealPlanId" />
+          </Key>
+          <Property Name="MealPlanId" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="userId" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="foodId" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="mealTime" Type="datetime" Nullable="false" />
+        </EntityType>
         <Association Name="FK_Trainer_ToUser">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
           <End Role="Trainer" Type="Self.Trainer" Multiplicity="*" />
@@ -65,9 +86,35 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserFoodSchedule_ToFood">
+          <End Role="Food" Type="Self.Food" Multiplicity="1" />
+          <End Role="UserFoodSchedule" Type="Self.UserFoodSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodId" />
+            </Principal>
+            <Dependent Role="UserFoodSchedule">
+              <PropertyRef Name="foodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFoodSchedule_ToUser">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserFoodSchedule" Type="Self.UserFoodSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserFoodSchedule">
+              <PropertyRef Name="userId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="FitnessAppDatabaseModelStoreContainer">
+          <EntitySet Name="Food" EntityType="Self.Food" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Trainer" EntityType="Self.Trainer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserFoodSchedule" EntityType="Self.UserFoodSchedule" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Trainer_ToUser" Association="Self.FK_Trainer_ToUser">
             <End Role="User" EntitySet="User" />
             <End Role="Trainer" EntitySet="Trainer" />
@@ -75,6 +122,14 @@
           <AssociationSet Name="FK_User_ToTrainer" Association="Self.FK_User_ToTrainer">
             <End Role="Trainer" EntitySet="Trainer" />
             <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFoodSchedule_ToFood" Association="Self.FK_UserFoodSchedule_ToFood">
+            <End Role="Food" EntitySet="Food" />
+            <End Role="UserFoodSchedule" EntitySet="UserFoodSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFoodSchedule_ToUser" Association="Self.FK_UserFoodSchedule_ToUser">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserFoodSchedule" EntitySet="UserFoodSchedule" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -120,6 +175,7 @@
           <Property Name="trainerId" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Trainers" Relationship="FitnessAppDatabaseModel.FK_Trainer_ToUser" FromRole="User" ToRole="Trainer" />
           <NavigationProperty Name="Trainer" Relationship="FitnessAppDatabaseModel.FK_User_ToTrainer" FromRole="User" ToRole="Trainer" />
+          <NavigationProperty Name="UserFoodSchedules" Relationship="FitnessAppDatabaseModel.FK_UserFoodSchedule_ToUser" FromRole="User" ToRole="UserFoodSchedule" />
         </EntityType>
         <EntityContainer Name="FitnessAppDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Trainers" EntityType="Self.Trainer" />
@@ -131,6 +187,16 @@
           <AssociationSet Name="FK_User_ToTrainer" Association="FitnessAppDatabaseModel.FK_User_ToTrainer">
             <End Role="Trainer" EntitySet="Trainers" />
             <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="Foods" EntityType="FitnessAppDatabaseModel.Food" />
+          <EntitySet Name="UserFoodSchedules" EntityType="FitnessAppDatabaseModel.UserFoodSchedule" />
+          <AssociationSet Name="FK_UserFoodSchedule_ToFood" Association="FitnessAppDatabaseModel.FK_UserFoodSchedule_ToFood">
+            <End Role="Food" EntitySet="Foods" />
+            <End Role="UserFoodSchedule" EntitySet="UserFoodSchedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserFoodSchedule_ToUser" Association="FitnessAppDatabaseModel.FK_UserFoodSchedule_ToUser">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserFoodSchedule" EntitySet="UserFoodSchedules" />
           </AssociationSet>
         </EntityContainer>
         <Association Name="FK_Trainer_ToUser">
@@ -154,6 +220,54 @@
             </Principal>
             <Dependent Role="User">
               <PropertyRef Name="trainerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Food">
+          <Key>
+            <PropertyRef Name="FoodId" />
+          </Key>
+          <Property Name="FoodId" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Kcal" Type="Int32" Nullable="false" />
+          <Property Name="Fat" Type="Int32" Nullable="false" />
+          <Property Name="Carbs" Type="Int32" Nullable="false" />
+          <Property Name="Sugar" Type="Int32" Nullable="false" />
+          <Property Name="FoodPicture" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="Protein" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="UserFoodSchedules" Relationship="FitnessAppDatabaseModel.FK_UserFoodSchedule_ToFood" FromRole="Food" ToRole="UserFoodSchedule" />
+        </EntityType>
+        <EntityType Name="UserFoodSchedule">
+          <Key>
+            <PropertyRef Name="MealPlanId" />
+          </Key>
+          <Property Name="MealPlanId" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="userId" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="foodId" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="mealTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Food" Relationship="FitnessAppDatabaseModel.FK_UserFoodSchedule_ToFood" FromRole="UserFoodSchedule" ToRole="Food" />
+          <NavigationProperty Name="User" Relationship="FitnessAppDatabaseModel.FK_UserFoodSchedule_ToUser" FromRole="UserFoodSchedule" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_UserFoodSchedule_ToFood">
+          <End Type="FitnessAppDatabaseModel.Food" Role="Food" Multiplicity="1" />
+          <End Type="FitnessAppDatabaseModel.UserFoodSchedule" Role="UserFoodSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Food">
+              <PropertyRef Name="FoodId" />
+            </Principal>
+            <Dependent Role="UserFoodSchedule">
+              <PropertyRef Name="foodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserFoodSchedule_ToUser">
+          <End Type="FitnessAppDatabaseModel.User" Role="User" Multiplicity="1" />
+          <End Type="FitnessAppDatabaseModel.UserFoodSchedule" Role="UserFoodSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userId" />
+            </Principal>
+            <Dependent Role="UserFoodSchedule">
+              <PropertyRef Name="userId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -198,6 +312,29 @@
                 <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="MemberLevel" ColumnName="MemberLevel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Foods">
+            <EntityTypeMapping TypeName="FitnessAppDatabaseModel.Food">
+              <MappingFragment StoreEntitySet="Food">
+                <ScalarProperty Name="Protein" ColumnName="Protein" />
+                <ScalarProperty Name="FoodPicture" ColumnName="FoodPicture" />
+                <ScalarProperty Name="Sugar" ColumnName="Sugar" />
+                <ScalarProperty Name="Carbs" ColumnName="Carbs" />
+                <ScalarProperty Name="Fat" ColumnName="Fat" />
+                <ScalarProperty Name="Kcal" ColumnName="Kcal" />
+                <ScalarProperty Name="FoodId" ColumnName="FoodId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserFoodSchedules">
+            <EntityTypeMapping TypeName="FitnessAppDatabaseModel.UserFoodSchedule">
+              <MappingFragment StoreEntitySet="UserFoodSchedule">
+                <ScalarProperty Name="mealTime" ColumnName="mealTime" />
+                <ScalarProperty Name="foodId" ColumnName="foodId" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="MealPlanId" ColumnName="MealPlanId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
