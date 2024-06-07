@@ -3,11 +3,12 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Today's Meal</h1>
-    <asp:Repeater ID="repeatTodayMeal" runat="server">
+    <asp:Repeater ID="repeatTodayMeal" runat="server" OnItemDataBound="repeatTodayMeal_ItemDataBound">
         <ItemTemplate>
-            <asp:Label ID="FoodNameLbl" runat="server" Text=""></asp:Label>
-            <asp:Label ID="MealTime" runat="server" Text=""></asp:Label>
-            <asp:Image ID="FoodImage" runat="server" />
+            <asp:Label ID="FoodNameLbl" runat="server" Text='<%# Eval("FoodName") %>'></asp:Label>
+            <asp:Label ID="MealTime" runat="server" Text='<%# Eval("mealTime") %>'></asp:Label>
+            <asp:Image ID="FoodImage" runat="server"/>
+            <asp:Button ID="RemoveBtn" runat="server" Text="Remove" CommandArgument='<%# Eval("FoodId") %>' OnClick="RemoveBtn_Click" />
         </ItemTemplate>
     </asp:Repeater>
 
@@ -18,6 +19,7 @@
         <ItemTemplate>
             <asp:Label ID="FoodNameLblBreakfast" runat="server" Text='<%# Eval("FoodName") %>'></asp:Label>
             <asp:Image ID="FoodImageBreakfast" runat="server" />
+            <asp:Button ID="addBreakfastBtn" runat="server" Text="Add" OnClick="addBreakfastBtn_Click"/>
         </ItemTemplate>
     </asp:Repeater>
 
@@ -26,6 +28,7 @@
         <ItemTemplate>
             <asp:Label ID="FoodNameLblLunch" runat="server" Text=""></asp:Label>
             <asp:Image ID="FoodImageLunch" runat="server" />
+            <asp:Button ID="addLunchBtn" runat="server" Text="Add" OnClick="addLunchBtn_Click"/>
         </ItemTemplate>
     </asp:Repeater>
 
@@ -36,6 +39,7 @@
         <ItemTemplate>
             <asp:Label ID="FoodNameLblDinner" runat="server" Text=""></asp:Label>
             <asp:Image ID="FoodImageDinner" runat="server" />
+            <asp:Button ID="addLunchDinner" runat="server" Text="Add" OnClick="addLunchDinner_Click"/>
         </ItemTemplate>
     </asp:Repeater>
 
