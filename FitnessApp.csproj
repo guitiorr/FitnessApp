@@ -78,6 +78,9 @@
       <DependentUpon>FitnessAppDatabase.mdf</DependentUpon>
     </Content>
     <Content Include="Assets\GIF\ExercisePage\Chest\shrekdance.gif" />
+    <Content Include="Assets\Images\Food\FO001.png" />
+    <Content Include="Assets\Images\Food\FO002.png" />
+    <Content Include="Assets\Images\Food\FO003.png" />
     <Content Include="Assets\Images\User\defaultProfile.png" />
     <Content Include="Models\FitnessAppModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

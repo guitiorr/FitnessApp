@@ -27,6 +27,7 @@ namespace FitnessApp.Models
         public int Sugar { get; set; }
         public byte[] FoodPicture { get; set; }
         public int Protein { get; set; }
+        public string FoodName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserFoodSchedule> UserFoodSchedules { get; set; }

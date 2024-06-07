@@ -14,8 +14,9 @@
           <Property Name="Fat" Type="int" Nullable="false" />
           <Property Name="Carbs" Type="int" Nullable="false" />
           <Property Name="Sugar" Type="int" Nullable="false" />
-          <Property Name="FoodPicture" Type="varbinary(max)" Nullable="false" />
+          <Property Name="FoodPicture" Type="varbinary(max)" />
           <Property Name="Protein" Type="int" Nullable="false" />
+          <Property Name="FoodName" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="Trainer">
           <Key>
@@ -232,9 +233,10 @@
           <Property Name="Fat" Type="Int32" Nullable="false" />
           <Property Name="Carbs" Type="Int32" Nullable="false" />
           <Property Name="Sugar" Type="Int32" Nullable="false" />
-          <Property Name="FoodPicture" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Name="FoodPicture" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Protein" Type="Int32" Nullable="false" />
           <NavigationProperty Name="UserFoodSchedules" Relationship="FitnessAppDatabaseModel.FK_UserFoodSchedule_ToFood" FromRole="Food" ToRole="UserFoodSchedule" />
+          <Property Name="FoodName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="UserFoodSchedule">
           <Key>
@@ -318,6 +320,7 @@
           <EntitySetMapping Name="Foods">
             <EntityTypeMapping TypeName="FitnessAppDatabaseModel.Food">
               <MappingFragment StoreEntitySet="Food">
+                <ScalarProperty Name="FoodName" ColumnName="FoodName" />
                 <ScalarProperty Name="Protein" ColumnName="Protein" />
                 <ScalarProperty Name="FoodPicture" ColumnName="FoodPicture" />
                 <ScalarProperty Name="Sugar" ColumnName="Sugar" />
