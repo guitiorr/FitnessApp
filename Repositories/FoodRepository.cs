@@ -11,6 +11,15 @@ namespace FitnessApp.Repositories
         public static List<Food> foods = null;
         private static FitnessAppDatabaseEntities db = DatabaseSingleton.getInstance();
 
+        public string getFoodIdFromFoodName(string foodName)
+        {
+            return (from x in db.Foods where x.FoodName.Equals(foodName) select x.FoodId).FirstOrDefault();
+        }
+
+        public List<Food> getFoods()
+        {
+            return (from x in db.Foods select x).ToList();
+        }
 
     }
 }

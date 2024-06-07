@@ -24,33 +24,6 @@ namespace FitnessApp.Views
         protected global::System.Web.UI.WebControls.Repeater repeatTodayMeal;
 
         /// <summary>
-        /// FoodNameLbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FoodNameLbl;
-
-        /// <summary>
-        /// MealTime control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MealTime;
-
-        /// <summary>
-        /// FoodImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image FoodImage;
-
-        /// <summary>
         /// repeatBrowseMealBreakfast control.
         /// </summary>
         /// <remarks>
@@ -58,24 +31,6 @@ namespace FitnessApp.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater repeatBrowseMealBreakfast;
-
-        /// <summary>
-        /// FoodNameLblBreakfast control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FoodNameLblBreakfast;
-
-        /// <summary>
-        /// FoodImageBreakfast control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image FoodImageBreakfast;
 
         /// <summary>
         /// repeatBrowseMealLunch control.
@@ -87,24 +42,6 @@ namespace FitnessApp.Views
         protected global::System.Web.UI.WebControls.Repeater repeatBrowseMealLunch;
 
         /// <summary>
-        /// FoodNameLblLunch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FoodNameLblLunch;
-
-        /// <summary>
-        /// FoodImageLunch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image FoodImageLunch;
-
-        /// <summary>
         /// repeatBrowseMealDinner control.
         /// </summary>
         /// <remarks>
@@ -112,23 +49,5 @@ namespace FitnessApp.Views
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater repeatBrowseMealDinner;
-
-        /// <summary>
-        /// FoodNameLblDinner control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FoodNameLblDinner;
-
-        /// <summary>
-        /// FoodImageDinner control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image FoodImageDinner;
     }
 }
