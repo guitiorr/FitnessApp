@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.EnterpriseServices;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -23,41 +24,26 @@ namespace FitnessApp.Views
             }
         }
 
-        public class MealDetail
-        {
-            public string FoodName { get; set; }
-            public string MealTime { get; set; }
-        }
-
         private void loadSchedule()
         {
-
             userRepository userRepo = new userRepository();
             FoodRepository foodRepo = new FoodRepository();
             userFoodScheduleRepository userFoodRepo = new userFoodScheduleRepository();
 
-            List<UserFoodSchedule> schedule = userFoodRepo.getSchedule();
-            List<MealDetail> mealDetails = new List<MealDetail>();
-
             string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
 
-            foreach (var item in schedule)
+            List<UserFoodSchedule> scheduleList = userFoodRepo.getScheduleListFromUserId(userId);
+
+            // Manually override foodId with food name
+            foreach (var schedule in scheduleList)
             {
-                //var food = foodRepo.getFoodNameFromId(userFoodRepo.getFoodIdFromUserId(userId));
-                var food = foodRepo.getFoodById(userFoodRepo.getIdFromUserId(userId));
-                if (food != null)
-                {
-                    mealDetails.Add(new MealDetail
-                    {
-                        FoodName = food.FoodId,
-                        MealTime = item.mealTime
-                    });
-                }
+                schedule.foodId = foodRepo.getFoodNameFromId(schedule.foodId); // Assuming getFoodNameFromId returns the food name
             }
 
-            repeatTodayMeal.DataSource = mealDetails;
+            repeatTodayMeal.DataSource = scheduleList;
             repeatTodayMeal.DataBind();
         }
+
 
         private void loadBreakfast()
         {
@@ -178,7 +164,8 @@ namespace FitnessApp.Views
             string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
 
             userFoodRepo.insertSchedule(userId, foodId, "Breakfast");
-            Response.Redirect("~/Views/MealPage.aspx");
+            //Response.Redirect("~/Views/MealPage.aspx");
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void addLunchBtn_Click(object sender, EventArgs e)
@@ -207,7 +194,8 @@ namespace FitnessApp.Views
             string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
 
             userFoodRepo.insertSchedule(userId, foodId, "Lunch");
-            Response.Redirect("~/Views/MealPage.aspx");
+            //Response.Redirect("~/Views/MealPage.aspx");
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void addLunchDinner_Click(object sender, EventArgs e)
@@ -236,14 +224,15 @@ namespace FitnessApp.Views
             string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
 
             userFoodRepo.insertSchedule(userId, foodId, "Dinner");
-            Response.Redirect("~/Views/MealPage.aspx");
+            //Response.Redirect("~/Views/MealPage.aspx");
+            Response.Redirect(Request.RawUrl);
         }
 
         protected void repeatTodayMeal_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                var imgPic = (Image)e.Item.FindControl("FoodImageDinner");
+                var imgPic = (Image)e.Item.FindControl("FoodImageToday");
                 userFoodScheduleRepository scheduleRepo = new userFoodScheduleRepository();
                 userRepository userRepo = new userRepository();
 
@@ -255,7 +244,7 @@ namespace FitnessApp.Views
                     string imageUrl = $"~/Assets/Images/Food/{foodId}.png";
                     imgPic.ImageUrl = imageUrl;
 
-                    // Debug: Add a label to show the image URL
+                    //Debug: Add a label to show the image URL
                     //var debugLabel = new Label();
                     //debugLabel.Text = "Image URL: " + imageUrl;
                     //e.Item.Controls.Add(debugLabel);
@@ -274,7 +263,8 @@ namespace FitnessApp.Views
 
             userSchedule.deleteSchedule(scheduleId);
 
-            Response.Redirect("~/Views/MealPage.aspx");
+            //Response.Redirect("~/Views/MealPage.aspx")
+            Response.Redirect(Request.RawUrl);
         }
     }
 }

@@ -121,7 +121,7 @@ namespace FitnessApp.Layouts
 
         protected void MealButton_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Views/MealPage.aspx");
         }
 
         protected void TrainerButton_Click(object sender, EventArgs e)

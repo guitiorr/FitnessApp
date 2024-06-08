@@ -23,6 +23,16 @@ namespace FitnessApp.Repositories
             return (from x in db.UserFoodSchedules where x.MealPlanId.Equals(MealPlanId) select x).ToList().FirstOrDefault();
         }
 
+        public UserFoodSchedule getScheduleFromUserId(string userId)
+        {
+            return (from x in db.UserFoodSchedules where x.userId.Equals(userId) select x).ToList().FirstOrDefault();
+        }
+
+        public List<UserFoodSchedule> getScheduleListFromUserId(string userId)
+        {
+            return (from x in db.UserFoodSchedules where x.userId.Equals(userId) select x).ToList();
+        }
+
         public String getLastId()
         {
             return (from x in db.UserFoodSchedules select x.MealPlanId).ToList().LastOrDefault();

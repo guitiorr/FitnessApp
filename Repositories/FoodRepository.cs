@@ -23,7 +23,7 @@ namespace FitnessApp.Repositories
 
         public string getFoodNameFromId(string foodId)
         {
-            return (from x in db.Foods where x.FoodId.Equals(foodId) select x.FoodName).ToString();
+            return (from x in db.Foods where x.FoodId.Equals(foodId) select x.FoodName).FirstOrDefault();
         }
 
         public Food getFoodById(string foodId)
