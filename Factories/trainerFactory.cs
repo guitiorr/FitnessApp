@@ -14,7 +14,7 @@ namespace FitnessApp.Factories
             trainer.trainerId = userId;
             trainer.Username = Username;
             trainer.Password = Password;
-            trainer.Email = Email;
+            trainer.Email = Email; 
             trainer.Age = Age;
             trainer.Gender = Gender;
             trainer.FullName = FullName;
