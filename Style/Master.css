@@ -28,9 +28,10 @@ h1 {
     padding-top: 10px;
     padding-bottom: 10px;
     height: 60px;
-    background-color: black;
+    background-image: url('../assets/img/home/bartek-garbowicz-xjeclqsbuqc-unsplash.jpg');
+    /*background-color: transparent;*/
     z-index: 100;
-    box-shadow: 1px 1px 10px black;
+ 
 }
 
 .title {
