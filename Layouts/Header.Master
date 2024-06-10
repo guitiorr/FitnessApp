@@ -6,7 +6,10 @@
 <html>
 <head runat="server">
     <title></title>
-    <link  rel="stylesheet" href="../Style/Master.css?Version=4" />
+    <link  rel="stylesheet" href="../Style/Master.css?Version=5" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -15,7 +18,7 @@
     <header>
         <div class="header">
             <h3 class="title">
-                PERFOFIT
+                Perfo<span class="span">fit</span>
             </h3>
             <nav>
                 <asp:Button class="btn" ID="LoginButton" runat="server" Text="Login" OnClick="LoginButton_Click"/>

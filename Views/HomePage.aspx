@@ -1,10 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layouts/Header.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="FitnessApp.Views.HomePage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../Style/Homee.css?Version=4" rel="stylesheet" />
+    <link href="../Style/Homee.css?Version=5" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/942c6b9015.js" crossorigin="anonymous"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
    
@@ -37,6 +41,44 @@
             </div>
         </div>
         
+        <div class="reviewCard">
+            <div class="review-flex">
+                <div class="inside-review">
+                    <h1>John Doe</h1>
+                    <h2>The personalized workout plans are fantastic! They really help me stay on track.</h2>
+                    <div>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    </div>
+                </div>
+                <div class="inside-review">
+                <h1>Sarah Johnson</h1>
+                <h2>The video tutorials are amazing! They make it easy to follow along and ensure I'm doing the exercises correctly.</h2>
+                <div>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                </div>
+            </div>
+            <div class="inside-review">
+                <h1>Emily Martinez</h1>
+                <h2>The meal planning feature is a game-changer! It helps me maintain a balanced diet and stay on track with my nutritional goals.</h2>
+                <div>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                    <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                </div>
+            </div>
+                
+            </div>
+        </div>
 
         <h1 style="color: white;text-align: center;">CHOOSE YOUR PATH</h1>
         <div class="join-div">
@@ -52,7 +94,7 @@
 
         <div class="footer">
             <div>
-                <h1>PerfoFIT</h1>   
+                <h1 class="perfo">Perfo<span class="span">fit</span></h1>   
                 <p>Lorem, Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto explicabo debitis officiis? Reprehenderit asperiores voluptatum dolorem fugit voluptatem sed, nulla blanditiis quaerat minima officiis vitae vero dicta, aut pariatur doloremque.lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed officia a non aliquam explicabo vel repellat minima, soluta ad nihil tempora consequatur veniam voluptatum. Ea repudiandae ipsa magni voluptates. ipsum dolor sit amet consectetur adipisicing elit. Accusantium repudiandae nemo quibusdam facilis dolor. Ex perferendis, quidem totam nisi vel odio, vitae reiciendis voluptatum magnam neque esse, natus voluptates qui!Lorem</p>
             </div>
             <div class="button-footer">
@@ -63,12 +105,4 @@
                 <%--<button class="fbutton">Get Premium &dollar;</button>--%>
             </div>
         </div>
-    
-
-    <div>
-        <asp:Button ID="becomeMemberButton" runat="server" Text="Become Member" OnClick="becomeMemberButton_Click" />
-    </div>
-    <div>
-        <asp:Button ID="becomeTrainerButton" runat="server" Text="Become Trainer" OnClick="becomeTrainerButton_Click" />
-    </div>
 </asp:Content>

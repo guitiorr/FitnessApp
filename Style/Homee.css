@@ -3,6 +3,14 @@
     padding: 0;
     background-color: black;
     font-family: "Bebas Neue", sans-serif;
+    color:white;
+}
+
+.plus-jakarta-sans{
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: italic;
 }
 
 .bebas-neue-regular {
@@ -11,6 +19,16 @@
     font-style: normal;
 }
 
+.perfo {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-style:italic;
+}
+
+.span {
+    background: linear-gradient(to bottom, #00BE63, #4168CD);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
 
 .div-main {
     margin-top: 50px;
@@ -154,4 +172,27 @@
     color:white;
     text-decoration:none;
     font-size:40px;
+}
+
+.reviewCard{
+    margin-left:auto;
+    text-align:center;
+    margin-right:auto;
+    margin-top:5%;
+    margin-bottom:5%;
+}
+
+.review-flex{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.inside-review{
+    background-color:rgb(128, 128, 128, 0.3);
+    width:600px;
+    margin:10px 10px 10px 10px;
+    padding-bottom:10px;
+    padding-left:5px;
+    padding-right:5px;
 }

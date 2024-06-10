@@ -4,6 +4,13 @@
 h1 {
 }
 
+.plus-jakarta-sans {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: italic;
+}
+
 .profile-img{
     position:absolute;
     height:30px;
@@ -15,7 +22,6 @@ h1 {
 }
 
 .header {
-
     top: 0;
     right: 0;
     left: 0;
@@ -35,24 +41,43 @@ h1 {
     margin: 14px 30px 0px;
     color: white;
     font-size: 30px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-style:italic;
+    font-weight:900;
+    font-size:1.7vw;
+}
+
+.span {
+    background: linear-gradient(to bottom, #00BE63, #4168CD);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 }
 
 .btn {
     text-align:center;
     color: black;
-    padding: 10px 40px 10px;
+    font-size:1vw;
+    /*padding: 10px 40px 10px;*/
+    padding-top:10px;
+    padding-bottom:10px;
+
+
     background-color: white;
     border: none;
     border-radius: 8px;
     font-weight: 900;
     margin-right:10px;
     transition:0.5s;
+    font-size: 1vw;
+    width:5vw;
 }
 
 nav {
     position: absolute;
     right: 0;
-    margin: 15px 100px 0px;
+    /*margin: 22px 100px 0px;*/
+    margin-right:100px;
+    margin-top:0.7vw;
 }
 
 .status{
