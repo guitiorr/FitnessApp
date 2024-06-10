@@ -1,6 +1,6 @@
 ﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Layouts/Header.Master" AutoEventWireup="true" CodeBehind="ExerciseVideoPage.aspx.cs" Inherits="FitnessApp.Views.ExerciseVideoPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../Style/ExerciseVideo.css?Version=2" rel="stylesheet" />
+    <link href="../Style/ExerciseVideo.css?Version=3" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
@@ -8,6 +8,7 @@
         <div class="ButtonBox">
             <div>
                 <asp:Button CssClass="BTN" ID="ChestButton" runat="server" Text="Chest" OnClick="ChestButton_Click"/>
+
             </div>
             <div>
                 <asp:Button CssClass="BTN" ID="ShoulderButton" runat="server" Text="Shoulder" OnClick="ShoulderButton_Click" />
@@ -43,6 +44,7 @@
                 <asp:Image ID="GIFPlayer3" runat="server"/>
             </div>
         </div>
+
         
     </div>
     

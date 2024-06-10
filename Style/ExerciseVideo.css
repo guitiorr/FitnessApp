@@ -26,6 +26,7 @@
     display:flex;
     justify-content:space-evenly;
     /*padding-top:5%;*/
+    margin-top:5%;
     padding:2%;
     background-color:rgba(255,255,255,0.2);
     backdrop-filter:blur(10px);
@@ -63,3 +64,27 @@
     font-size:20px;
 }
 
+.anatomy{
+    background-color:rgb(128, 128, 128, 0.7);
+    width:100%;
+    height:100%;
+}
+
+.anatomy-div{
+    margin-left:auto;
+    margin-right:auto;
+    width:50%;
+    position:relative;
+}
+
+.ana{
+    position:absolute;
+    left:23.7%;
+    top:24%;
+    transition:0.5s;
+}
+
+.BTN:hover{
+    opacity:0.5;
+    
+}
