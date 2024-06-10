@@ -2,7 +2,9 @@
 using FitnessApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 
@@ -27,6 +29,18 @@ namespace FitnessApp.Repositories
         {
             return (from x in db.UserFoodSchedules where x.userId.Equals(userId) select x).ToList().FirstOrDefault();
         }
+
+        public async Task<List<UserFoodSchedule>> GetScheduleListFromUserIdAsync(string userId)
+        {
+            using (var context = new FitnessAppDatabaseEntities())
+            {
+                return await context.UserFoodSchedules
+                                    .Where(x => x.userId == userId)
+                                    .ToListAsync();
+            }
+        }
+
+
 
         public List<UserFoodSchedule> getScheduleListFromUserId(string userId)
         {
@@ -54,12 +68,27 @@ namespace FitnessApp.Repositories
                 return newId;
             }
         }
-        public void insertSchedule(string userId, string foodId, string mealTime)
+
+        public string findId(string id)
         {
-            string id = GenerateIdForUserFoodSchedule();
+            return (from x in db.UserFoodSchedules where x.MealPlanId.Equals(id) select x.MealPlanId).FirstOrDefault();
+        }
+        public void insertSchedule(string id, string userId, string foodId, string mealTime)
+        {
             UserFoodSchedule foodSchedule = userFoodScheduleFactory.create(id, userId, foodId, mealTime);
             db.UserFoodSchedules.Add(foodSchedule);
-            db.SaveChanges();
+            db.SaveChangesAsync();
+        }
+
+        public async Task<string> GetFoodIdFromUserIdAsync(string userId)
+        {
+            using (var context = new FitnessAppDatabaseEntities())
+            {
+                return await (from x in context.UserFoodSchedules
+                              where x.userId.Equals(userId)
+                              select x.foodId)
+                              .FirstOrDefaultAsync() ?? "";
+            }
         }
 
         public string getFoodIdFromUserId(string userId)
@@ -73,6 +102,31 @@ namespace FitnessApp.Repositories
             db.UserFoodSchedules.Remove(schedule);
             db.SaveChanges();
         }
+
+        public void DeleteScheduleAsync(string scheduleId)
+        {
+            using (var context = new FitnessAppDatabaseEntities())
+            {
+                var schedule = context.UserFoodSchedules.Find(scheduleId);
+                if (schedule != null)
+                {
+                    context.UserFoodSchedules.Remove(schedule);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public async Task<string> GetIdFromUserIdAsync(string userId)
+        {
+            using (var context = new FitnessAppDatabaseEntities())
+            {
+                return await (from x in context.UserFoodSchedules
+                              where x.userId.Equals(userId)
+                              select x.MealPlanId)
+                              .FirstOrDefaultAsync();
+            }
+        }
+
 
         public string getIdFromUserId(string userId)
         {
