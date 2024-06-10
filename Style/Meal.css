@@ -1,1 +1,137 @@
-﻿
+﻿body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: "Bebas Neue", sans-serif;
+    color: white;
+    background-image: url('../assets/img/home/bartek-garbowicz-xjeclqsbuqc-unsplash.jpg');
+    background-size:cover;
+}
+
+.image{
+    width:300px;
+    height:200px;
+    border-radius:15px;
+}
+
+.container{
+    margin-top:8%;
+    text-align:center;
+}
+
+.today-meal{
+    background-color:rgb(128, 128, 128, 0.5);
+    backdrop-filter:blur(3px);
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    border-radius:15px;
+    position:relative;
+}
+
+.remove {
+    position: absolute;
+    right: 50px;
+    top: 47%;
+    width: 100px;
+    height: 40px;
+    border:none;
+    border-radius:10px;
+    background-color:white;
+    color:black;
+    font-weight:bolder;
+    transition:0.5s;
+}
+
+.remove:hover{
+    background-color:red;
+    color:white;
+}
+
+.info {
+    position: absolute;
+    left: 35%;
+    top: 38%;
+    display: flex;
+    flex-direction: column;
+    font-weight: bolder;
+}
+
+.label{
+    font-size: 50px;
+}
+
+.breakfast{
+    display:flex;
+    justify-content:space-evenly;
+    margin-bottom:5%;
+}
+
+.choice{
+    width:320px;
+    height:190px;
+    border-radius:15px;
+}
+
+.choice-div {
+    text-align: left;
+    width: 320px;
+    height: 400px;
+    background-color:slategray;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-radius: 15px;
+}
+
+.addBtn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    transition: 0.5s;
+}
+
+.addBtn:hover{
+    background-color:limegreen;
+    color:white;
+}
+
+.choice-info {
+    margin-top: 10px;
+    width: 200px;
+    margin-left:10px;
+    display:flex;
+    flex-wrap:wrap;
+    font-weight:bolder;
+}
+
+.choice-label{
+    font-size:30px;
+    max-width: 1000px;
+}
+
+.top-meal {
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+}
+
+.bottom-meal{
+    text-align:left;
+    margin-top:5%;
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+}

@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layouts/Header.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="FitnessApp.Views.HomePage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../Style/Homee.css?Version=5" rel="stylesheet" />
+    <link href="../Style/Homee.css?Version=6" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -95,7 +95,12 @@
         <div class="footer">
             <div>
                 <h1 class="perfo">Perfo<span class="span">fit</span></h1>   
-                <p>Lorem, Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto explicabo debitis officiis? Reprehenderit asperiores voluptatum dolorem fugit voluptatem sed, nulla blanditiis quaerat minima officiis vitae vero dicta, aut pariatur doloremque.lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed officia a non aliquam explicabo vel repellat minima, soluta ad nihil tempora consequatur veniam voluptatum. Ea repudiandae ipsa magni voluptates. ipsum dolor sit amet consectetur adipisicing elit. Accusantium repudiandae nemo quibusdam facilis dolor. Ex perferendis, quidem totam nisi vel odio, vitae reiciendis voluptatum magnam neque esse, natus voluptates qui!Lorem</p>
+                <p>
+                    At Perfofit, we are dedicated to empowering individuals to
+                    achieve their health and fitness goals. Our app offers personalized 
+                    workout plans, nutrition advice, and tracking tools designed to fit
+                    every lifestyle. Join our community and start your journey towards a healthier,
+                    happier you today.</p>
             </div>
             <div class="button-footer">
 
