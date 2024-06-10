@@ -1,7 +1,9 @@
 ﻿using FitnessApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace FitnessApp.Repositories
@@ -10,6 +12,17 @@ namespace FitnessApp.Repositories
     {
         public static List<Food> foods = null;
         private static FitnessAppDatabaseEntities db = DatabaseSingleton.getInstance();
+
+        public async Task<string> GetFoodIdFromFoodNameAsync(string foodName)
+        {
+            using (var context = new FitnessAppDatabaseEntities())
+            {
+                return await (from x in context.Foods
+                              where x.FoodName.Equals(foodName)
+                              select x.FoodId)
+                              .FirstOrDefaultAsync() ?? "";
+            }
+        }
 
         public string getFoodIdFromFoodName(string foodName)
         {
@@ -20,6 +33,27 @@ namespace FitnessApp.Repositories
         {
             return (from x in db.Foods select x).ToList();
         }
+
+        public async Task<List<Food>> GetFoodsAsync()
+        {
+            using (var context = new FitnessAppDatabaseEntities())
+            {
+                return await context.Foods.ToListAsync();
+            }
+        }
+
+
+        public async Task<string> GetFoodNameFromIdAsync(string foodId)
+        {
+            using (var context = new FitnessAppDatabaseEntities())
+            {
+                return await context.Foods
+                                    .Where(x => x.FoodId.Equals(foodId))
+                                    .Select(x => x.FoodName)
+                                    .FirstOrDefaultAsync();
+            }
+        }
+
 
         public string getFoodNameFromId(string foodId)
         {

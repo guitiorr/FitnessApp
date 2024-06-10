@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layouts/Header.Master" AutoEventWireup="true" CodeBehind="MealPage.aspx.cs" Inherits="FitnessApp.Views.MealPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layouts/Header.Master" AutoEventWireup="true" CodeBehind="MealPage.aspx.cs" Inherits="FitnessApp.Views.MealPage" Async="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -26,7 +26,7 @@
     <h2>Lunch</h2>
     <asp:Repeater ID="repeatBrowseMealLunch" runat="server" OnItemDataBound="repeatBrowseMealLunch_ItemDataBound">
         <ItemTemplate>
-            <asp:Label ID="FoodNameLblLunch" runat="server" Text=""></asp:Label>
+            <asp:Label ID="FoodNameLblLunch" runat="server" Text='<%# Eval("FoodName") %>'></asp:Label>
             <asp:Image ID="FoodImageLunch" runat="server" />
             <asp:Button ID="addLunchBtn" runat="server" Text="Add" OnClick="addLunchBtn_Click"/>
         </ItemTemplate>
@@ -37,7 +37,7 @@
     <h2>Dinner</h2>
     <asp:Repeater ID="repeatBrowseMealDinner" runat="server" OnItemDataBound="repeatBrowseMealDinner_ItemDataBound">
         <ItemTemplate>
-            <asp:Label ID="FoodNameLblDinner" runat="server" Text=""></asp:Label>
+            <asp:Label ID="FoodNameLblDinner" runat="server" Text='<%# Eval("FoodName") %>'></asp:Label>
             <asp:Image ID="FoodImageDinner" runat="server" />
             <asp:Button ID="addLunchDinner" runat="server" Text="Add" OnClick="addLunchDinner_Click"/>
         </ItemTemplate>

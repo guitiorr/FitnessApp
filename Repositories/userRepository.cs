@@ -2,9 +2,11 @@
 using FitnessApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace FitnessApp.Repositories
@@ -26,6 +28,18 @@ namespace FitnessApp.Repositories
         {
             return (from x in db.Users where x.Username.Equals(username) select x.userId).FirstOrDefault();
         }
+
+        public async Task<string> GetIdFromUsernameAsync(string username)
+        {
+            using (var context = new FitnessAppDatabaseEntities())
+            {
+                return await context.Users
+                                    .Where(u => u.Username == username)
+                                    .Select(u => u.userId)
+                                    .FirstOrDefaultAsync();
+            }
+        }
+
 
         public String checkPassword(String id, String Password)
         {

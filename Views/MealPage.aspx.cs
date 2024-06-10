@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.EnterpriseServices;
 using System.Linq;
 using System.Security.AccessControl;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -13,16 +14,63 @@ namespace FitnessApp.Views
 {
     public partial class MealPage : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected async void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                loadBreakfast();
-                loadLunch();
-                loadDinner();
-                loadSchedule();
+                await LoadScheduleAsync();
+                await LoadLunchAsync();
+                await LoadBreakfastAsync();
+                await LoadDinnerAsync();
             }
         }
+
+        public string GenerateIdForUserFoodSchedule()
+        {
+            userFoodScheduleRepository userFoodRepo = new userFoodScheduleRepository();
+            var newId = "";
+            var lastId = userFoodRepo.getLastId();
+            var checkid = "";
+
+            if (lastId == null)
+            {
+                return "ML001";
+            }
+            else
+            {
+                var idNumber = Convert.ToInt32(lastId.Substring(2)) + 1;
+                newId = string.Format("ML{0:000}", idNumber);
+                checkid = userFoodRepo.findId(newId);
+                if (checkid != null)
+                {
+                    idNumber++;
+                }
+                newId = string.Format("ML{0:000}", idNumber);
+                return newId;
+            }
+        }
+
+        private async Task LoadScheduleAsync()
+        {
+            userRepository userRepo = new userRepository();
+            FoodRepository foodRepo = new FoodRepository();
+            userFoodScheduleRepository userFoodRepo = new userFoodScheduleRepository();
+
+            string userId = await userRepo.GetIdFromUsernameAsync(Request.Cookies["userCookie"]["Username"]);
+
+            List<UserFoodSchedule> scheduleList = await userFoodRepo.GetScheduleListFromUserIdAsync(userId);
+
+            var tasks = scheduleList.Select(async schedule =>
+            {
+                schedule.foodId = await foodRepo.GetFoodNameFromIdAsync(schedule.foodId);
+            });
+
+            await Task.WhenAll(tasks);
+
+            repeatTodayMeal.DataSource = scheduleList;
+            repeatTodayMeal.DataBind();
+        }
+
 
         private void loadSchedule()
         {
@@ -45,7 +93,16 @@ namespace FitnessApp.Views
         }
 
 
-        private void loadBreakfast()
+        private async Task LoadBreakfastAsync()
+        {
+            FoodRepository foodRepo = new FoodRepository();
+            List<Food> foods = await foodRepo.GetFoodsAsync();
+
+            repeatBrowseMealBreakfast.DataSource = foods;
+            repeatBrowseMealBreakfast.DataBind();
+        }
+
+        private void LoadBreakfast()
         {
             FoodRepository foodRepo = new FoodRepository();
             List<Food> foods = foodRepo.getFoods();
@@ -53,6 +110,17 @@ namespace FitnessApp.Views
             repeatBrowseMealBreakfast.DataSource = foods;
             repeatBrowseMealBreakfast.DataBind();
         }
+
+        private async Task LoadLunchAsync()
+        {
+            FoodRepository foodRepo = new FoodRepository();
+            List<Food> foods = await foodRepo.GetFoodsAsync();
+
+            repeatBrowseMealLunch.DataSource = foods;
+            repeatBrowseMealLunch.DataBind();
+        }
+
+
 
         private void loadLunch()
         {
@@ -62,6 +130,16 @@ namespace FitnessApp.Views
             repeatBrowseMealLunch.DataSource = foods;
             repeatBrowseMealLunch.DataBind();
         }
+
+        private async Task LoadDinnerAsync()
+        {
+            FoodRepository foodRepo = new FoodRepository();
+            List<Food> foods = await foodRepo.GetFoodsAsync();
+
+            repeatBrowseMealDinner.DataSource = foods;
+            repeatBrowseMealDinner.DataBind();
+        }
+
 
         private void loadDinner()
         {
@@ -163,7 +241,9 @@ namespace FitnessApp.Views
 
             string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
 
-            userFoodRepo.insertSchedule(userId, foodId, "Breakfast");
+            string scheduleId = GenerateIdForUserFoodSchedule();
+
+            userFoodRepo.insertSchedule(scheduleId,userId, foodId, "Breakfast");
             //Response.Redirect("~/Views/MealPage.aspx");
             Response.Redirect(Request.RawUrl);
         }
@@ -178,8 +258,8 @@ namespace FitnessApp.Views
             RepeaterItem item = (RepeaterItem)addBtn.NamingContainer;
 
             // Retrieve the food name and food image
-            Label foodNameLbl = (Label)item.FindControl("FoodNameLblBreakfast");
-            Image foodImage = (Image)item.FindControl("FoodImageBreakfast");
+            Label foodNameLbl = (Label)item.FindControl("FoodNameLblLunch");
+            Image foodImage = (Image)item.FindControl("FoodImageLunch");
 
             string foodName = foodNameLbl.Text;
             string foodImageUrl = foodImage.ImageUrl;
@@ -193,7 +273,9 @@ namespace FitnessApp.Views
 
             string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
 
-            userFoodRepo.insertSchedule(userId, foodId, "Lunch");
+            string scheduleId = GenerateIdForUserFoodSchedule();
+
+            userFoodRepo.insertSchedule(scheduleId, userId, foodId, "Lunch");
             //Response.Redirect("~/Views/MealPage.aspx");
             Response.Redirect(Request.RawUrl);
         }
@@ -208,8 +290,8 @@ namespace FitnessApp.Views
             RepeaterItem item = (RepeaterItem)addBtn.NamingContainer;
 
             // Retrieve the food name and food image
-            Label foodNameLbl = (Label)item.FindControl("FoodNameLblBreakfast");
-            Image foodImage = (Image)item.FindControl("FoodImageBreakfast");
+            Label foodNameLbl = (Label)item.FindControl("FoodNameLblDinner");
+            Image foodImage = (Image)item.FindControl("FoodImageDinner");
 
             string foodName = foodNameLbl.Text;
             string foodImageUrl = foodImage.ImageUrl;
@@ -223,7 +305,9 @@ namespace FitnessApp.Views
 
             string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
 
-            userFoodRepo.insertSchedule(userId, foodId, "Dinner");
+            string scheduleId = GenerateIdForUserFoodSchedule();
+
+            userFoodRepo.insertSchedule(scheduleId, userId, foodId, "Dinner");
             //Response.Redirect("~/Views/MealPage.aspx");
             Response.Redirect(Request.RawUrl);
         }
@@ -233,38 +317,74 @@ namespace FitnessApp.Views
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
                 var imgPic = (Image)e.Item.FindControl("FoodImageToday");
-                userFoodScheduleRepository scheduleRepo = new userFoodScheduleRepository();
-                userRepository userRepo = new userRepository();
+                var foodNameLbl = (Label)e.Item.FindControl("FoodNameLbl");
 
-                if (imgPic != null)
+                if (imgPic != null && foodNameLbl != null)
                 {
-                    string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
-                    string foodId = scheduleRepo.getFoodIdFromUserId(userId).Trim(); // Trim any leading or trailing spaces
+                    Func<Task> setFoodImageAsync = async () =>
+                    {
+                        FoodRepository foodRepo = new FoodRepository();
 
-                    string imageUrl = $"~/Assets/Images/Food/{foodId}.png";
-                    imgPic.ImageUrl = imageUrl;
+                        string foodId = foodNameLbl.Text.Trim(); // Assuming FoodNameLbl holds the foodId
+                        foodId = await foodRepo.GetFoodIdFromFoodNameAsync(foodId); // Assuming GetFoodIdFromFoodNameAsync is an asynchronous method
+                        foodId = foodId.Trim();
 
-                    //Debug: Add a label to show the image URL
-                    //var debugLabel = new Label();
-                    //debugLabel.Text = "Image URL: " + imageUrl;
-                    //e.Item.Controls.Add(debugLabel);
+                        string imageUrl = $"~/Assets/Images/Food/{foodId}.png";
+                        imgPic.ImageUrl = imageUrl;
+
+                        // Debug: Add a label to show the image URL
+                         var debugLabel = new Label();
+                         debugLabel.Text = "Image URL: " + imageUrl;
+                         e.Item.Controls.Add(debugLabel);
+                    };
+
+                    // Execute the async lambda function
+                    _ = setFoodImageAsync();
                 }
             }
         }
 
-        protected void RemoveBtn_Click(object sender, EventArgs e)
+
+
+
+
+        /* protected void repeatTodayMeal_ItemDataBound(object sender, RepeaterItemEventArgs e)
+         {
+             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+             {
+                 var imgPic = (Image)e.Item.FindControl("FoodImageToday");
+                 userFoodScheduleRepository scheduleRepo = new userFoodScheduleRepository();
+                 userRepository userRepo = new userRepository();
+
+                 if (imgPic != null)
+                 {
+                     string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
+                     string foodId = scheduleRepo.getFoodIdFromUserId(userId).Trim(); // Trim any leading or trailing spaces
+
+                     string imageUrl = $"~/Assets/Images/Food/{foodId}.png";
+                     imgPic.ImageUrl = imageUrl;
+
+                     //Debug: Add a label to show the image URL
+                     //var debugLabel = new Label();
+                     //debugLabel.Text = "Image URL: " + imageUrl;
+                     //e.Item.Controls.Add(debugLabel);
+                 }
+             }
+         }*/
+
+        protected async void RemoveBtn_Click(object sender, EventArgs e)
         {
             userFoodScheduleRepository userSchedule = new userFoodScheduleRepository();
             userRepository userRepo = new userRepository();
 
-            string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
+            string userId = await userRepo.GetIdFromUsernameAsync(Request.Cookies["userCookie"]["Username"]);
 
-            string scheduleId = userSchedule.getIdFromUserId(userId);
+            string scheduleId = await userSchedule.GetIdFromUserIdAsync(userId);
 
-            userSchedule.deleteSchedule(scheduleId);
+            userSchedule.DeleteScheduleAsync(scheduleId);
 
-            //Response.Redirect("~/Views/MealPage.aspx")
             Response.Redirect(Request.RawUrl);
         }
+
     }
 }
