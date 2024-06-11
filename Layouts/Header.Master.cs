@@ -13,17 +13,27 @@ namespace FitnessApp.Layouts
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            userRepository userRepo = new userRepository();
+
             if (!IsPostBack)
             {
                 if (Request.Cookies["userCookie"] != null) //Authenticated as regular user
                 {
                     string username = Request.Cookies["userCookie"]["Username"];
+                    string memberLevel = userRepo.GetMembershipLevelFromUserId(userRepo.getIdFromUsername(username));
                     LogStatusLbl.Text = "Logged into " + username + "as user";
                     LogOutButton.Visible = true; //Show logout button
                     LoginButton.Visible = false; //Hide login button
                     RegisterButton.Visible = false; //Hide register button
                     MealButton.Visible = true; //Show Meal button
-                    TrainerButton.Visible = true; //Show trainer button
+                    if (memberLevel.Equals("Bronze"))
+                    {
+                        TrainerButton.Visible = false; //Hide trainer button
+                    }
+                    else
+                    {
+                        TrainerButton.Visible = true; //Show trainer button
+                    }
                     ExerciseButton.Visible = true; //Show exercise button
                     ProfileButton.Visible = true; //Show profile button
                     StudentButton.Visible = false; //Hide student button

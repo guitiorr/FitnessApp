@@ -77,6 +77,9 @@
     <Content Include="App_Data\FitnessAppDatabase_log.ldf">
       <DependentUpon>FitnessAppDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="Assets\GIF\ExercisePage\Back\cable row.gif" />
+    <Content Include="Assets\GIF\ExercisePage\Back\deadlift.gif" />
+    <Content Include="Assets\GIF\ExercisePage\Back\pullup.gif" />
     <Content Include="Assets\GIF\ExercisePage\Chest\shrekdance.gif" />
     <Content Include="Assets\Images\Food\FO001.png" />
     <Content Include="Assets\Images\Food\FO002.png" />
