@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layouts/Header.Master" AutoEventWireup="true" CodeBehind="ViewStudent.aspx.cs" Inherits="FitnessApp.Views.ViewStudent" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../Style/ViewStudent.css" rel="stylesheet" />
+    <link href="../Style/ViewStudent.css?Version=1" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="Student">
@@ -8,13 +8,12 @@
             <ItemTemplate>
                 <div class="item">
                 <div class="img-bg">
-                    <asp:Label ID="NameLbl" runat="server" Text='<%# Eval("FullName") %>'></asp:Label>
+                    <asp:Image class="image" ID="ClientImg" runat="server" ImageUrl='<%# Eval("ProfilePicture") %>' />
                 </div>
                 <div class="name">
-                    <asp:Image ID="ClientImg" runat="server" ImageUrl='<%# Eval("ProfilePicture") %>' />
+                    <asp:Label ID="NameLbl" runat="server" Text='<%# Eval("FullName") %>'></asp:Label>
                 </div>
                 </div>
-                <h1>HI</h1>
             </ItemTemplate>
         </asp:Repeater>
     </div>
