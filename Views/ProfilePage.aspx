@@ -19,7 +19,7 @@
                 </div>
             </div>
         
-            <div class="right-profile">
+            <div class="right-profile" style="background-color: #242424">
                 <div class="Self-Info">
                     <h1>Self Info</h1>
                     <div class="Label-Div">

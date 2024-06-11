@@ -5,7 +5,7 @@
 
 <html>
 <head runat="server">
-    <title></title>
+    <title>PerfoFit</title>
     <link  rel="stylesheet" href="../Style/Master.css?Version=7" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
