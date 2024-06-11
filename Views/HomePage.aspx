@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
-        <h1>Home Page lol</h1>
+        <h1>Home Page</h1>
     </div>
     <div>
         <asp:Button ID="becomeMemberButton" runat="server" Text="Become Member" OnClick="becomeMemberButton_Click" />
