@@ -16,8 +16,10 @@
 }
 
 .Image{
-    border: 1px solid white;
+    height:200px;
+    width:200px;
     border-radius:100px;
+    object-fit:cover;
 }
 
 .icon{

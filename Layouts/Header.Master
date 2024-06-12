@@ -6,10 +6,11 @@
 <html>
 <head runat="server">
     <title>PerfoFit</title>
-    <link  rel="stylesheet" href="../Style/Master.css?Version=7" />
+    <link  rel="stylesheet" href="../Style/Master.css?Version=8" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

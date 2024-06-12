@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layouts/Header.Master" AutoEventWireup="true" CodeBehind="ViewTrainerPage.aspx.cs" Inherits="FitnessApp.Views.ViewTrainerPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../Style/ViewTrainer.css" rel="stylesheet" />
+    <link href="../Style/ViewTrainer.css?Version=2" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/942c6b9015.js" crossorigin="anonymous"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

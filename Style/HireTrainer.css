@@ -4,29 +4,29 @@
     font-family: "Bebas Neue", sans-serif;
     color: white;
     background-image: url('../assets/img/home/bartek-garbowicz-xjeclqsbuqc-unsplash.jpg');
-    font-weight:bolder;
+    font-weight: bolder;
 }
 
-.ListTrainer{
-    margin-top:7%;
-    display:flex;
-    justify-content:space-evenly;
-    flex-wrap:wrap;
-    width:100%;
+.ListTrainer {
+    margin-top: 7%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
-.Recommend{
+.Recommend {
 }
 
 
-.item{
-    display:flex;
-    position:relative;
-    height:150px;
-    margin-bottom:20px;
-    background-color:rgb(128, 128, 128, 0.5);
-    width:560px;
-    border-radius:20px;
+.item {
+    display: flex;
+    position: relative;
+    height: 150px;
+    margin-bottom: 20px;
+    background-color: rgb(128, 128, 128, 0.5);
+    width: 760px;
+    border-radius: 20px;
 }
 
 .item2 {
@@ -35,69 +35,76 @@
     height: 120px;
     background-color: rgb(128, 128, 128, 0.5);
     width: 560px;
-    border-bottom:1px solid white;
+    border-bottom: 1px solid white;
 }
 
-.info{
-    margin-top:7%;
-    margin-left:2%;
+.info {
+    position: absolute;
+    top: 50%;
+    left: 45%;
 }
 
 .info2 {
-    margin-top: 8%;
+    margin-top: 7%;
     margin-left: 2%;
-    position:relative;
-    width:100%;
+    position: relative;
+    width: 100%;
 }
 
-.image{
+.image {
     width: 300px;
-    height:150px;
-    border-radius:20px;
+    height: 150px;
+    border-radius: 20px;
+    object-fit: cover;
 }
 
-.listImage{
-    border-radius:100px;
-    height:60px;
-    margin-top:6%;
-    margin-left:5%;
+.listImage {
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    margin-top: 6%;
+    margin-left: 5%;
+    object-fit: cover;
 }
 
-.stars{
-    margin-top:10px;
-    margin-bottom:10px;
+.stars2 {
+    display: flex;
+    position: absolute;
+    right: 50px;
+    top: 50%;
 }
 
-.hire{
-    width:100px;
-    height:30px;
-    background-color:black;
-    border: 1px solid white;
-    color:white;
-    border-radius:10px;
-    font-weight:bolder;
-    transition:0.2s;   
+.hire {
+    width: 100px;
+    height: 30px;
+    background-color: black;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-weight: bolder;
+    transition: 0.2s;
 }
 
 .hire2 {
     width: 100px;
     height: 30px;
     background-color: black;
-    border: 1px solid white;
+    border: none;
     color: white;
     border-radius: 10px;
     font-weight: bolder;
-    position:absolute;
-    right:20px;
-    bottom:50%;
+    position: absolute;
+    right: 20px;
+    bottom: 50%;
+    transition: 0.2s;
 }
 
-.name{
-    text-transform:uppercase;
+.name {
+    text-transform: uppercase;
 }
 
-.hire:hover{
-    opacity:0.5;
+.hire:hover {
+    opacity: 0.5;
 }
 
 .hire2:hover {

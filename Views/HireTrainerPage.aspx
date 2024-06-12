@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Layouts/Header.Master" AutoEventWireup="true" CodeBehind="HireTrainerPage.aspx.cs" Inherits="FitnessApp.Views.HireTrainerPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../Style/HireTrainer.css" rel="stylesheet" />
+    <link href="../Style/HireTrainer.css?Version=2" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/942c6b9015.js" crossorigin="anonymous"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -16,19 +16,20 @@
                     <asp:Image CssClass="image" ID="RecommendedTrainerPic" runat="server" ImageUrl='<%# Eval("ProfilePicture") %>' />
                     <div class="info">
                         <asp:Label CssClass="name" ID="RecommendedTrainerName" runat="server" Text='<%# Eval("FullName") %>'></asp:Label>
-                        <div class="stars">
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
-                        </div>
+                        
 
-                        <div>
+                        <%--<div>
                         <asp:Button CssClass="hire" ID="HireButton" runat="server" Text="Hire" CommandArgument='<%# Eval("trainerId") %>' OnClick="HireButton_Click1"/>
-                        </div>
+                        </div>--%>
 
                     </div>
+                        <div class="stars2">
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                        </div>
                   </div>
             </ItemTemplate>
         </asp:Repeater>

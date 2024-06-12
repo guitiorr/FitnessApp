@@ -14,6 +14,7 @@ h1 {
 .profile-img{
     position:absolute;
     height:30px;
+    width:30px;
     background-color:blue;
     border-radius:100px;
     border:1px solid white;
