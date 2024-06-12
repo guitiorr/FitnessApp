@@ -105,5 +105,20 @@ namespace FitnessApp.Views
             MuscleTargetLabel2.Text = "Flexors";
             MuscleTargetLabel3.Text = "Brachioradialis";
         }
+
+        protected void BackButton_Click(object sender, EventArgs e)
+        {
+            GIFPlayer1.ImageUrl = "~/Assets/GIF/ExercisePage/Back/cable row.gif";
+            GIFPlayer2.ImageUrl = "~/Assets/GIF/ExercisePage/Back/pullup.gif";
+            GIFPlayer3.ImageUrl = "~/Assets/GIF/ExercisePage/Back/deadlift.gif";
+
+            ExerciseLabel1.Text = "Cable Row";
+            ExerciseLabel2.Text = "Chin up";
+            ExerciseLabel3.Text = "Deadlift";
+
+            MuscleTargetLabel1.Text = "Lats, Traps";
+            MuscleTargetLabel2.Text = "Upper Back";
+            MuscleTargetLabel3.Text = "Lower Back";
+        }
     }
 }

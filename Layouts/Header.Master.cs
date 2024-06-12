@@ -20,7 +20,7 @@ namespace FitnessApp.Layouts
                 if (Request.Cookies["userCookie"] != null) //Authenticated as regular user
                 {
                     string username = Request.Cookies["userCookie"]["Username"];
-                    string memberLevel = userRepo.GetMembershipLevelFromUserId(userRepo.getIdFromUsername(username));
+                    string memberLevel = userRepo.GetMembershipLevelFromUserId(userRepo.getIdFromUsername(username)).Trim();
                     LogStatusLbl.Text = "Logged into " + username + "as user";
                     LogOutButton.Visible = true; //Show logout button
                     LoginButton.Visible = false; //Hide login button
@@ -30,7 +30,7 @@ namespace FitnessApp.Layouts
                     {
                         TrainerButton.Visible = false; //Hide trainer button
                     }
-                    else
+                    else if (memberLevel.Equals("Silver") || memberLevel.Equals("Gold"))
                     {
                         TrainerButton.Visible = true; //Show trainer button
                     }
