@@ -19,7 +19,7 @@
 
 .img{
     border-radius:100%;
-    border: 1px solid white
+    object-fit:cover;
 }
 
 .profile{

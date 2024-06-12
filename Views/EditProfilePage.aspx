@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="../Style/EditProfile.css" rel="stylesheet" />
+    <link href="../Style/EditProfile.css?Version=2" rel="stylesheet" />
     <title></title>
 </head>
 <body>
