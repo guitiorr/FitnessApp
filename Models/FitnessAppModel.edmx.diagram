@@ -13,6 +13,10 @@
         <EntityTypeShape EntityType="FitnessAppDatabaseModel.UserFoodSchedule" Width="1.5" PointX="7.625" PointY="1.75" />
         <AssociationConnector Association="FitnessAppDatabaseModel.FK_UserFoodSchedule_ToFood" />
         <AssociationConnector Association="FitnessAppDatabaseModel.FK_UserFoodSchedule_ToUser" />
+        <EntityTypeShape EntityType="FitnessAppDatabaseModel.Exercise" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="FitnessAppDatabaseModel.UserExerciseSchedule" Width="1.5" PointX="5" PointY="4.625" />
+        <AssociationConnector Association="FitnessAppDatabaseModel.FK_UserExerciseSchedule_ToExercise" />
+        <AssociationConnector Association="FitnessAppDatabaseModel.FK_UserExerciseSchedule_ToUser" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

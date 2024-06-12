@@ -34,18 +34,18 @@ namespace FitnessApp.Views
 
             if (lastId == null)
             {
-                return "ML001";
+                return "SC001";
             }
             else
             {
                 var idNumber = Convert.ToInt32(lastId.Substring(2)) + 1;
-                newId = string.Format("ML{0:000}", idNumber);
+                newId = string.Format("SC{0:000}", idNumber);
                 checkid = userFoodRepo.findId(newId);
                 if (checkid != null)
                 {
                     idNumber++;
                 }
-                newId = string.Format("ML{0:000}", idNumber);
+                newId = string.Format("SC{0:000}", idNumber);
                 return newId;
             }
         }
@@ -333,9 +333,9 @@ namespace FitnessApp.Views
                         imgPic.ImageUrl = imageUrl;
 
                         // Debug: Add a label to show the image URL
-                         var debugLabel = new Label();
-                         debugLabel.Text = "Image URL: " + imageUrl;
-                         e.Item.Controls.Add(debugLabel);
+                        // var debugLabel = new Label();
+                        // debugLabel.Text = "Image URL: " + imageUrl;
+                        // e.Item.Controls.Add(debugLabel);
                     };
 
                     // Execute the async lambda function

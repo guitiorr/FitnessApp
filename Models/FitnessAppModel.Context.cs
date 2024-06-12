@@ -29,5 +29,7 @@ namespace FitnessApp.Models
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Food> Foods { get; set; }
         public virtual DbSet<UserFoodSchedule> UserFoodSchedules { get; set; }
+        public virtual DbSet<Exercise> Exercises { get; set; }
+        public virtual DbSet<UserExerciseSchedule> UserExerciseSchedules { get; set; }
     }
 }

@@ -81,6 +81,14 @@
     <Content Include="Assets\GIF\ExercisePage\Back\deadlift.gif" />
     <Content Include="Assets\GIF\ExercisePage\Back\pullup.gif" />
     <Content Include="Assets\GIF\ExercisePage\Chest\shrekdance.gif" />
+    <Content Include="Assets\Images\Exercise\Arm\EX001.jpg" />
+    <Content Include="Assets\Images\Exercise\Back\EX002.jpg" />
+    <Content Include="Assets\Images\Exercise\Chest\EX003.jpg" />
+    <Content Include="Assets\Images\Exercise\DumpALL\EX001.png" />
+    <Content Include="Assets\Images\Exercise\DumpALL\EX002.png" />
+    <Content Include="Assets\Images\Exercise\DumpALL\EX003.png" />
+    <Content Include="Assets\Images\Exercise\DumpALL\EX004.png" />
+    <Content Include="Assets\Images\Exercise\Legs\EX004.jpg" />
     <Content Include="Assets\Images\Food\FO001.png" />
     <Content Include="Assets\Images\Food\FO002.png" />
     <Content Include="Assets\Images\Food\FO003.png" />
@@ -115,6 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Factories\classFactory.cs" />
+    <Compile Include="Factories\ExerciseScheduleFactory.cs" />
     <Compile Include="Factories\trainerFactory.cs" />
     <Compile Include="Factories\userFactory.cs" />
     <Compile Include="Factories\userFoodScheduleFactory.cs" />
@@ -124,6 +133,9 @@
     </Compile>
     <Compile Include="Layouts\Header.Master.designer.cs">
       <DependentUpon>Header.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Exercise.cs">
+      <DependentUpon>FitnessAppModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\FitnessAppModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -149,11 +161,16 @@
     <Compile Include="Models\User.cs">
       <DependentUpon>FitnessAppModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserExerciseSchedule.cs">
+      <DependentUpon>FitnessAppModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserFoodSchedule.cs">
       <DependentUpon>FitnessAppModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DatabaseSingleton.cs" />
+    <Compile Include="Repositories\ExerciseRepository.cs" />
+    <Compile Include="Repositories\ExerciseScheduleRepository.cs" />
     <Compile Include="Repositories\FoodRepository.cs" />
     <Compile Include="Repositories\trainerRepository.cs" />
     <Compile Include="Repositories\userFoodScheduleRepository.cs" />

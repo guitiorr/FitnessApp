@@ -3,6 +3,66 @@
     <link href="../Style/ExerciseVideo.css?Version=3" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+
+
+    <div>
+        <h1>Today's Exercise</h1>
+
+
+        <div>
+            <asp:Repeater ID="repeatTodayExercise" runat="server" OnItemDataBound="repeatTodayExercise_ItemDataBound">
+                <ItemTemplate>
+                    <asp:Label ID="ExerciseNameLbl" runat="server" Text='<%# Eval("Exercise.ExerciseName") %>'></asp:Label>
+                    <asp:Label ID="SetsLbl" runat="server" Text='<%# Eval("Reps") %>'></asp:Label>
+                    <asp:Label ID="Repsl1" runat="server" Text='<%# Eval("Sets") %>'></asp:Label>
+                    <asp:Image ID="ExerciseImage" runat="server" />
+                    <asp:Button ID="RemoveBtn" runat="server" Text="Remove" CommandArgument='<%# Eval("ExercisePlanID") %>' OnClick="RemoveBtn_Click" />
+                </ItemTemplate>
+            </asp:Repeater>
+
+
+        </div>
+
+
+
+    </div>
+
+
+    <div>
+        <h1>Add Exercise</h1>
+
+        <asp:Label ID="AlertLbl" runat="server" Text="Please fill number of reps and sets" Visible="true"></asp:Label>
+
+        <div>
+            <asp:Label ID="SetsLbl" runat="server" Text="Sets" Visible="true"></asp:Label>
+            <asp:TextBox ID="SetsTB" runat="server" Visible="true"></asp:TextBox>
+        </div>
+
+        <div>
+            <asp:Label ID="RepsLbl" runat="server" Text="Reps" Visible="true"></asp:Label>
+            <asp:TextBox ID="RepsTB" runat="server" Visible="true"></asp:TextBox>
+        </div>
+
+        <h1>Exercise List</h1>
+        <asp:Repeater ID="repeatBrowseExercise" runat="server" OnItemDataBound="repeatBrowseExercise_ItemDataBound">
+            <ItemTemplate>
+                <asp:Image ID="ExerciseImage" runat="server"/>
+                <asp:Label ID="ExerciseNameLbl" runat="server" Text='<%# Eval("ExerciseName") %>'></asp:Label>
+                <asp:Button ID="AddExerciseBtn" runat="server" Text="Add" OnClick="AddExerciseBtn_Click"/>
+            </ItemTemplate>
+        </asp:Repeater>
+
+
+
+
+
+
+    </div>
+
+
+
+
     
     <div id="GIFBox">
         <div class="ButtonBox">
