@@ -1,58 +1,76 @@
 ﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Layouts/Header.Master" AutoEventWireup="true" CodeBehind="ExerciseVideoPage.aspx.cs" Inherits="FitnessApp.Views.ExerciseVideoPage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../Style/ExerciseVideo.css?Version=3" rel="stylesheet" />
+    <link href="../Style/ExerciseVideo.css?Version=4" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
 
-    <div>
+    <div class="today">
         <h1>Today's Exercise</h1>
 
 
-        <div>
             <asp:Repeater ID="repeatTodayExercise" runat="server" OnItemDataBound="repeatTodayExercise_ItemDataBound">
                 <ItemTemplate>
-                    <asp:Label ID="ExerciseNameLbl" runat="server" Text='<%# Eval("Exercise.ExerciseName") %>'></asp:Label>
-                    <asp:Label ID="SetsLbl" runat="server" Text='<%# Eval("Reps") %>'></asp:Label>
-                    <asp:Label ID="Repsl1" runat="server" Text='<%# Eval("Sets") %>'></asp:Label>
-                    <asp:Image ID="ExerciseImage" runat="server" />
-                    <asp:Button ID="RemoveBtn" runat="server" Text="Remove" CommandArgument='<%# Eval("ExercisePlanID") %>' OnClick="RemoveBtn_Click" />
+                    <div class="exercise-today">
+                    <asp:Image ID="ExerciseImage" CssClass="image" Width="350" Height="200" runat="server" />
+                    <div class="info">
+                        <asp:Label ID="ExerciseNameLbl" runat="server" Text='<%# Eval("Exercise.ExerciseName") %>'></asp:Label>
+                        <div style="font-size:30px;">
+                            <asp:Label ID="SetsLbl" runat="server" Text='<%# Eval("Reps") %>'></asp:Label>
+                            <asp:Label ID="Repsl1" runat="server" Text='<%# Eval("Sets") %>'></asp:Label>
+                        </div>
+                        
+                    </div>
+                    
+                    <asp:Button CssClass="remove" ID="RemoveBtn" runat="server" Text="Remove" CommandArgument='<%# Eval("ExercisePlanID") %>' OnClick="RemoveBtn_Click" />
+                </div>
                 </ItemTemplate>
+                
             </asp:Repeater>
-
-
-        </div>
 
 
 
     </div>
 
 
-    <div>
-        <h1>Add Exercise</h1>
+    <div class="center">
 
-        <asp:Label ID="AlertLbl" runat="server" Text="Please fill number of reps and sets" Visible="true"></asp:Label>
+        <div class="add-exercise">
+            <h1>Add Exercise</h1>
 
-        <div>
-            <asp:Label ID="SetsLbl" runat="server" Text="Sets" Visible="true"></asp:Label>
-            <asp:TextBox ID="SetsTB" runat="server" Visible="true"></asp:TextBox>
+            <asp:Label ID="AlertLbl" runat="server" Text="Please fill number of reps and sets" Visible="true" ForeColor="Red"></asp:Label>
+
+            <div>
+                <asp:Label ID="SetsLbl" runat="server" Text="Sets" Visible="false"></asp:Label>
+                <asp:TextBox CssClass="textBox" ID="SetsTB" runat="server" Visible="true" placeholder="Number of sets"></asp:TextBox>
+            </div>
+
+            <div>
+                <asp:Label ID="RepsLbl" runat="server" Text="Reps" Visible="false"></asp:Label>
+                <asp:TextBox CssClass="textBox" ID="RepsTB" runat="server" Visible="true" placeholder="number os reps"></asp:TextBox>
+            </div>
         </div>
+        
 
-        <div>
-            <asp:Label ID="RepsLbl" runat="server" Text="Reps" Visible="true"></asp:Label>
-            <asp:TextBox ID="RepsTB" runat="server" Visible="true"></asp:TextBox>
-        </div>
-
-        <h1>Exercise List</h1>
+        <div class="bottom-exercise">
+ 
+        <h1 style="text-align:left;margin-left:4%;">Exercise List</h1>
+        <div class="bottom-repeater">
         <asp:Repeater ID="repeatBrowseExercise" runat="server" OnItemDataBound="repeatBrowseExercise_ItemDataBound">
             <ItemTemplate>
-                <asp:Image ID="ExerciseImage" runat="server"/>
-                <asp:Label ID="ExerciseNameLbl" runat="server" Text='<%# Eval("ExerciseName") %>'></asp:Label>
-                <asp:Button ID="AddExerciseBtn" runat="server" Text="Add" OnClick="AddExerciseBtn_Click"/>
+                <div class="list">
+                    <asp:Image Width="250" Height="250" CssClass="img-bottom" ID="ExerciseImage" runat="server"/>
+                    <div class="info2">
+                        <asp:Label ID="ExerciseNameLbl" runat="server" Text='<%# Eval("ExerciseName") %>'></asp:Label>
+                        <asp:Button CssClass="add" ID="AddExerciseBtn" runat="server" Text="Add" OnClick="AddExerciseBtn_Click"/>
+                    </div>
+                    
+                </div>
             </ItemTemplate>
         </asp:Repeater>
-
+        </div>
+        </div>
 
 
 
