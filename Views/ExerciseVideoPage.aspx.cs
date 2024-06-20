@@ -36,14 +36,17 @@ namespace FitnessApp.Views
 
             List<UserExerciseSchedule> userExerciseSchedules = await scheduleRepo.GetScheduleListFilterUserIDAsync(userId);
 
-            foreach (var schedule in userExerciseSchedules)
+            var tasks = userExerciseSchedules.Select(async schedule =>
             {
                 schedule.ExerciseID = await exerciseRepo.GetExerciseNameFromIDAsync(schedule.ExerciseID);
-            }
+            });
+
+            await Task.WhenAll(tasks);
 
             repeatTodayExercise.DataSource = userExerciseSchedules;
             repeatTodayExercise.DataBind();
         }
+
 
 
         private async Task LoadExerciseAsync()
@@ -270,7 +273,7 @@ namespace FitnessApp.Views
             }
 
             exschRepo.insertSchedule(scheduleId, userId, exerciseId, reps, sets);
-            Response.Redirect(Request.RawUrl);
+            Response.Redirect("~/Views/ExerciseVideoPage.aspx");
         }
 
 
