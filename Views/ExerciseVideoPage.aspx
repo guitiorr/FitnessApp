@@ -1,4 +1,4 @@
-﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Layouts/Header.Master" AutoEventWireup="true" CodeBehind="ExerciseVideoPage.aspx.cs" Inherits="FitnessApp.Views.ExerciseVideoPage" %>
+﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Layouts/Header.Master" AutoEventWireup="true" CodeBehind="ExerciseVideoPage.aspx.cs" Inherits="FitnessApp.Views.ExerciseVideoPage" Async="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../Style/ExerciseVideo.css?Version=3" rel="stylesheet" />
 </asp:Content>
@@ -13,9 +13,9 @@
         <div>
             <asp:Repeater ID="repeatTodayExercise" runat="server" OnItemDataBound="repeatTodayExercise_ItemDataBound">
                 <ItemTemplate>
-                    <asp:Label ID="ExerciseNameLbl" runat="server" Text='<%# Eval("Exercise.ExerciseName") %>'></asp:Label>
-                    <asp:Label ID="SetsLbl" runat="server" Text='<%# Eval("Reps") %>'></asp:Label>
-                    <asp:Label ID="Repsl1" runat="server" Text='<%# Eval("Sets") %>'></asp:Label>
+                    <asp:Label ID="ExerciseNameLbl" runat="server" Text='<%# Eval("ExerciseID") %>'></asp:Label>
+                    <asp:Label ID="SetsLbl" runat="server" Text='<%# Eval("Reps") + " Reps" %>'></asp:Label>
+                    <asp:Label ID="RepsLbl" runat="server" Text='<%# Eval("Sets") + " Sets" %>'></asp:Label>
                     <asp:Image ID="ExerciseImage" runat="server" />
                     <asp:Button ID="RemoveBtn" runat="server" Text="Remove" CommandArgument='<%# Eval("ExercisePlanID") %>' OnClick="RemoveBtn_Click" />
                 </ItemTemplate>

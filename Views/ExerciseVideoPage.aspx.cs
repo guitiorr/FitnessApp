@@ -3,7 +3,9 @@ using FitnessApp.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.EnterpriseServices;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,35 +14,47 @@ namespace FitnessApp.Views
 {
     public partial class ExerciseVideoPage : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected async void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                userRepository userRepo = new userRepository();
-                ExerciseScheduleRepository scheduleRepo = new ExerciseScheduleRepository();
-                ExerciseRepository exerciseRepo = new ExerciseRepository();
-                
-
-                string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
-
-                IQueryable<UserExerciseSchedule> scheduleQuery = scheduleRepo.getScheduleListFilterUserID(userId).AsQueryable();
-
-                List<UserExerciseSchedule> exerciseSchedule = scheduleQuery
-                    .Include(m => m.Exercise.ExerciseName)
-                    .ToList();
-
-                repeatTodayExercise.DataSource = exerciseSchedule;
-                repeatTodayExercise.DataBind();
-
-
-                List<Exercise> exerciseList = exerciseRepo.getExerciseList();
-                repeatBrowseExercise.DataSource = exerciseList;
-                repeatBrowseExercise.DataBind();
-
-
-
+                await LoadScheduleAsync();
+                await LoadExerciseAsync();
             }
+
+
+
         }
+
+        private async Task LoadScheduleAsync()
+        {
+            userRepository userRepo = new userRepository();
+            ExerciseScheduleRepository scheduleRepo = new ExerciseScheduleRepository();
+            ExerciseRepository exerciseRepo = new ExerciseRepository();
+
+            string userId = await userRepo.GetIdFromUsernameAsync(Request.Cookies["userCookie"]["Username"]);
+
+            List<UserExerciseSchedule> userExerciseSchedules = await scheduleRepo.GetScheduleListFilterUserIDAsync(userId);
+
+            foreach (var schedule in userExerciseSchedules)
+            {
+                schedule.ExerciseID = await exerciseRepo.GetExerciseNameFromIDAsync(schedule.ExerciseID);
+            }
+
+            repeatTodayExercise.DataSource = userExerciseSchedules;
+            repeatTodayExercise.DataBind();
+        }
+
+
+        private async Task LoadExerciseAsync()
+        {
+            ExerciseRepository exerciseRepo = new ExerciseRepository();
+            List<Exercise> exerciseList = await exerciseRepo.getExerciseListAsync();
+            repeatBrowseExercise.DataSource = exerciseList;
+            repeatBrowseExercise.DataBind();
+        }
+
+
 
         protected void ChestButton_Click(object sender, EventArgs e)
         {
@@ -159,7 +173,10 @@ namespace FitnessApp.Views
 
                 if (imgPic != null)
                 {
-                    string ExerciseID = exercise.ExerciseID.Trim(); // Trim any leading or trailing spaces
+                    ExerciseRepository exRepo = new ExerciseRepository();
+                    string exerciseName = exercise.ExerciseID.Trim(); // Trim any leading or trailing spaces
+                    string ExerciseID = exRepo.getExerciseIDFromExerciseName(exerciseName);
+
 
                     string imageUrl = $"~/Assets/Images/Exercise/DumpALL/{ExerciseID}.png";
                     imgPic.ImageUrl = imageUrl;
@@ -172,7 +189,7 @@ namespace FitnessApp.Views
             }
         }
 
-        protected void RemoveBtn_Click(object sender, EventArgs e)
+        /*protected void RemoveBtn_Click(object sender, EventArgs e)
         {
             ExerciseScheduleRepository userExerciseScheduleRepo = new ExerciseScheduleRepository();
             userRepository userRepo = new userRepository();
@@ -184,7 +201,21 @@ namespace FitnessApp.Views
             userExerciseScheduleRepo.deleteScheduleFromExercisePlanID(scheduleId);
 
             Response.Redirect(Request.RawUrl);
+        }*/
+        protected async void RemoveBtn_Click(object sender, EventArgs e)
+        {
+            ExerciseScheduleRepository userExerciseScheduleRepo = new ExerciseScheduleRepository();
+            userRepository userRepo = new userRepository();
+
+            string userId = await userRepo.GetIdFromUsernameAsync(Request.Cookies["userCookie"]["Username"]);
+
+            string scheduleId = await userExerciseScheduleRepo.getScheduleIDFromUserIDAsync(userId);
+
+            await userExerciseScheduleRepo.deleteScheduleFromExercisePlanIDAsync(scheduleId);
+
+            Response.Redirect(Request.RawUrl);
         }
+
 
         private string GenerateIdForUserExerciseSchedule()
         {
@@ -195,60 +226,49 @@ namespace FitnessApp.Views
 
             if (lastId == null)
             {
-                return "ML001";
+                return "XS001";
             }
             else
             {
                 var idNumber = Convert.ToInt32(lastId.Substring(2)) + 1;
-                newId = string.Format("ML{0:000}", idNumber);
+                newId = string.Format("XS{0:000}", idNumber);
                 checkid = exschRepo.findId(newId);
                 if (checkid != null)
                 {
                     idNumber++;
                 }
-                newId = string.Format("ML{0:000}", idNumber);
+                newId = string.Format("XS{0:000}", idNumber);
                 return newId;
             }
         }
 
-        protected void AddExerciseBtn_Click(object sender, EventArgs e)
+        protected async void AddExerciseBtn_Click(object sender, EventArgs e)
         {
-            userRepository userRepo = new userRepository();
-            ExerciseScheduleRepository exschRepo = new ExerciseScheduleRepository();
-            ExerciseRepository exRepo = new ExerciseRepository();
+            var userRepo = new userRepository();
+            var exschRepo = new ExerciseScheduleRepository();
+            var exRepo = new ExerciseRepository();
 
             // Find the Repeater Item that contains the button
             Button addBtn = (Button)sender;
             RepeaterItem item = (RepeaterItem)addBtn.NamingContainer;
 
-            // Retrieve the food name and food image
+            // Retrieve the exercise name
             Label ExerciseNameLbl = (Label)item.FindControl("ExerciseNameLbl");
 
             string exerciseName = ExerciseNameLbl.Text;
-            string exerciseId = exRepo.getExerciseIDFromExerciseName(exerciseName);
+            string exerciseId = await exRepo.GetExerciseIDFromExerciseNameAsync(exerciseName);
 
-            // Debug: Display the food name and food image URL
-            // You can replace this with your desired logic (e.g., adding to a cart)
-            // var debugLabel = new Label(); 
-            // debugLabel.Text = $"Food Name: {foodName}, Food Image URL: {foodImageUrl}";
-            // item.Controls.Add(debugLabel);
-
-            string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
+            string userId = await userRepo.GetIdFromUsernameAsync(Request.Cookies["userCookie"]["Username"]);
 
             string scheduleId = GenerateIdForUserExerciseSchedule();
 
             int pass = 0;
-
             int sets = 0;
-
             int reps = 0;
 
             if (string.IsNullOrWhiteSpace(SetsTB.Text))
             {
-                //AlertLbl.Visible = true;
                 AlertLbl.Text = "Please fill number of reps and sets";
-                //SetsTB.Visible = true;
-                //RepsTB.Visible = true;
                 pass = 0;
             }
             else if (!int.TryParse(SetsTB.Text, out sets))
@@ -262,16 +282,11 @@ namespace FitnessApp.Views
             else
             {
                 sets = Convert.ToInt32(SetsTB.Text);
-                //AlertLbl.Visible = false;
-                //AlertLbl.Text = "";
                 pass = 1;
             }
 
             if (string.IsNullOrWhiteSpace(RepsTB.Text))
             {
-                //SetsTB.Visible = true;
-                //RepsTB.Visible = true;
-                //AlertLbl.Visible = true;
                 AlertLbl.Text = "Please fill number of reps and sets";
                 pass = 0;
             }
@@ -290,18 +305,13 @@ namespace FitnessApp.Views
                 pass = 1;
             }
 
-
-
-
-
             if (pass == 1)
             {
-                //SetsTB.Visible = false;
-                //RepsTB.Visible = false;
-                exschRepo.insertSchedule(scheduleId, userId, exerciseId, reps, sets);
+                await exschRepo.InsertScheduleAsync(scheduleId, userId, exerciseId, reps, sets);
                 Response.Redirect(Request.RawUrl);
             }
         }
+
 
         protected void repeatBrowseExercise_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
