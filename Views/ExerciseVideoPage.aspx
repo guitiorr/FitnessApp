@@ -19,7 +19,7 @@
                         <asp:Label ID="ExerciseNameLbl" runat="server" Text='<%# Eval("ExerciseID") %>'></asp:Label>
                         <div style="font-size:30px;">
                             <asp:Label ID="SetsLbl" runat="server" Text='<%# Eval("Reps") + " Reps" %>'></asp:Label>
-                            <asp:Label ID="Repsl1" runat="server" Text='<%# Eval("Sets") + " Sets" %>'</asp:Label>
+                            <asp:Label ID="Repsl1" runat="server" Text='<%# Eval("Sets") + " Sets" %>'></asp:Label>
                         </div>
                         
                     </div>
