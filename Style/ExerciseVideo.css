@@ -37,11 +37,12 @@
 .BTN {
     width: 6vw;
     font-size:1vw;
-    height: 4vh;
+    height:50px; 
     background-color: black;
     border: none;
     color: white;
     font-weight: bolder;
+    border-radius:15px;
 }
 
 .GIFDIP {
@@ -87,4 +88,136 @@
 .BTN:hover{
     opacity:0.5;
     
+}
+
+.today{
+    margin-top: 7%;
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.exercise-today {
+    border-radius:25px;
+    margin-bottom:3%;
+    position: relative;
+    width: 1000px;
+    background-color: black;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    background-color: #242424;
+}
+.info{
+   
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    top:30%;
+    left:40%;
+    font-size:40px;
+    font-weight:bolder;
+}
+
+.remove {
+    position: absolute;
+    right: 50px;
+    top: 42%;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    transition: 0.5s;
+}
+
+.remove:hover {
+    background-color: red;
+    color: white;
+}
+
+.image{
+    border-radius:25px;
+}
+
+.img-bottom{
+    object-fit:cover;
+    border-radius:25px;
+}
+
+.list {
+    background-color: #DDF7A7;
+    width: 250px;
+    height: 350px;
+    text-align: center;
+    border-radius: 25px;
+    color:black;
+    font-weight:bolder;
+    margin-bottom:4%;
+    margin-top:5%;
+}
+
+.info2{
+    display:flex;
+    flex-direction:column;
+    margin-top:3%;
+}
+
+.bottom-repeater{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap:wrap;
+}
+
+.bottom-exercise{
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.add{
+    margin-top:5%;
+    width:100px;
+    height:30px;
+    margin-left:auto;
+    margin-right:auto;
+    border:none;
+    border-radius:20px;
+    font-weight:bolder;
+    transition:0.5s;
+}
+
+.add:hover {
+    background-color: limegreen;
+  
+    color: white;
+}
+
+
+.add-exercise{
+    margin-top:4%;
+    text-align:center;
+    width:30%;
+    margin-left:auto;
+    margin-right:auto;
+    border:1px solid white;
+    padding-bottom:30px;
+}
+
+.center{
+    text-align:center;
+}
+
+.textBox{
+    text-align:center;
+    width:150px;
+    height:30px;
+    margin-top:1%;
+    border-radius:15px;
+    font-weight:bolder;
+    background-color:black;
+    color:white;
+    border:none;
 }
