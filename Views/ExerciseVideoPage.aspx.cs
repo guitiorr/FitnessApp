@@ -167,41 +167,34 @@ namespace FitnessApp.Views
         protected void repeatTodayExercise_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
-            {
-                var exercise = (UserExerciseSchedule)e.Item.DataItem;
-                var imgPic = (Image)e.Item.FindControl("ExerciseImage");
-
-                if (imgPic != null)
                 {
-                    ExerciseRepository exRepo = new ExerciseRepository();
-                    string exerciseName = exercise.ExerciseID.Trim(); // Trim any leading or trailing spaces
-                    string ExerciseID = exRepo.getExerciseIDFromExerciseName(exerciseName);
+                    var imgPic = (Image)e.Item.FindControl("ExerciseImage");
+                    var ExerciseNameLbl = (Label)e.Item.FindControl("DisplayExerciseLbl");
 
+                    if (imgPic != null && ExerciseNameLbl != null)
+                    {
+                        Func<Task> setExerciseImageAsync = async () =>
+                        {
+                            ExerciseRepository exRepo = new ExerciseRepository();
 
-                    string imageUrl = $"~/Assets/Images/Exercise/DumpALL/{ExerciseID}.png";
-                    imgPic.ImageUrl = imageUrl;
+                            string ExerciseName = ExerciseNameLbl.Text.Trim(); // Assuming FoodNameLbl holds the foodId
+                            string ExerciseID = await exRepo.GetExerciseIDFromExerciseNameAsync(ExerciseName); // Assuming GetFoodIdFromFoodNameAsync is an asynchronous
 
-                    // Debug: Add a label to show the image URL
-                    //var debugLabel = new Label();
-                    //debugLabel.Text = "Image URL: " + imageUrl;
-                    //e.Item.Controls.Add(debugLabel);
-                }
+                            string imageUrl = $"~/Assets/Images/Exercise/DumpALL/{ExerciseID}.png";
+                            imgPic.ImageUrl = imageUrl;
+
+                            // Debug: Add a label to show the image URL
+                             var debugLabel = new Label();
+                             debugLabel.Text = "Image URL: " + imageUrl;
+                             e.Item.Controls.Add(debugLabel);
+                        };
+
+                        // Execute the async lambda function
+                       _ = setExerciseImageAsync();
+                    }
             }
         }
 
-        /*protected void RemoveBtn_Click(object sender, EventArgs e)
-        {
-            ExerciseScheduleRepository userExerciseScheduleRepo = new ExerciseScheduleRepository();
-            userRepository userRepo = new userRepository();
-
-            string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
-
-            string scheduleId = userExerciseScheduleRepo.getScheduleIDFromUserID(userId);
-
-            userExerciseScheduleRepo.deleteScheduleFromExercisePlanID(scheduleId);
-
-            Response.Redirect(Request.RawUrl);
-        }*/
         protected async void RemoveBtn_Click(object sender, EventArgs e)
         {
             ExerciseScheduleRepository userExerciseScheduleRepo = new ExerciseScheduleRepository();
@@ -242,7 +235,7 @@ namespace FitnessApp.Views
             }
         }
 
-        protected async void AddExerciseBtn_Click(object sender, EventArgs e)
+        protected void AddExerciseBtn_Click(object sender, EventArgs e)
         {
             var userRepo = new userRepository();
             var exschRepo = new ExerciseScheduleRepository();
@@ -256,61 +249,31 @@ namespace FitnessApp.Views
             Label ExerciseNameLbl = (Label)item.FindControl("ExerciseNameLbl");
 
             string exerciseName = ExerciseNameLbl.Text;
-            string exerciseId = await exRepo.GetExerciseIDFromExerciseNameAsync(exerciseName);
+            string exerciseId = exRepo.getExerciseIDFromExerciseName(exerciseName);
 
-            string userId = await userRepo.GetIdFromUsernameAsync(Request.Cookies["userCookie"]["Username"]);
+            string userId = userRepo.getIdFromUsername(Request.Cookies["userCookie"]["Username"]);
 
             string scheduleId = GenerateIdForUserExerciseSchedule();
 
-            int pass = 0;
-            int sets = 0;
-            int reps = 0;
+            int sets, reps;
 
-            if (string.IsNullOrWhiteSpace(SetsTB.Text))
+            if (!int.TryParse(SetsTB.Text, out sets) || !int.TryParse(RepsTB.Text, out reps))
             {
-                AlertLbl.Text = "Please fill number of reps and sets";
-                pass = 0;
-            }
-            else if (!int.TryParse(SetsTB.Text, out sets))
-            {
-                pass = 0;
-            }
-            else if (Convert.ToInt32(SetsTB.Text) <= 0)
-            {
-                pass = 0;
-            }
-            else
-            {
-                sets = Convert.ToInt32(SetsTB.Text);
-                pass = 1;
+                AlertLbl.Text = "Invalid input for reps or sets";
+                return;
             }
 
-            if (string.IsNullOrWhiteSpace(RepsTB.Text))
+            if (sets <= 0 || reps <= 0)
             {
-                AlertLbl.Text = "Please fill number of reps and sets";
-                pass = 0;
-            }
-            else if (!int.TryParse(RepsTB.Text, out reps))
-            {
-                pass = 0;
-            }
-            else if (Convert.ToInt32(RepsTB.Text) <= 0)
-            {
-                pass = 0;
-            }
-            else
-            {
-                AlertLbl.Visible = false;
-                AlertLbl.Text = "";
-                pass = 1;
+                AlertLbl.Text = "Reps and sets should be greater than zero";
+                return;
             }
 
-            if (pass == 1)
-            {
-                await exschRepo.InsertScheduleAsync(scheduleId, userId, exerciseId, reps, sets);
-                Response.Redirect(Request.RawUrl);
-            }
+            exschRepo.insertSchedule(scheduleId, userId, exerciseId, reps, sets);
+            Response.Redirect(Request.RawUrl);
         }
+
+
 
 
         protected void repeatBrowseExercise_ItemDataBound(object sender, RepeaterItemEventArgs e)

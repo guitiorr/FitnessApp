@@ -12,11 +12,10 @@
 
             <asp:Repeater ID="repeatTodayExercise" runat="server" OnItemDataBound="repeatTodayExercise_ItemDataBound">
                 <ItemTemplate>
-<<<<<<< HEAD
                     <div class="exercise-today">
                     <asp:Image ID="ExerciseImage" CssClass="image" Width="350" Height="200" runat="server" />
                     <div class="info">
-                        <asp:Label ID="ExerciseNameLbl" runat="server" Text='<%# Eval("ExerciseID") %>'></asp:Label>
+                        <asp:Label ID="DisplayExerciseLbl" runat="server" Text='<%# Eval("ExerciseID") %>'></asp:Label>
                         <div style="font-size:30px;">
                             <asp:Label ID="SetsLbl" runat="server" Text='<%# Eval("Reps") + " Reps" %>'></asp:Label>
                             <asp:Label ID="Repsl1" runat="server" Text='<%# Eval("Sets") + " Sets" %>'></asp:Label>
@@ -26,7 +25,6 @@
                     
                     <asp:Button CssClass="remove" ID="RemoveBtn" runat="server" Text="Remove" CommandArgument='<%# Eval("ExercisePlanID") %>' OnClick="RemoveBtn_Click" />
                 </div>
->>>>>>> f55115c47551daed235d207b7ed0b1630e93e56c
                 </ItemTemplate>
                 
             </asp:Repeater>
